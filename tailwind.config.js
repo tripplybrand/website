@@ -6,26 +6,9 @@ module.exports = {
   purge: ['./src/**/*.{js,ts,jsx,tsx}', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     fontFamily: {
-      display: [
-        'Poppins',
-        'ui-sans-serif',
-        'system-ui',
-        '-apple-system',
-        'BlinkMacSystemFont',
-        '"Segoe UI"',
-        'Roboto',
-        '"Helvetica Neue"',
-        'Arial',
-        '"Noto Sans"',
-        'sans-serif',
-        '"Apple Color Emoji"',
-        '"Segoe UI Emoji"',
-        '"Segoe UI Symbol"',
-        '"Noto Color Emoji"',
-      ],
-      // Note, Work Sans must be quoted per the docs: https://tailwindcss.com/docs/font-family/#font-families
+      // Note, Proza Libre must be quoted per the docs: https://tailwindcss.com/docs/font-family/#font-families
       body: [
-        '"Work Sans"',
+        '"Proza Libre"',
         'ui-sans-serif',
         'system-ui',
         '-apple-system',
@@ -41,7 +24,6 @@ module.exports = {
         '"Segoe UI Symbol"',
         '"Noto Color Emoji"',
       ],
-      icon: ['"Anicons Regular"', 'sans-serif'],
     },
     screens: { sm, md, lg },
     // we often work svgs, so these are useful
@@ -124,83 +106,4 @@ module.exports = {
     },
   },
   variants: {},
-  plugins: [blTextUtilities],
-}
-
-function blTextUtilities({ addUtilities, theme, variants }) {
-  const newUtilities = {
-    '.bl-text-6xl': {
-      fontSize: '4rem',
-      fontWeight: '700',
-      fontFamily: theme('fontFamily.display'),
-      lineHeight: '1.1',
-      letterSpacing: '-0.02em',
-    },
-    '.bl-text-5xl': {
-      fontSize: '3rem',
-      fontWeight: '600',
-      fontFamily: theme('fontFamily.display'),
-      lineHeight: '1.1',
-      letterSpacing: '-0.01em',
-    },
-    '.bl-text-4xl': {
-      fontSize: '2.25rem',
-      fontWeight: '500',
-      fontFamily: theme('fontFamily.display'),
-      lineHeight: '1.1',
-      letterSpacing: '0em',
-    },
-    '.bl-text-3xl': {
-      fontSize: '1.875rem',
-      fontWeight: '400',
-      fontFamily: theme('fontFamily.display'),
-      lineHeight: '1.5',
-      letterSpacing: '0em',
-    },
-    '.bl-text-2xl': {
-      fontSize: '1.5rem',
-      fontWeight: '300',
-      fontFamily: theme('fontFamily.display'),
-      lineHeight: '1.5',
-      letterSpacing: '0em',
-    },
-    '.bl-text-xl': {
-      fontSize: '1.25rem',
-      fontWeight: '200',
-      fontFamily: theme('fontFamily.display'),
-      lineHeight: '1.5',
-      letterSpacing: '0.02em',
-    },
-    '.bl-text-lg': {
-      fontSize: '1.125rem',
-      fontWeight: '500',
-      fontFamily: theme('fontFamily.body'),
-      lineHeight: '1.5',
-      letterSpacing: '0.04em',
-    },
-    '.bl-text-base': {
-      fontSize: '1rem',
-      fontWeight: '400',
-      fontFamily: theme('fontFamily.body'),
-      lineHeight: '1.5',
-      letterSpacing: '0.02em',
-    },
-    '.bl-text-sm': {
-      fontSize: '.875rem',
-      fontWeight: '300',
-      fontFamily: theme('fontFamily.body'),
-      lineHeight: '1.5',
-      letterSpacing: '0.02em',
-    },
-    '.bl-text-xs': {
-      fontSize: '.75rem',
-      fontWeight: '400',
-      fontFamily: theme('fontFamily.body'),
-      lineHeight: '1.5',
-      letterSpacing: '0.01em',
-    },
-  }
-  addUtilities(newUtilities, {
-    variants: variants('fontSize'), // use the default variants applied to fontSize
-  })
 }

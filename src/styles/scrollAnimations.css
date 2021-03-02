@@ -1,0 +1,59 @@
+@keyframes from-before-to-on {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes from-on-to-before {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes from-on-to-past {
+  from {
+    opacity: 1;
+    color: #ff90d6;
+  }
+  to {
+    opacity: 1;
+    color: #f5faff;
+  }
+}
+@keyframes from-past-to-on {
+  from {
+    opacity: 1;
+    color: #f5faff;
+  }
+  to {
+    opacity: 1;
+    color: #ff90d6;
+  }
+}
+
+@keyframes attribution-in {
+  from {
+    opacity: 0;
+    color: #ff90d6;
+  }
+  to {
+    opacity: 1;
+    color: #f5faff;
+  }
+}
+@keyframes attribution-out {
+  from {
+    opacity: 1;
+    color: #f5faff;
+  }
+  to {
+    opacity: 0;
+    color: #ff90d6;
+  }
+}
