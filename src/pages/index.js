@@ -1,12 +1,30 @@
 import tw, { css } from 'twin.macro'
 import Head from 'next/head'
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState } from 'react'
 import { createMachine, assign } from 'xstate'
 import { useMachine } from '@xstate/react'
 
+//Increase multiplier make more scroll length between the reveal of each line
+const scrollMultiplier = 5
+const thresholds = [
+  0.0667,
+  0.1334,
+  0.2001,
+  0.2668,
+  0.33349999999999996,
+  0.4002,
+  0.4669,
+  0.5336,
+  0.6003,
+  0.6669999999999999,
+  0.7336999999999999,
+  0.8004,
+  0.8671,
+  0.9338,
+]
+
 export default function Home() {
-  const scrollBoxRef = useRef(null)
-  const currentLineNumber = useCurrentLineNumber(scrollBoxRef)
+  const currentLineNumber = useCurrentLineNumber()
 
   return (
     <>
@@ -17,7 +35,7 @@ export default function Home() {
         <div tw="py-16 whitespace-nowrap">
           <h1
             css={[
-              tw`font-body font-bold text-2xl sm:text-2xl md:text-4xl lg:text-4xl`,
+              tw`text-2xl font-bold font-body sm:text-2xl md:text-4xl lg:text-4xl`,
               css`
                 animation: from-on-to-past 3s forwards ease-out;
                 color: #ff90d6;
@@ -73,8 +91,12 @@ export default function Home() {
         </div>
       </div>
       <div
-        ref={scrollBoxRef}
-        tw="min-h-screen bg-gray-300 invisible top-16 w-screen h-screen"
+        css={[
+          tw`invisible w-screen min-h-screen bg-gray-300 top-16`,
+          css`
+            height: ${100 * scrollMultiplier}vh;
+          `,
+        ]}
       >
         <p>{null}</p>
       </div>
@@ -111,7 +133,7 @@ function Line({ children, animationEvent, lastLine }) {
   return (
     <span
       css={[
-        tw`font-body block font-normal opacity-0 text-xs sm:text-sm md:text-xl lg:text-xl`,
+        tw`block text-xs font-normal opacity-0 font-body sm:text-sm md:text-xl lg:text-xl`,
         css`
           animation: ${state.context.animation};
           color: #ff90d6;
@@ -143,7 +165,7 @@ function Attribution({ children, animationEvent }) {
     <span
       id="attribution"
       css={[
-        tw`font-body block font-normal text-right opacity-0 text-xs sm:text-xs md:text-base lg:text-base`,
+        tw`block text-xs font-normal text-right opacity-0 font-body sm:text-xs md:text-base lg:text-base`,
         css`
           animation: ${state.context.animation};
           color: #ff90d6;
@@ -186,44 +208,26 @@ const lastLineNumber = stanzas.flat().length - 1
 
 // Hooks/logic
 
-function useCurrentLineNumber(scrollBoxRef) {
+function useCurrentLineNumber() {
   const [currentLineNumber, setCurrentLineNumber] = useState(-1)
+
   useEffect(() => {
-    const scrollBox = scrollBoxRef.current
-    if (scrollBox === null) return
+    const handleScroll = (e) => {
+      const { scrollY, innerHeight } = window
 
-    const options = {
-      threshold: [
-        0.0667,
-        0.1334,
-        0.2001,
-        0.2668,
-        0.33349999999999996,
-        0.4002,
-        0.4669,
-        0.5336,
-        0.6003,
-        0.6669999999999999,
-        0.7336999999999999,
-        0.8004,
-        0.8671,
-        0.9338,
-      ],
-    }
-
-    const observer = new IntersectionObserver(handleIntersect, options)
-    observer.observe(scrollBox)
-
-    function handleIntersect(entry, observer) {
-      const currentRatio = entry[0].intersectionRatio
-
-      const thresholdIdx = options.threshold.findIndex(
+      const currentRatio = scrollY / (innerHeight * scrollMultiplier)
+      const thresholdIdx = thresholds.findIndex(
         (threshold) => currentRatio <= threshold
       )
       const currentLineNumber =
         thresholdIdx === -1 ? lastLineNumber : thresholdIdx - 1
-
       setCurrentLineNumber(currentLineNumber)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
     }
   }, [])
 
