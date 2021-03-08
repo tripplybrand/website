@@ -28,3 +28,8 @@
   src: local(''),
        url('/fonts/Proza_Libre/proza-libre-v5-latin-700.woff2') format('woff2');
 }
+
+/*Stops bounce effect and limits of scroll. Doesn't work in Safari.*/
+html, body {
+  overscroll-behavior: none;
+}
