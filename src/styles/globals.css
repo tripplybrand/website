@@ -10,6 +10,15 @@
   src: local(''),
        url('/fonts/Proza_Libre/proza-libre-v5-latin-regular.woff2') format('woff2');
 }
+/* proza-libre-500 - latin */
+@font-face {
+  font-family: 'Proza Libre';
+  font-style: normal;
+  font-weight: 500;
+  font-display: optional;
+  src: local(''),
+       url('/fonts/Proza_Libre/proza-libre-v5-latin-500.woff2') format('woff2');
+}
 /* proza-libre-700 - latin */
 @font-face {
   font-family: 'Proza Libre';

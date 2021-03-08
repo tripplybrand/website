@@ -35,7 +35,7 @@ export default function Home() {
         <div tw="py-16 whitespace-nowrap">
           <h1
             css={[
-              tw`text-2xl font-bold font-body sm:text-2xl md:text-4xl lg:text-4xl`,
+              tw`font-body font-bold text-2xl xs:text-3xl sm:text-4xl md:text-4xl lg:text-5xl`,
               css`
                 animation: from-on-to-past 3s forwards ease-out;
                 color: #ff90d6;
@@ -133,7 +133,7 @@ function Line({ children, animationEvent, lastLine }) {
   return (
     <span
       css={[
-        tw`block text-xs font-normal opacity-0 font-body sm:text-sm md:text-xl lg:text-xl`,
+        tw`block opacity-0 font-body font-medium xs:font-normal text-xs xs:text-lg sm:text-xl md:text-xl lg:text-2xl`,
         css`
           animation: ${state.context.animation};
           color: #ff90d6;
@@ -165,7 +165,7 @@ function Attribution({ children, animationEvent }) {
     <span
       id="attribution"
       css={[
-        tw`block text-xs font-normal text-right opacity-0 font-body sm:text-xs md:text-base lg:text-base`,
+        tw`block opacity-0 font-body font-normal text-right text-xs xs:text-sm sm:text-base md:text-base lg:text-lg`,
         css`
           animation: ${state.context.animation};
           color: #ff90d6;

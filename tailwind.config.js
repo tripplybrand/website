@@ -1,7 +1,3 @@
-const sm = '360px'
-const md = '720px'
-const lg = '1440px'
-
 module.exports = {
   purge: ['./src/**/*.{js,ts,jsx,tsx}', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
@@ -25,7 +21,14 @@ module.exports = {
         '"Noto Color Emoji"',
       ],
     },
-    screens: { sm, md, lg },
+    screens: {
+      xs: '475px',
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+      '2xl': '1536px',
+    },
     // we often work svgs, so these are useful
     fill: (theme) => ({
       ...theme('colors'),
@@ -35,7 +38,6 @@ module.exports = {
     }),
     // look up all default values here: https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js
     extend: {
-      width: { sm, md, lg },
       minWidth: (theme) => ({
         auto: 'auto',
         ...theme('spacing'),

@@ -25,6 +25,13 @@ class MyDocument extends Document {
           />
           <link
             rel="preload"
+            href="/fonts/Proza_Libre/proza-libre-v5-latin-500.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin=""
+          />
+          <link
+            rel="preload"
             href="/fonts/Proza_Libre/proza-libre-v5-latin-700.woff2"
             as="font"
             type="font/woff2"
