@@ -18,18 +18,19 @@ function App({ Component, pageProps }: AppProps & ComponentWithPageLayout) {
           css`
             z-index: -1;
           `,
-          tw`fixed w-screen overflow-hidden h-screen`,
+          tw`fixed overflow-hidden`,
         ]}
       >
-        <Image
-          src="/Pink_Line_Dusty.jpg"
-          alt="Pine forest with pink ribbon."
-          layout="fill"
-          objectFit="cover"
-          quality={100}
-          loading="eager"
-          priority={false}
-        />
+        <video
+          autoPlay
+          muted
+          loop
+          poster="Pink_Line_Dusty.jpg"
+          tw="object-cover w-screen h-screen"
+        >
+          <source src="PoH_Header_Video.mp4" type="video/mp4" />
+        </video>
+        Sorry, your browser doesn't support embedded videos.
       </div>
       <GlobalStyles />
       {
