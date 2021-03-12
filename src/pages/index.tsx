@@ -63,6 +63,11 @@ export default function Home() {
                       : currentLineNumber < lineNumber
                       ? 'SCROLL_BEFORE'
                       : null
+
+                  if (animationEvent === null) {
+                    throw new Error("animationEvent can't be null")
+                  }
+
                   return (
                     <Line
                       key={line}
@@ -106,12 +111,22 @@ export default function Home() {
 
 // Components
 
-function Paragraph({ children }) {
+function Paragraph({ children }: { children: React.ReactNode }) {
   return <p tw="my-4">{children}</p>
 }
 
+type AnimationEvent = 'SCROLL_ON' | 'SCROLL_PAST' | 'SCROLL_BEFORE'
+
 // 'SCROLL_ON' | 'SCROLL_PAST' | 'SCROLL_BEFORE'
-function Line({ children, animationEvent, lastLine }) {
+function Line({
+  children,
+  animationEvent,
+  lastLine,
+}: {
+  children: React.ReactNode
+  animationEvent: AnimationEvent
+  lastLine: boolean
+}) {
   const [state, send] = useMachine(
     animationMachine,
     lastLine
@@ -145,7 +160,14 @@ function Line({ children, animationEvent, lastLine }) {
   )
 }
 
-function Attribution({ children, animationEvent }) {
+// 'SCROLL_ON' | 'SCROLL_BEFORE'
+function Attribution({
+  children,
+  animationEvent,
+}: {
+  children: React.ReactNode
+  animationEvent: Exclude<AnimationEvent, 'SCROLL_PAST'>
+}) {
   const [state, send] = useMachine(animationMachine, {
     actions: {
       fromBeforeToOn: assign({
@@ -212,7 +234,7 @@ function useCurrentLineNumber() {
   const [currentLineNumber, setCurrentLineNumber] = useState(-1)
 
   useEffect(() => {
-    const handleScroll = (e) => {
+    const handleScroll = (e: Event) => {
       const { scrollY, innerHeight } = window
 
       const currentRatio = scrollY / (innerHeight * scrollMultiplier)

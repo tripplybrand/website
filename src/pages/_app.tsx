@@ -1,7 +1,6 @@
 import type { AppProps } from 'next/app'
 import '../styles/globals.css'
 import '../styles/scrollAnimations.css'
-import Image from 'next/image'
 import tw, { css, GlobalStyles } from 'twin.macro'
 
 type ComponentWithPageLayout = {
