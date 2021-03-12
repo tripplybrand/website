@@ -6,6 +6,7 @@ import { useMachine } from '@xstate/react'
 
 //Increase multiplier make more scroll length between the reveal of each line
 const scrollMultiplier = 5
+//recalculate the thresholds
 const thresholds = [
   0.0667,
   0.1334,
@@ -29,10 +30,10 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Into My Own</title>
+        <title>Lapsang Souchong</title>
       </Head>
       <div tw="flex justify-center my-0 mx-auto min-h-screen sticky top-0">
-        <div tw="py-16 whitespace-nowrap">
+        <div tw="py-10 whitespace-nowrap">
           <h1
             css={[
               tw`font-body font-bold text-2xl xs:text-3xl sm:text-4xl md:text-4xl lg:text-5xl`,
@@ -42,7 +43,7 @@ export default function Home() {
               `,
             ]}
           >
-            Into My Own
+            Lapsang Souchong
           </h1>
           {stanzas.map((lines, stanzaIdx) => {
             const previousStanzas = stanzas.slice(0, stanzaIdx)
@@ -87,7 +88,7 @@ export default function Home() {
                         : 'SCROLL_BEFORE'
                     }
                   >
-                    — Robert Frost
+                    — Michael Dechane
                   </Attribution>
                 ) : null}
               </Paragraph>
@@ -203,26 +204,23 @@ function Attribution({
 
 const stanzas = [
   [
-    'One of my wishes is that those dark trees,',
-    'So old and firm they scarcely show the breeze,',
-    'Were not, as ’twere, the merest mask of gloom,',
-    'But stretched away unto the edge of doom.',
-  ],
-  [
-    'I should not be withheld but that some day',
-    'Into their vastness I should steal away,',
-    'Fearless of ever finding open land,',
-    'Or highway where the slow wheel pours the sand.',
-  ],
-  [
-    'I do not see why I should e’er turn back,',
-    'Or those should not set forth upon my track',
-    'To overtake me, who should miss me here',
-    'And long to know if still I held them dear.',
-  ],
-  [
-    'They would not find me changed from him they knew',
-    'Only more sure of all I thought was true.',
+    'In China someone closed your leaves',
+    'in tiny fists that grip the smoke',
+    'that dried you. A world away I wait',
+    'by another fire. The cup waits',
+    'with me. The little blue dragon',
+    'that lives in my stove does his work.',
+    'The kettle begins to sing',
+    'the one note of its one song.',
+    'The day becomes itself beyond',
+    'the glass of the kitchen window.',
+    'I pour the kettle and you become',
+    'again yourself, but haunted now',
+    'by memory of a distant fire.',
+    'In this steam rising as smoke',
+    'I remember myself, who I was,',
+    'before I knew all night the flames,',
+    'before I tasted you, or knew your name.',
   ],
 ]
 

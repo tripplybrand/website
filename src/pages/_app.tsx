@@ -27,7 +27,7 @@ function App({ Component, pageProps }: AppProps & ComponentWithPageLayout) {
           poster="Pink_Line_Dusty.jpg"
           tw="object-cover w-screen h-screen"
         >
-          <source src="PoH_Header_Video.mp4" type="video/mp4" />
+          <source src="Tea.mp4" type="video/mp4" />
         </video>
         Sorry, your browser doesn't support embedded videos.
       </div>
