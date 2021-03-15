@@ -6,23 +6,6 @@ import { useMachine } from '@xstate/react'
 
 //Increase multiplier make more scroll length between the reveal of each line
 const scrollMultiplier = 5
-//recalculate the thresholds
-const thresholds = [
-  0.0667,
-  0.1334,
-  0.2001,
-  0.2668,
-  0.33349999999999996,
-  0.4002,
-  0.4669,
-  0.5336,
-  0.6003,
-  0.6669999999999999,
-  0.7336999999999999,
-  0.8004,
-  0.8671,
-  0.9338,
-]
 
 export default function Home() {
   const currentLineNumber = useCurrentLineNumber()
@@ -47,14 +30,14 @@ export default function Home() {
           </h1>
           {stanzas.map((lines, stanzaIdx) => {
             const previousStanzas = stanzas.slice(0, stanzaIdx)
-            const previousLineNum = previousStanzas.reduce(
+            const stanzaStartLine = previousStanzas.reduce(
               (totalLines, linesInStanza) => totalLines + linesInStanza.length,
               0
             )
             return (
               <Paragraph key={stanzaIdx}>
                 {lines.map((line, lineIdx) => {
-                  const lineNumber = previousLineNum + lineIdx
+                  const lineNumber = stanzaStartLine + lineIdx
                   // events: 'SCROLL_ON' | 'SCROLL_PAST' | 'SCROLL_BEFORE'
                   const animationEvent =
                     currentLineNumber === lineNumber
@@ -82,6 +65,7 @@ export default function Home() {
                 {/* add the attribution to the end of the last stanza */}
                 {stanzaIdx === stanzas.length - 1 ? (
                   <Attribution
+                    // events: 'SCROLL_ON' | 'SCROLL_BEFORE'
                     animationEvent={
                       currentLineNumber === lastLineNumber
                         ? 'SCROLL_ON'
@@ -103,9 +87,7 @@ export default function Home() {
             height: ${100 * scrollMultiplier}vh;
           `,
         ]}
-      >
-        <p>{null}</p>
-      </div>
+      ></div>
     </>
   )
 }
@@ -186,7 +168,6 @@ function Attribution({
 
   return (
     <span
-      id="attribution"
       css={[
         tw`block opacity-0 font-body font-normal text-right text-xs xs:text-sm sm:text-base md:text-base lg:text-lg`,
         css`
@@ -225,6 +206,12 @@ const stanzas = [
 ]
 
 const lastLineNumber = stanzas.flat().length - 1
+
+// Calculate the thresholds
+const totalNumLines = stanzas.flat().length
+const inc = 1 / (totalNumLines + 1)
+const lineIdxArray = Array.from(Array(totalNumLines).keys())
+const thresholds = lineIdxArray.map((id) => inc * (id + 1))
 
 // Hooks/logic
 

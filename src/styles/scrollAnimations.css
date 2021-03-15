@@ -23,8 +23,7 @@
   }
   to {
     opacity: 1;
-    /* color: #f5faff; */
-    color: black;
+    color: #f5faff;
   }
 }
 @keyframes from-past-to-on {
