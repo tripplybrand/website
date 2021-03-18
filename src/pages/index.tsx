@@ -19,7 +19,7 @@ export default function Home() {
         <div tw="py-10 whitespace-nowrap">
           <h1
             css={[
-              tw`font-body font-bold text-2xl xs:text-3xl sm:text-4xl md:text-4xl lg:text-5xl`,
+              tw`pb-4 font-body font-bold text-2xl xs:text-3xl sm:text-4xl md:text-4xl lg:text-5xl`,
               css`
                 animation: from-on-to-past 3s forwards ease-out;
                 color: #ff90d6;
@@ -95,7 +95,7 @@ export default function Home() {
 // Components
 
 function Paragraph({ children }: { children: React.ReactNode }) {
-  return <p tw="my-4">{children}</p>
+  return <p tw="pb-4">{children}</p>
 }
 
 type AnimationEvent = 'SCROLL_ON' | 'SCROLL_PAST' | 'SCROLL_BEFORE'
@@ -169,7 +169,7 @@ function Attribution({
   return (
     <span
       css={[
-        tw`block opacity-0 font-body font-normal text-right text-xs xs:text-sm sm:text-base md:text-base lg:text-lg`,
+        tw`block pt-2 opacity-0 font-body font-normal text-right text-xs xs:text-sm sm:text-base md:text-base lg:text-lg`,
         css`
           animation: ${state.context.animation};
           color: #ff90d6;
