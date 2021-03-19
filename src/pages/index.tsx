@@ -82,7 +82,7 @@ export default function Home() {
       </div>
       <div
         css={[
-          tw`invisible w-screen min-h-screen bg-gray-300 top-16`,
+          tw`invisible w-screen min-h-screen bg-gray-300`,
           css`
             height: ${100 * scrollMultiplier}vh;
           `,
