@@ -19,7 +19,7 @@ export default function Home() {
         css={[
           tw`flex justify-center my-0 mx-auto min-h-screen sticky top-0`,
           css`
-            background-color: hsla(90deg, 6%, 51%, 0.6);
+            background-color: hsla(90deg, 6%, 51%, 0.5);
           `,
         ]}
       >
@@ -29,7 +29,7 @@ export default function Home() {
               tw`pb-4 font-body font-bold text-2xl xs:text-3xl sm:text-4xl md:text-4xl lg:text-5xl`,
               css`
                 animation: from-on-to-past 3s forwards ease-out;
-                color: #786869;
+                color: #342414;
               `,
             ]}
           >
@@ -124,7 +124,7 @@ function Line({
           actions: {
             fromBeforeToOn: assign({
               animation:
-                'from-before-to-on 1s forwards ease-out, from-on-to-past 1s 1s forwards ease-out',
+                'from-before-to-on 1s forwards ease-out, from-on-to-past 1s 1.5s forwards ease-out',
             }),
           },
         }
@@ -141,7 +141,7 @@ function Line({
         tw`block opacity-0 font-body font-medium xs:font-normal text-xs xs:text-lg sm:text-xl md:text-xl lg:text-2xl`,
         css`
           animation: ${state.context.animation};
-          color: #786869;
+          color: #342414;
         `,
       ]}
     >
@@ -179,7 +179,7 @@ function Attribution({
         tw`block pt-2 opacity-0 font-body font-normal text-right text-xs xs:text-sm sm:text-base md:text-base lg:text-lg`,
         css`
           animation: ${state.context.animation};
-          color: #786869;
+          color: #342414;
         `,
       ]}
     >
