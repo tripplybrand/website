@@ -15,14 +15,21 @@ export default function Home() {
       <Head>
         <title>Lapsang Souchong</title>
       </Head>
-      <div tw="flex justify-center my-0 mx-auto min-h-screen sticky top-0">
+      <div
+        css={[
+          tw`flex justify-center my-0 mx-auto min-h-screen sticky top-0`,
+          css`
+            background-color: hsla(90deg, 6%, 51%, 0.6);
+          `,
+        ]}
+      >
         <div tw="py-10 whitespace-nowrap">
           <h1
             css={[
               tw`pb-4 font-body font-bold text-2xl xs:text-3xl sm:text-4xl md:text-4xl lg:text-5xl`,
               css`
                 animation: from-on-to-past 3s forwards ease-out;
-                color: #ff90d6;
+                color: #786869;
               `,
             ]}
           >
@@ -134,7 +141,7 @@ function Line({
         tw`block opacity-0 font-body font-medium xs:font-normal text-xs xs:text-lg sm:text-xl md:text-xl lg:text-2xl`,
         css`
           animation: ${state.context.animation};
-          color: #ff90d6;
+          color: #786869;
         `,
       ]}
     >
@@ -154,7 +161,7 @@ function Attribution({
   const [state, send] = useMachine(animationMachine, {
     actions: {
       fromBeforeToOn: assign({
-        animation: `attribution-in 1s 0.5s forwards ease-out`,
+        animation: `attribution-in 1s 1s forwards ease-out`,
       }),
       fromOnToBefore: assign({
         animation: `attribution-out 1s forwards ease-out`,
@@ -172,7 +179,7 @@ function Attribution({
         tw`block pt-2 opacity-0 font-body font-normal text-right text-xs xs:text-sm sm:text-base md:text-base lg:text-lg`,
         css`
           animation: ${state.context.animation};
-          color: #ff90d6;
+          color: #786869;
         `,
       ]}
     >
