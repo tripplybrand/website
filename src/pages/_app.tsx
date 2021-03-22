@@ -12,14 +12,7 @@ type ComponentWithPageLayout = {
 function App({ Component, pageProps }: AppProps & ComponentWithPageLayout) {
   return (
     <>
-      <div
-        css={[
-          css`
-            z-index: -1;
-          `,
-          tw`fixed overflow-hidden`,
-        ]}
-      >
+      <div tw="fixed overflow-hidden">
         <video
           autoPlay
           muted
