@@ -50,7 +50,7 @@ module.exports = {
           400: '#7B1F22',
         },
         copper: {
-          100: '#FBD7B7',
+          100: '#FFBA75',
           200: '#EABF9A',
           300: '#C9A17E',
           400: '#AB855E',

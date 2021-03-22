@@ -20,13 +20,7 @@ function App({ Component, pageProps }: AppProps & ComponentWithPageLayout) {
           tw`fixed overflow-hidden`,
         ]}
       >
-        <video
-          autoPlay
-          muted
-          loop
-          // poster="Steam_Tea_Still.jpg"
-          tw="object-cover w-screen h-screen"
-        >
+        <video autoPlay muted loop tw="object-cover w-screen h-screen">
           <source src="Steaming_Tea_Loop_Shorter.mp4" type="video/mp4" />
         </video>
         Sorry, your browser doesn't support embedded videos.
