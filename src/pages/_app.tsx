@@ -24,7 +24,7 @@ function App({ Component, pageProps }: AppProps & ComponentWithPageLayout) {
           autoPlay
           muted
           loop
-          poster="Steam_Tea_Still.jpg"
+          // poster="Steam_Tea_Still.jpg"
           tw="object-cover w-screen h-screen"
         >
           <source src="Steaming_Tea_Loop_Shorter.mp4" type="video/mp4" />
