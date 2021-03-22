@@ -19,7 +19,7 @@ export default function Home() {
         css={[
           tw`flex justify-center my-0 mx-auto min-h-screen sticky top-0`,
           css`
-            background-color: hsla(90deg, 6%, 51%, 0.45);
+            background-color: hsla(90deg, 6%, 51%, 0.5);
           `,
         ]}
       >
