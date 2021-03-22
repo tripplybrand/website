@@ -154,7 +154,7 @@ function Attribution({
   const [state, send] = useMachine(animationMachine, {
     actions: {
       fromBeforeToOn: assign({
-        animation: `attribution-in 1s 1s forwards ease-out`,
+        animation: `attribution-in 1s 0.75s forwards ease-out`,
       }),
       fromOnToBefore: assign({
         animation: `attribution-out 1s forwards ease-out`,
