@@ -15,14 +15,7 @@ export default function Home() {
       <Head>
         <title>Lapsang Souchong</title>
       </Head>
-      <div
-        css={[
-          tw`flex justify-center my-0 mx-auto min-h-screen sticky top-0`,
-          css`
-            background-color: hsla(90deg, 6%, 51%, 0.5);
-          `,
-        ]}
-      >
+      <div tw="flex justify-center my-0 mx-auto min-h-screen sticky top-0">
         <div tw="py-10 whitespace-nowrap">
           <h1
             css={[
