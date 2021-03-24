@@ -15,11 +15,22 @@ export default function Home() {
       <Head>
         <title>Lapsang Souchong</title>
         <meta charSet="utf-8"></meta>
+        <meta name="description" content="A poem by Michael Dechane"></meta>
         <meta
-          name="description"
-          content="Lapsang Souchong: a poem by Michael Dechane"
+          property="og:image"
+          content="/Steam_Tea_Still.jpg"
+          key="ogimage"
         ></meta>
-        <meta property="og:image" content="Steam_Tea_Still.jpg"></meta>
+        <meta
+          property="og:title"
+          content="Lapsang Souchong"
+          key="ogtitle"
+        ></meta>
+        <meta
+          property="og:description"
+          content="A poem by Michael Dechane"
+          key="ogdesc"
+        />
       </Head>
       <div tw="flex justify-center my-0 mx-auto min-h-screen sticky top-0">
         <div tw="py-10 whitespace-nowrap">
