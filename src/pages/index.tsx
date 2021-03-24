@@ -18,7 +18,7 @@ export default function Home() {
         <meta name="description" content="A poem by Michael Dechane"></meta>
         <meta
           property="og:image"
-          content="/Steam_Tea_Still.jpg"
+          content="https://lapsang-souchong.vercel.app/Steam_Tea_Still.jpg"
           key="ogimage"
         ></meta>
         <meta
