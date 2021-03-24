@@ -17,11 +17,6 @@ export default function Home() {
         <meta charSet="utf-8"></meta>
         <meta name="description" content="A poem by Michael Dechane"></meta>
         <meta
-          property="og:image"
-          content="https://lapsang-souchong.vercel.app/Steam_Tea_Still.jpg"
-          key="ogimage"
-        ></meta>
-        <meta
           property="og:title"
           content="Lapsang Souchong"
           key="ogtitle"
@@ -31,6 +26,11 @@ export default function Home() {
           content="A poem by Michael Dechane"
           key="ogdesc"
         />
+        <meta
+          property="og:image"
+          content="https://lapsang-souchong.vercel.app/Tea_Meta.jpg"
+          key="ogimage"
+        ></meta>
       </Head>
       <div tw="flex justify-center my-0 mx-auto min-h-screen sticky top-0">
         <div tw="py-10 whitespace-nowrap">
