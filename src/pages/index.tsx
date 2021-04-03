@@ -31,6 +31,7 @@ export default function Home() {
           content="https://lapsang-souchong.vercel.app/Tea_Meta.jpg"
           key="ogimage"
         ></meta>
+        <meta name="twitter:card" content="summary_large_image"></meta>
       </Head>
       <div tw="flex justify-center my-0 mx-auto min-h-screen sticky top-0">
         <div tw="py-10 whitespace-nowrap">
