@@ -13,14 +13,10 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Lapsang Souchong</title>
+        <title>Jake's Parade</title>
         <meta charSet="utf-8"></meta>
         <meta name="description" content="A poem by Michael Dechane"></meta>
-        <meta
-          property="og:title"
-          content="Lapsang Souchong"
-          key="ogtitle"
-        ></meta>
+        <meta property="og:title" content="Jake's Parade" key="ogtitle"></meta>
         <meta
           property="og:description"
           content="A poem by Michael Dechane"
@@ -37,14 +33,13 @@ export default function Home() {
         <div tw="py-10 whitespace-nowrap">
           <h1
             css={[
-              tw`pb-4 font-body font-bold text-2xl xs:text-3xl sm:text-4xl md:text-4xl lg:text-5xl`,
+              tw`pb-4 font-body font-bold text-2xl xs:text-3xl sm:text-4xl md:text-4xl lg:text-5xl text-calico-orange-100`,
               css`
                 animation: from-on-to-past 3s forwards ease-out;
-                color: #ffba75;
               `,
             ]}
           >
-            Lapsang Souchong
+            Jake's Parade
           </h1>
           {stanzas.map((lines, stanzaIdx) => {
             const previousStanzas = stanzas.slice(0, stanzaIdx)
@@ -149,10 +144,9 @@ function Line({
   return (
     <span
       css={[
-        tw`block opacity-0 font-body font-medium xs:font-normal text-xs xs:text-lg sm:text-xl md:text-xl lg:text-2xl`,
+        tw`block opacity-0 font-body font-medium xs:font-normal text-xs xs:text-lg sm:text-xl md:text-xl lg:text-2xl text-calico-orange-100`,
         css`
           animation: ${state.context.animation};
-          color: #ffba75;
         `,
       ]}
     >
@@ -187,10 +181,9 @@ function Attribution({
   return (
     <span
       css={[
-        tw`block pt-2 opacity-0 font-body font-normal text-right text-xs xs:text-sm sm:text-base md:text-base lg:text-lg`,
+        tw`block pt-2 opacity-0 font-body font-normal text-right text-xs xs:text-sm sm:text-base md:text-base lg:text-lg text-calico-orange-100`,
         css`
           animation: ${state.context.animation};
-          color: #ffba75;
         `,
       ]}
     >

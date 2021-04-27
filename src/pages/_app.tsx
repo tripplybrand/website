@@ -13,7 +13,8 @@ function App({ Component, pageProps }: AppProps & ComponentWithPageLayout) {
   return (
     <>
       <div tw="fixed overflow-hidden">
-        <video
+        {/*Add video once everything else is worked out*/}
+        {/* <video
           autoPlay
           muted
           loop
@@ -23,13 +24,14 @@ function App({ Component, pageProps }: AppProps & ComponentWithPageLayout) {
         >
           <source src="Steaming_Tea_Loop_Shorter.mp4" type="video/mp4" />
         </video>
-        Sorry, your browser doesn't support embedded videos.
+        Sorry, your browser doesn't support embedded videos. */}
       </div>
       {/*Transparent pane between video and text*/}
       <div
+        //background-color: hsla(90deg, 6%, 51%, 0.5);
         css={[
           css`
-            background-color: hsla(90deg, 6%, 51%, 0.5);
+            background-color: hsla(205deg, 10%, 13%, 1);
           `,
           tw`fixed overflow-hidden h-screen w-screen`,
         ]}
