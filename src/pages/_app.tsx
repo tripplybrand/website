@@ -27,15 +27,14 @@ function App({ Component, pageProps }: AppProps & ComponentWithPageLayout) {
         Sorry, your browser doesn't support embedded videos. */}
       </div>
       {/*Transparent pane between video and text*/}
-      <div
-        //background-color: hsla(90deg, 6%, 51%, 0.5);
+      {/* <div
         css={[
           css`
-            background-color: hsla(205deg, 10%, 13%, 1);
+            background-color: hsla(90deg, 6%, 51%, 0.5);
           `,
           tw`fixed overflow-hidden h-screen w-screen`,
         ]}
-      ></div>
+      ></div> */}
       <GlobalStyles />
       {
         // get a page root if one was set

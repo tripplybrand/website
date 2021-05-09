@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import { createMachine, assign } from 'xstate'
 import { useMachine } from '@xstate/react'
+import { ArrowIcon } from 'icons'
 
 //Increase multiplier make more scroll length between the reveal of each line
 const scrollMultiplier = 5
@@ -29,9 +30,10 @@ export default function Home() {
         ></meta>
         <meta name="twitter:card" content="summary_large_image"></meta>
       </Head>
+      <Intro />
       <div tw="flex justify-center my-0 mx-auto min-h-screen sticky top-0">
         <div tw="py-10 whitespace-nowrap">
-          <h1
+          {/* <h1
             css={[
               tw`pb-4 font-body font-bold text-2xl xs:text-3xl sm:text-4xl md:text-4xl lg:text-5xl text-calico-orange-100`,
               css`
@@ -40,7 +42,7 @@ export default function Home() {
             ]}
           >
             Jake's Parade
-          </h1>
+          </h1> */}
           {stanzas.map((lines, stanzaIdx) => {
             const previousStanzas = stanzas.slice(0, stanzaIdx)
             const stanzaStartLine = previousStanzas.reduce(
@@ -93,19 +95,47 @@ export default function Home() {
           })}
         </div>
       </div>
+      {/* The div that controls the scroll */}
       <div
+        //invisible
         css={[
-          tw`invisible w-screen min-h-screen bg-gray-300`,
+          tw`visible w-screen min-h-screen bg-red-100`,
           css`
             height: ${100 * scrollMultiplier}vh;
           `,
         ]}
       ></div>
+      <Outro />
     </>
   )
 }
 
 // Components
+
+function Intro() {
+  return (
+    <div
+      css={[
+        tw`min-h-screen space-y-10`,
+        css`
+          background-color: hsla(205deg, 10%, 13%, 1);
+          color: #fffbf9;
+        `,
+      ]}
+    >
+      <div tw="max-w-max mx-auto pt-44 space-y-6">
+        <h1 tw="font-body font-bold text-6xl text-center">Jake’s Parade</h1>
+        <h2 tw="font-body font-medium text-4xl text-center">
+          a poem by Michael Dechane
+        </h2>
+      </div>
+      <div tw="max-w-max mx-auto space-y-3">
+        <p tw="font-body font-normal text-2xl text-center">scroll to begin</p>
+        <ArrowIcon tw="w-4 h-6 fill-calico-orange-100 animate-bounce max-w-max mx-auto" />
+      </div>
+    </div>
+  )
+}
 
 function Paragraph({ children }: { children: React.ReactNode }) {
   return <p tw="pb-4">{children}</p>
@@ -189,6 +219,20 @@ function Attribution({
     >
       {children}
     </span>
+  )
+}
+
+function Outro() {
+  return (
+    <div
+      css={[
+        tw`min-h-screen sticky`,
+        css`
+          background-color: hsla(205deg, 10%, 13%, 1);
+          color: #fffbf9;
+        `,
+      ]}
+    ></div>
   )
 }
 
