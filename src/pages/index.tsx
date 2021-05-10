@@ -31,7 +31,14 @@ export default function Home() {
         <meta name="twitter:card" content="summary_large_image"></meta>
       </Head>
       <Intro />
-      <div tw="flex justify-center my-0 mx-auto min-h-screen sticky top-0">
+      <div
+        css={[
+          tw`flex justify-center my-0 mx-auto min-h-screen sticky top-0`,
+          css`
+            background-color: hsla(205deg, 10%, 13%, 1);
+          `,
+        ]}
+      >
         <div tw="py-10 whitespace-nowrap">
           {/* <h1
             css={[
@@ -99,7 +106,7 @@ export default function Home() {
       <div
         //invisible
         css={[
-          tw`visible w-screen min-h-screen bg-red-100`,
+          tw`invisible w-screen min-h-screen bg-red-100`,
           css`
             height: ${100 * scrollMultiplier}vh;
           `,
@@ -138,7 +145,19 @@ function Intro() {
 }
 
 function Paragraph({ children }: { children: React.ReactNode }) {
-  return <p tw="pb-4">{children}</p>
+  return (
+    <p
+      css={[
+        tw`pb-4 relative`,
+        css`
+          top: 60%;
+          left: -50%;
+        `,
+      ]}
+    >
+      {children}
+    </p>
+  )
 }
 
 type AnimationEvent = 'SCROLL_ON' | 'SCROLL_PAST' | 'SCROLL_BEFORE'
@@ -174,7 +193,8 @@ function Line({
   return (
     <span
       css={[
-        tw`block opacity-0 font-body font-medium xs:font-normal text-xs xs:text-lg sm:text-xl md:text-xl lg:text-2xl text-calico-orange-100`,
+        tw`block opacity-0 font-body font-medium absolute
+        xs:font-normal text-xs xs:text-lg sm:text-xl md:text-xl lg:text-2xl`,
         css`
           animation: ${state.context.animation};
         `,
@@ -211,7 +231,9 @@ function Attribution({
   return (
     <span
       css={[
-        tw`block pt-2 opacity-0 font-body font-normal text-right text-xs xs:text-sm sm:text-base md:text-base lg:text-lg text-calico-orange-100`,
+        tw`block pt-2 opacity-0
+        font-body font-normal text-right text-xs xs:text-sm sm:text-base md:text-base lg:text-lg 
+        text-calico-orange-100`,
         css`
           animation: ${state.context.animation};
         `,
@@ -339,10 +361,10 @@ const animationMachine = createMachine(
   {
     actions: {
       fromBeforeToOn: assign({
-        animation: 'from-before-to-on 1s forwards ease-out',
+        animation: 'from-before-to-on 3s forwards ease-out',
       }),
       fromOnToPast: assign({
-        animation: 'from-on-to-past 1s forwards ease-out',
+        animation: 'from-on-to-past 5s forwards ease-out',
       }),
       fromOnToBefore: assign({
         animation: 'from-on-to-before 1s forwards ease-out',
