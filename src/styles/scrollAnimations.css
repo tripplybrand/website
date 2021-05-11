@@ -27,7 +27,7 @@
   to {
     opacity: 1;
     color: #FFC29F;
-    transform: translate(-100px, -100vh);
+    transform: translate(-300px, -175vh);
   }
 }
 @keyframes from-past-to-on {

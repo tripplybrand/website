@@ -40,16 +40,6 @@ export default function Home() {
         ]}
       >
         <div tw="py-10 whitespace-nowrap">
-          {/* <h1
-            css={[
-              tw`pb-4 font-body font-bold text-2xl xs:text-3xl sm:text-4xl md:text-4xl lg:text-5xl text-calico-orange-100`,
-              css`
-                animation: from-on-to-past 3s forwards ease-out;
-              `,
-            ]}
-          >
-            Jake's Parade
-          </h1> */}
           {stanzas.map((lines, stanzaIdx) => {
             const previousStanzas = stanzas.slice(0, stanzaIdx)
             const stanzaStartLine = previousStanzas.reduce(
@@ -84,19 +74,6 @@ export default function Home() {
                     </Line>
                   )
                 })}
-                {/* add the attribution to the end of the last stanza */}
-                {stanzaIdx === stanzas.length - 1 ? (
-                  <Attribution
-                    // events: 'SCROLL_ON' | 'SCROLL_BEFORE'
-                    animationEvent={
-                      currentLineNumber === lastLineNumber
-                        ? 'SCROLL_ON'
-                        : 'SCROLL_BEFORE'
-                    }
-                  >
-                    — Michael Dechane
-                  </Attribution>
-                ) : null}
               </Paragraph>
             )
           })}
@@ -148,10 +125,10 @@ function Paragraph({ children }: { children: React.ReactNode }) {
   return (
     <p
       css={[
-        tw`pb-4 relative`,
+        tw`pb-4 absolute`,
         css`
           top: 60%;
-          left: -50%;
+          left: 50%;
         `,
       ]}
     >
@@ -179,7 +156,7 @@ function Line({
           actions: {
             fromBeforeToOn: assign({
               animation:
-                'from-before-to-on 1s forwards ease-out, from-on-to-past 1s 1.5s forwards ease-out',
+                'from-before-to-on 3s forwards ease-out, from-on-to-past 5s 0.5s forwards ease-out',
             }),
           },
         }
@@ -205,52 +182,13 @@ function Line({
   )
 }
 
-// 'SCROLL_ON' | 'SCROLL_BEFORE'
-function Attribution({
-  children,
-  animationEvent,
-}: {
-  children: React.ReactNode
-  animationEvent: Exclude<AnimationEvent, 'SCROLL_PAST'>
-}) {
-  const [state, send] = useMachine(animationMachine, {
-    actions: {
-      fromBeforeToOn: assign({
-        animation: `attribution-in 1s 0.75s forwards ease-out`,
-      }),
-      fromOnToBefore: assign({
-        animation: `attribution-out 1s forwards ease-out`,
-      }),
-    },
-  })
-
-  useEffect(() => {
-    send(animationEvent)
-  }, [send, animationEvent])
-
-  return (
-    <span
-      css={[
-        tw`block pt-2 opacity-0
-        font-body font-normal text-right text-xs xs:text-sm sm:text-base md:text-base lg:text-lg 
-        text-calico-orange-100`,
-        css`
-          animation: ${state.context.animation};
-        `,
-      ]}
-    >
-      {children}
-    </span>
-  )
-}
-
 function Outro() {
   return (
     <div
       css={[
         tw`min-h-screen sticky`,
         css`
-          background-color: hsla(205deg, 10%, 13%, 1);
+          background-color: hsla(205deg, 10%, 13%, 0.5);
           color: #fffbf9;
         `,
       ]}
@@ -331,30 +269,15 @@ const animationMachine = createMachine(
             target: 'onLine',
             actions: 'fromBeforeToOn',
           },
-          SCROLL_BEFORE: {},
         },
       },
-      onLine: {
-        on: {},
-      },
-      pastLine: {
-        on: {
-          SCROLL_ON: {
-            target: 'onLine',
-            actions: 'fromPastToOn',
-          },
-          SCROLL_PAST: {},
-        },
-      },
+      onLine: {},
+      pastLine: {},
     },
     on: {
       SCROLL_PAST: {
         target: 'pastLine',
         actions: 'fromOnToPast',
-      },
-      SCROLL_BEFORE: {
-        target: 'beforeLine',
-        actions: 'fromOnToBefore',
       },
     },
   },
@@ -365,12 +288,6 @@ const animationMachine = createMachine(
       }),
       fromOnToPast: assign({
         animation: 'from-on-to-past 5s forwards ease-out',
-      }),
-      fromOnToBefore: assign({
-        animation: 'from-on-to-before 1s forwards ease-out',
-      }),
-      fromPastToOn: assign({
-        animation: 'from-past-to-on 1s forwards ease-out',
       }),
     },
   }
