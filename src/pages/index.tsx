@@ -6,7 +6,7 @@ import { useMachine } from '@xstate/react'
 import { ArrowIcon } from 'icons'
 
 //Increase multiplier make more scroll length between the reveal of each line
-const scrollMultiplier = 5
+const scrollMultiplier = 50
 
 export default function Home() {
   const currentLineNumber = useCurrentLineNumber()
@@ -128,7 +128,7 @@ function Paragraph({ children }: { children: React.ReactNode }) {
         tw`pb-4 absolute`,
         css`
           top: 60%;
-          left: 50%;
+          left: 40%;
         `,
       ]}
     >
@@ -150,17 +150,17 @@ function Line({
   lastLine: boolean
 }) {
   const [state, send] = useMachine(
-    animationMachine,
-    lastLine
-      ? {
-          actions: {
-            fromBeforeToOn: assign({
-              animation:
-                'from-before-to-on 3s forwards ease-out, from-on-to-past 5s 0.5s forwards ease-out',
-            }),
-          },
-        }
-      : {}
+    animationMachine
+    // lastLine
+    //   ? {
+    //       actions: {
+    //         fromBeforeToOn: assign({
+    //           animation:
+    //             'from-before-to-on 3s forwards ease-out, from-on-to-past 5s 0.5s forwards ease-out',
+    //         }),
+    //       },
+    //     }
+    //   : {}
   )
 
   useEffect(() => {
@@ -183,16 +183,19 @@ function Line({
 }
 
 function Outro() {
+  //Change pt to flex and center that way
   return (
     <div
       css={[
         tw`min-h-screen sticky`,
         css`
-          background-color: hsla(205deg, 10%, 13%, 0.5);
+          background-color: hsla(205deg, 10%, 13%, 0.95);
           color: #fffbf9;
         `,
       ]}
-    ></div>
+    >
+      <p tw="text-center pt-64">read again</p>
+    </div>
   )
 }
 
@@ -200,23 +203,36 @@ function Outro() {
 
 const stanzas = [
   [
-    'In China someone closed your leaves',
-    'in tiny fists that grip the smoke',
-    'that dried you. A world away I wait',
-    'by another fire. The cup waits',
-    'with me. The little blue dragon',
-    'that lives in my stove does his work.',
-    'The kettle begins to sing',
-    'the one note of its one song.',
-    'The day becomes itself beyond',
-    'the glass of the kitchen window.',
-    'I pour the kettle and you become',
-    'again yourself, but haunted now',
-    'by memory of a distant fire.',
-    'In this steam rising as smoke',
-    'I remember myself, who I was,',
-    'before I knew all night the flames,',
-    'before I tasted you, or knew your name.',
+    'The best fire we had in those days was the night',
+    "at Jake and Donna's place. It was bitter",
+    'cold but we built the bonfire up high, then higher.',
+    'Jake was a little drunk when he came laughing',
+    'mostly falling down the stairs of the deck',
+    'with the Papasan chair from their living room.',
+    "Let's burn it, Jake roared, and we roared back",
+    'with the flames when he threw it on and raised',
+    'a three-story column of wild, perishing ash',
+    'against the darkness still expanding',
+    'between the flares of diminishing stars.',
+    'I always hated that chair, Jake announced',
+    'as we laughed with relish, in disbelief',
+    'as Donna nodded, for once agreed.',
+    'Everyone stood up and backed away a bit',
+    'and in the multiplying heat, we began to see',
+    "what he'd done, what he'd started. It turned out",
+    'there were other things in the house Jake hated',
+    'so he became his own parade and we the town',
+    'that cheered him on. Letters he found and a half-',
+    'finished painting. There were books that no longer',
+    'worked for him, then the wobbly bookcase tumbled in.',
+    'The more he found to burn, the better our fire',
+    'seemed to like it and lick its quickening lips.',
+    'There were things between most of us and inside',
+    'every one of us alreading vanishing smoke.',
+    'What I remember most is how our faces flickered',
+    'in the shared, inexplicable goodness of that night',
+    'and the guitar—how quick and soft the sound its strings',
+    'made as they unmoored from the burning bridge.',
   ],
 ]
 
