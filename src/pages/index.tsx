@@ -303,7 +303,8 @@ const animationMachine = createMachine(
         animation: 'from-before-to-on 3s forwards ease-out',
       }),
       fromOnToPast: assign({
-        animation: 'from-on-to-past 5s forwards ease-out',
+        animation:
+          'from-on-to-past 5s forwards cubic-bezier(0.1, 0.7, 1.0, 0.1)',
       }),
     },
   }
