@@ -265,8 +265,11 @@ function useCurrentLineNumber() {
       const thresholdIdx = thresholds.findIndex(
         (threshold) => currentRatio <= threshold
       )
+      //Is there a way to have the first line show up once we are scrolled in view?
+      //Do we want this?
       const currentLineNumber =
-        thresholdIdx === -1 ? lastLineNumber : thresholdIdx - 1
+        thresholdIdx === -1 ? lastLineNumber + 1 : thresholdIdx
+      console.log(thresholdIdx)
       setCurrentLineNumber(currentLineNumber)
     }
 
