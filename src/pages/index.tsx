@@ -67,6 +67,7 @@ export default function Home() {
                   return (
                     <Line
                       key={line}
+                      id={lineNumber}
                       animationEvent={animationEvent}
                       lastLine={lineNumber === lastLineNumber}
                     >
@@ -144,10 +145,12 @@ function Line({
   children,
   animationEvent,
   lastLine,
+  id,
 }: {
   children: React.ReactNode
   animationEvent: AnimationEvent
   lastLine: boolean
+  id: number
 }) {
   const [state, send] = useMachine(
     animationMachine
@@ -169,10 +172,15 @@ function Line({
 
   return (
     <span
+      id={`${id}`}
       css={[
         tw`block opacity-0 font-body font-medium absolute
         xs:font-normal text-xs xs:text-lg sm:text-xl md:text-xl lg:text-2xl`,
         css`
+          --translateX1: ${random(-1000, 1000)}px;
+          --translateX2: ${random(-500, 500)}px;
+          --translateX3: ${random(-250, 250)}px;
+          --translateX4: ${random(-50, 50)}px;
           animation: ${state.context.animation};
         `,
       ]}
@@ -309,3 +317,8 @@ const animationMachine = createMachine(
     },
   }
 )
+
+// Utilities
+
+const random = (min: number, max: number) =>
+  Math.floor(Math.random() * (max - min)) + min

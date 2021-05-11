@@ -30,6 +30,13 @@
 }
 
 /*Stops bounce effect and limits of scroll. Doesn't work in Safari.*/
+html {
+  --translateX1: 0px;
+  --translateX2: 50px;
+  --translateX3: -50px;
+  --translateX4: 0px;
+}
+
 html, body {
   overscroll-behavior: none;
 }

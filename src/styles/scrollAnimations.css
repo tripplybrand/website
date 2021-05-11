@@ -27,19 +27,19 @@
   25% {
     opacity: 1;
     color: #FFC29F;
-    transform: translate(-300px, -25vh);
+    transform: translate(var(--translateX1), -25vh);
   }
   50% {
     opacity: 1;
     color: #FFDE9F;
-    transform: translate(-200px, -50vh);
+    transform: translate(var(--translateX2), -50vh);
   }
   75% {
-    transform: translate(50px, -75vh);
+    transform: translate(var(--translateX3), -75vh);
   }
   to {
     opacity: 0;
-    transform: translate(-25px, -100vh);
+    transform: translate(var(--translateX4), -100vh);
   }
 }
 @keyframes from-past-to-on {
