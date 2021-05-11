@@ -40,3 +40,8 @@ html {
 html, body {
   overscroll-behavior: none;
 }
+
+/*We need to load an italic fontstyle*/
+em {
+  font-style: italic;
+}

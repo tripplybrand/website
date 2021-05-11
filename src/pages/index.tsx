@@ -64,11 +64,30 @@ export default function Home() {
                     throw new Error("animationEvent can't be null")
                   }
 
-                  return (
-                    <Line key={line} animationEvent={animationEvent}>
-                      {line}
-                    </Line>
-                  )
+                  if (typeof window !== 'undefined') {
+                    // Adding italics
+                    // Need to make em  -> font style italics
+                    var parser = new DOMParser()
+                    var doc = parser.parseFromString(line, 'text/html')
+                    const list = doc.body.childNodes
+                    let lineArray: any[] = []
+                    list.forEach(function (currentValue) {
+                      if (currentValue.nodeName === 'EM') {
+                        lineArray.push(
+                          <em key={currentValue.textContent}>
+                            {currentValue.textContent}
+                          </em>
+                        )
+                      } else {
+                        lineArray.push(currentValue.textContent)
+                      }
+                    })
+                    return (
+                      <Line key={line} animationEvent={animationEvent}>
+                        {lineArray}
+                      </Line>
+                    )
+                  }
                 })}
               </Paragraph>
             )
@@ -128,6 +147,7 @@ function Line({
 }: {
   children: React.ReactNode
   animationEvent: AnimationEvent
+  key: string
 }) {
   const [state, send] = useMachine(animationMachine)
 
@@ -184,12 +204,12 @@ const stanzas = [
     'Jake was a little drunk when he came laughing',
     'mostly falling down the stairs of the deck',
     'with the Papasan chair from their living room.',
-    "Let's burn it, Jake roared, and we roared back",
+    "<em>Let's burn it,</em> Jake roared, and we roared back",
     'with the flames when he threw it on and raised',
     'a three-story column of wild, perishing ash',
     'against the darkness still expanding',
     'between the flares of diminishing stars.',
-    'I always hated that chair, Jake announced',
+    '<em>I always hated that chair,</em> Jake announced',
     'as we laughed with relish, in disbelief',
     'as Donna nodded, for once agreed.',
     'Everyone stood up and backed away a bit',
@@ -236,7 +256,6 @@ function useCurrentLineNumber() {
       //Do we want this?
       const currentLineNumber =
         thresholdIdx === -1 ? lastLineNumber + 1 : thresholdIdx
-      console.log(thresholdIdx)
       setCurrentLineNumber(currentLineNumber)
     }
 
