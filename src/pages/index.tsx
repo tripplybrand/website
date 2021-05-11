@@ -65,12 +65,7 @@ export default function Home() {
                   }
 
                   return (
-                    <Line
-                      key={line}
-                      id={lineNumber}
-                      animationEvent={animationEvent}
-                      lastLine={lineNumber === lastLineNumber}
-                    >
+                    <Line key={line} animationEvent={animationEvent}>
                       {line}
                     </Line>
                   )
@@ -82,7 +77,6 @@ export default function Home() {
       </div>
       {/* The div that controls the scroll */}
       <div
-        //invisible
         css={[
           tw`invisible w-screen min-h-screen bg-red-100`,
           css`
@@ -123,48 +117,19 @@ function Intro() {
 }
 
 function Paragraph({ children }: { children: React.ReactNode }) {
-  return (
-    <p
-      css={[
-        tw`pb-4 absolute`,
-        css`
-          top: 60%;
-          left: 40%;
-        `,
-      ]}
-    >
-      {children}
-    </p>
-  )
+  return <p css={[tw`pb-4`, css``]}>{children}</p>
 }
 
 type AnimationEvent = 'SCROLL_ON' | 'SCROLL_PAST' | 'SCROLL_BEFORE'
-
 // 'SCROLL_ON' | 'SCROLL_PAST' | 'SCROLL_BEFORE'
 function Line({
   children,
   animationEvent,
-  lastLine,
-  id,
 }: {
   children: React.ReactNode
   animationEvent: AnimationEvent
-  lastLine: boolean
-  id: number
 }) {
-  const [state, send] = useMachine(
-    animationMachine
-    // lastLine
-    //   ? {
-    //       actions: {
-    //         fromBeforeToOn: assign({
-    //           animation:
-    //             'from-before-to-on 3s forwards ease-out, from-on-to-past 5s 0.5s forwards ease-out',
-    //         }),
-    //       },
-    //     }
-    //   : {}
-  )
+  const [state, send] = useMachine(animationMachine)
 
   useEffect(() => {
     send(animationEvent)
@@ -172,15 +137,16 @@ function Line({
 
   return (
     <span
-      id={`${id}`}
       css={[
-        tw`block opacity-0 font-body font-medium absolute
-        xs:font-normal text-xs xs:text-lg sm:text-xl md:text-xl lg:text-2xl`,
+        tw`opacity-0 font-body font-medium absolute
+        xs:font-normal text-xs xs:text-lg sm:text-xl md:text-xl lg:text-4xl
+        mx-auto left-0 right-0 text-center `,
         css`
-          --translateX1: ${random(-1000, 1000)}px;
-          --translateX2: ${random(-500, 500)}px;
-          --translateX3: ${random(-250, 250)}px;
-          --translateX4: ${random(-50, 50)}px;
+          top: 65%;
+          --translateX1: ${random(-100, 100)}%;
+          --translateX2: ${random(-50, 50)}%;
+          --translateX3: ${random(-25, 25)}%;
+          --translateX4: ${random(-5, 5)}%;
           animation: ${state.context.animation};
         `,
       ]}
@@ -197,7 +163,7 @@ function Outro() {
       css={[
         tw`min-h-screen sticky`,
         css`
-          background-color: hsla(205deg, 10%, 13%, 0.95);
+          background-color: hsla(205deg, 10%, 19%, 0.95);
           color: #fffbf9;
         `,
       ]}
