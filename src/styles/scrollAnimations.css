@@ -24,21 +24,32 @@
     color: #FFFBF9;
   }
   25% {
-    opacity: 1;
+    opacity: 0.75;
     color: #FFC29F;
     transform: translate(var(--translateX1), -25vh);
+    font-size: 1.5rem;
+    letter-spacing: 0.15em
   }
   50% {
-    opacity: 1;
-    color: #FFDE9F;
+    opacity: 0.75;
+    color: #FFC29F;
     transform: translate(var(--translateX2), -50vh);
+    font-size: 1.5rem;
+    letter-spacing: 0.25em
   }
   75% {
-    transform: translate(var(--translateX3), -75vh);
+    opacity: 0.75;
+    color: #FFDE9F;
+    transform: translate(var(--translateX3), -60vh);
+    font-size: 1.5rem;
+    letter-spacing: 0.15em
   }
   to {
     opacity: 0;
-    transform: translate(var(--translateX4), -100vh);
+    color: #FFFBF9;
+    transform: translate(var(--translateX4), -70vh);
+    font-size: 1.5rem;
+    letter-spacing: 0.04em
   }
 }
 @keyframes from-past-to-on {

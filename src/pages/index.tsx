@@ -117,7 +117,7 @@ function Intro() {
 }
 
 function Paragraph({ children }: { children: React.ReactNode }) {
-  return <p css={[tw`pb-4`, css``]}>{children}</p>
+  return <p tw="pb-4">{children}</p>
 }
 
 type AnimationEvent = 'SCROLL_ON' | 'SCROLL_PAST' | 'SCROLL_BEFORE'
@@ -135,12 +135,13 @@ function Line({
     send(animationEvent)
   }, [send, animationEvent])
 
+  // Need to make media query also work with keyframe font size
+  // xs:font-normal text-xs xs:text-lg sm:text-xl md:text-xl lg:text-4xl
   return (
     <span
       css={[
-        tw`opacity-0 font-body font-medium absolute
-        xs:font-normal text-xs xs:text-lg sm:text-xl md:text-xl lg:text-4xl
-        mx-auto left-0 right-0 text-center `,
+        tw`opacity-0 font-body font-medium text-4xl
+       absolute mx-auto left-0 right-0 text-center `,
         css`
           top: 65%;
           --translateX1: ${random(-100, 100)}%;
