@@ -50,9 +50,11 @@ export default function Home() {
               <Paragraph key={stanzaIdx}>
                 {lines.map((line, lineIdx) => {
                   const lineNumber = stanzaStartLine + lineIdx
-                  // events: 'SCROLL_ON' | 'SCROLL_PAST' | 'SCROLL_BEFORE'
+                  // events: 'SCROLL_ON' | 'SCROLL_PAST' | 'SCROLL_BEFORE' | 'SCROLL_RESET'
                   const animationEvent =
-                    currentLineNumber === lineNumber
+                    typeof window !== 'undefined' && window.scrollY === 0
+                      ? 'SCROLL_RESET'
+                      : currentLineNumber === lineNumber
                       ? 'SCROLL_ON'
                       : currentLineNumber > lineNumber
                       ? 'SCROLL_PAST'
@@ -64,13 +66,14 @@ export default function Home() {
                     throw new Error("animationEvent can't be null")
                   }
 
+                  let lineArray: any[] = []
                   if (typeof window !== 'undefined') {
                     // Adding italics
                     // Need to make em  -> font style italics
                     var parser = new DOMParser()
                     var doc = parser.parseFromString(line, 'text/html')
                     const list = doc.body.childNodes
-                    let lineArray: any[] = []
+
                     list.forEach(function (currentValue) {
                       if (currentValue.nodeName === 'EM') {
                         lineArray.push(
@@ -82,12 +85,12 @@ export default function Home() {
                         lineArray.push(currentValue.textContent)
                       }
                     })
-                    return (
-                      <Line key={line} animationEvent={animationEvent}>
-                        {lineArray}
-                      </Line>
-                    )
                   }
+                  return (
+                    <Line key={line} animationEvent={animationEvent}>
+                      {lineArray}
+                    </Line>
+                  )
                 })}
               </Paragraph>
             )
@@ -139,8 +142,12 @@ function Paragraph({ children }: { children: React.ReactNode }) {
   return <p tw="pb-4">{children}</p>
 }
 
-type AnimationEvent = 'SCROLL_ON' | 'SCROLL_PAST' | 'SCROLL_BEFORE'
-// 'SCROLL_ON' | 'SCROLL_PAST' | 'SCROLL_BEFORE'
+type AnimationEvent =
+  | 'SCROLL_ON'
+  | 'SCROLL_PAST'
+  | 'SCROLL_BEFORE'
+  | 'SCROLL_RESET'
+// 'SCROLL_ON' | 'SCROLL_PAST' | 'SCROLL_BEFORE' | 'SCROLL_RESET'
 function Line({
   children,
   animationEvent,
@@ -191,7 +198,9 @@ function Outro() {
       <div tw="flex flex-col max-w-max mx-auto min-h-screen justify-center">
         <button
           className="group"
-          onClick={() => {}}
+          onClick={() => {
+            window.scrollTo(0, 0)
+          }}
           tw="flex focus:outline-none h-12 space-x-4"
         >
           <p tw="self-center font-body font-normal text-2xl">read again</p>
@@ -292,7 +301,13 @@ const animationMachine = createMachine(
         },
       },
       onLine: {},
-      pastLine: {},
+      pastLine: {
+        on: {
+          SCROLL_RESET: {
+            target: 'beforeLine',
+          },
+        },
+      },
     },
     on: {
       SCROLL_PAST: {
