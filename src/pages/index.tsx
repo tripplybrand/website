@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import { createMachine, assign } from 'xstate'
 import { useMachine } from '@xstate/react'
-import { ArrowIcon } from 'icons'
+import { ArrowIcon, RepeatIcon } from 'icons'
 
 //Increase multiplier make more scroll length between the reveal of each line
 const scrollMultiplier = 50
@@ -178,7 +178,6 @@ function Line({
 }
 
 function Outro() {
-  //Change pt to flex and center that way
   return (
     <div
       css={[
@@ -189,7 +188,16 @@ function Outro() {
         `,
       ]}
     >
-      <p tw="text-center pt-64">read again</p>
+      <div tw="flex flex-col max-w-max mx-auto min-h-screen justify-center">
+        <button
+          className="group"
+          onClick={() => {}}
+          tw="flex focus:outline-none h-12 space-x-4"
+        >
+          <p tw="self-center font-body font-normal text-2xl">read again</p>
+          <RepeatIcon tw="self-center w-8 h-8 fill-calico-orange-100 group-hover:fill-calico-orange-200" />
+        </button>
+      </div>
     </div>
   )
 }
