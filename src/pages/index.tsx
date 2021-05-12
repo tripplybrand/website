@@ -161,7 +161,7 @@ function Line({
     <span
       css={[
         tw`opacity-0 font-body font-medium text-4xl
-       absolute mx-auto left-0 right-0 text-center `,
+       absolute mx-auto left-0 right-0 text-center`,
         css`
           top: 65%;
           --translateX1: ${random(-100, 100)}%;
@@ -234,7 +234,8 @@ const stanzas = [
 const lastLineNumber = stanzas.flat().length - 1
 
 // Calculate the thresholds
-const totalNumLines = stanzas.flat().length
+// Add one to allow the final line to stary until scrolled past
+const totalNumLines = stanzas.flat().length + 1
 const inc = 1 / (totalNumLines + 1)
 const lineIdxArray = Array.from(Array(totalNumLines).keys())
 const thresholds = lineIdxArray.map((id) => inc * (id + 1))
@@ -252,10 +253,8 @@ function useCurrentLineNumber() {
       const thresholdIdx = thresholds.findIndex(
         (threshold) => currentRatio <= threshold
       )
-      //Is there a way to have the first line show up once we are scrolled in view?
-      //Do we want this?
       const currentLineNumber =
-        thresholdIdx === -1 ? lastLineNumber + 1 : thresholdIdx
+        thresholdIdx === -1 ? lastLineNumber + 1 : thresholdIdx - 1
       setCurrentLineNumber(currentLineNumber)
     }
 
