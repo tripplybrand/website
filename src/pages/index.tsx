@@ -11,6 +11,17 @@ const scrollMultiplier = 50
 export default function Home() {
   const currentLineNumber = useCurrentLineNumber()
 
+  const [poemStarted, setPoemStarted] = useState(false)
+
+  if (
+    currentLineNumber !== -1 &&
+    currentLineNumber !== lastLineNumber + 1 &&
+    currentLineNumber > 0 &&
+    poemStarted === false
+  ) {
+    setPoemStarted(true)
+  }
+
   return (
     <>
       <Head>
@@ -30,7 +41,7 @@ export default function Home() {
         ></meta>
         <meta name="twitter:card" content="summary_large_image"></meta>
       </Head>
-      <Intro />
+      <Intro poemStarted={poemStarted} setPoemStarted={setPoemStarted} />
       <div
         css={[
           tw`flex justify-center my-0 mx-auto min-h-screen sticky top-0`,
@@ -106,14 +117,49 @@ export default function Home() {
           `,
         ]}
       ></div>
-      <Outro />
+      <Outro setPoemStarted={setPoemStarted} />
     </>
   )
 }
 
 // Components
+type IntroProps = {
+  poemStarted: boolean
+  setPoemStarted: (value: boolean) => void
+}
+function Intro({ poemStarted, setPoemStarted }: IntroProps) {
+  if (poemStarted) {
+    return (
+      <div
+        css={[
+          tw`min-h-screen space-y-10`,
+          css`
+            background-color: hsla(205deg, 10%, 13%, 1);
+            color: #fffbf9;
+          `,
+        ]}
+      >
+        <div tw="max-w-max mx-auto pt-44 space-y-6">
+          <h1 tw="font-body font-bold text-6xl text-center">Jake’s Parade</h1>
+          <h2 tw="font-body font-medium text-4xl text-center">
+            a poem by Michael Dechane
+          </h2>
+        </div>
+        <button
+          className="group"
+          onClick={() => {
+            window.scrollTo(0, 0)
+            setPoemStarted(false)
+          }}
+          tw="flex focus:outline-none h-12 space-x-4 max-w-max mx-auto"
+        >
+          <p tw="self-center font-body font-normal text-2xl">read again</p>
+          <RepeatIcon tw="self-center w-8 h-8 fill-calico-orange-100 group-hover:fill-calico-orange-200" />
+        </button>
+      </div>
+    )
+  }
 
-function Intro() {
   return (
     <div
       css={[
@@ -184,7 +230,11 @@ function Line({
   )
 }
 
-function Outro() {
+function Outro({
+  setPoemStarted,
+}: {
+  setPoemStarted: (value: boolean) => void
+}) {
   return (
     <div
       css={[
@@ -200,6 +250,7 @@ function Outro() {
           className="group"
           onClick={() => {
             window.scrollTo(0, 0)
+            setPoemStarted(false)
           }}
           tw="flex focus:outline-none h-12 space-x-4"
         >
@@ -301,18 +352,16 @@ const animationMachine = createMachine(
         },
       },
       onLine: {},
-      pastLine: {
-        on: {
-          SCROLL_RESET: {
-            target: 'beforeLine',
-          },
-        },
-      },
+      pastLine: {},
     },
     on: {
       SCROLL_PAST: {
         target: 'pastLine',
         actions: 'fromOnToPast',
+      },
+      SCROLL_RESET: {
+        target: 'beforeLine',
+        actions: 'reset',
       },
     },
   },
@@ -324,6 +373,9 @@ const animationMachine = createMachine(
       fromOnToPast: assign({
         animation:
           'from-on-to-past 5s forwards cubic-bezier(0.1, 0.7, 1.0, 0.1)',
+      }),
+      reset: assign({
+        animation: 'reset 0s forwards ease-out',
       }),
     },
   }

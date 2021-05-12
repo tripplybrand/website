@@ -9,15 +9,6 @@
   }
 }
 
-@keyframes from-on-to-before {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
 @keyframes from-on-to-past {
   from {
     opacity: 1;
@@ -52,32 +43,12 @@
     letter-spacing: 0.04em
   }
 }
-@keyframes from-past-to-on {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 0;
-  }
-}
 
-@keyframes attribution-in {
+@keyframes reset {
   from {
     opacity: 0;
-    color: #FFC29F;
-  }
-  to {
-    opacity: 1;
-    color: #FFFBF9;
-  }
-}
-@keyframes attribution-out {
-  from {
-    opacity: 1;
-    color: #FFFBF9;
   }
   to {
     opacity: 0;
-    color: #FFC29F;
   }
 }
