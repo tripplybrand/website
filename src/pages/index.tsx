@@ -217,7 +217,7 @@ function Line({
        absolute mx-auto left-0 right-0 text-center`,
         css`
           top: 65%;
-          --translateX1: ${random(-100, 100)}%;
+          --translateX1: ${random(-75, 75)}%;
           --translateX2: ${random(-50, 50)}%;
           --translateX3: ${random(-25, 25)}%;
           --translateX4: ${random(-5, 5)}%;
@@ -308,6 +308,11 @@ const inc = 1 / (totalNumLines + 1)
 const lineIdxArray = Array.from(Array(totalNumLines).keys())
 const thresholds = lineIdxArray.map((id) => inc * (id + 1))
 
+// Utilities
+//from-on-to-past 5s forwards cubic-bezier(0.1, 0.7, 1.0, 0.1)
+const random = (min: number, max: number) =>
+  Math.floor(Math.random() * (max - min)) + min
+
 // Hooks/logic
 
 function useCurrentLineNumber() {
@@ -371,8 +376,11 @@ const animationMachine = createMachine(
         animation: 'from-before-to-on 3s forwards ease-out',
       }),
       fromOnToPast: assign({
-        animation:
-          'from-on-to-past 5s forwards cubic-bezier(0.1, 0.7, 1.0, 0.1)',
+        animation: `from-on-to-past 5s forwards cubic-bezier(
+          ${random(0, 0.5)}, 
+          ${random(0.5, 1)}, 
+          ${random(0, 0.5)}, 
+          ${random(0.5, 1)})`,
       }),
       reset: assign({
         animation: 'reset 0s forwards ease-out',
@@ -380,8 +388,4 @@ const animationMachine = createMachine(
     },
   }
 )
-
-// Utilities
-
-const random = (min: number, max: number) =>
-  Math.floor(Math.random() * (max - min)) + min
+//One I liked if I go back to static: cubic-bezier(0.1, 0.7, 1.0, 0.1)
