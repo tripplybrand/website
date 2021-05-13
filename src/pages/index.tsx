@@ -66,6 +66,7 @@ export default function Home() {
                       key={lineIdx}
                       currentLineNumber={currentLineNumber}
                       lineNumber={lineNumber}
+                      poemStarted={poemStarted}
                     >
                       {line}
                     </Line>
@@ -156,27 +157,23 @@ function Paragraph({ children }: { children: React.ReactNode }) {
   return <p tw="pb-4">{children}</p>
 }
 
-// type AnimationEvent =
-//   | 'SCROLL_ON'
-//   | 'SCROLL_PAST'
-//   | 'SCROLL_BEFORE'
-//   | 'SCROLL_RESET'
-// 'SCROLL_ON' | 'SCROLL_PAST' | 'SCROLL_BEFORE' | 'SCROLL_RESET'
 function Line({
   children,
   currentLineNumber,
   lineNumber,
+  poemStarted,
 }: {
   children: React.ReactNode
   currentLineNumber: number
   lineNumber: number
+  poemStarted: boolean
   key: React.Key
 }) {
   const [state, send] = useMachine(animationMachine)
 
   useEffect(() => {
     const animationEvent =
-      typeof window !== 'undefined' && window.scrollY === 0
+      !poemStarted && currentLineNumber === -1
         ? 'SCROLL_RESET'
         : currentLineNumber === lineNumber
         ? 'SCROLL_ON'
@@ -191,7 +188,7 @@ function Line({
     }
 
     send(animationEvent)
-  }, [send, currentLineNumber, lineNumber])
+  }, [send, currentLineNumber, lineNumber, poemStarted])
 
   // Need to make media query also work with keyframe font size
   // xs:font-normal text-xs xs:text-lg sm:text-xl md:text-xl lg:text-4xl
