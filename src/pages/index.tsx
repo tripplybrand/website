@@ -1,6 +1,6 @@
 import tw, { css } from 'twin.macro'
 import Head from 'next/head'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useMemo } from 'react'
 import { createMachine, assign } from 'xstate'
 import { useMachine } from '@xstate/react'
 import { ArrowIcon, RepeatIcon } from 'icons'
@@ -190,26 +190,9 @@ function Line({
     send(animationEvent)
   }, [send, currentLineNumber, lineNumber, poemStarted])
 
-  // Need to make media query also work with keyframe font size
-  // xs:font-normal text-xs xs:text-lg sm:text-xl md:text-xl lg:text-4xl
-  return (
-    <span
-      css={[
-        tw`opacity-0 font-body font-medium text-4xl
-       absolute mx-auto left-0 right-0 text-center`,
-        css`
-          top: 65%;
-          --translateX1: ${random(-75, 75)}%;
-          --translateX2: ${random(-50, 50)}%;
-          --translateX3: ${random(-25, 25)}%;
-          --translateX4: ${random(-5, 5)}%;
-          animation: ${state.context.animation};
-        `,
-      ]}
-    >
-      {children}
-    </span>
-  )
+  const lineCss = useLineCss(state.context.animation)
+
+  return <span css={lineCss}>{children}</span>
 }
 
 function Outro({
@@ -288,14 +271,14 @@ const stanzas = [
 const lastLineNumber = stanzas.flat().length - 1
 
 // Calculate the thresholds
-// Add one to allow the final line to stary until scrolled past
+// Add one to allow the final line to stay until scrolled past
 const totalNumLines = stanzas.flat().length + 1
 const inc = 1 / (totalNumLines + 1)
 const lineIdxArray = Array.from(Array(totalNumLines).keys())
 const thresholds = lineIdxArray.map((id) => inc * (id + 1))
 
 // Utilities
-//from-on-to-past 5s forwards cubic-bezier(0.1, 0.7, 1.0, 0.1)
+
 const random = (min: number, max: number) =>
   Math.floor(Math.random() * (max - min)) + min
 
@@ -325,6 +308,30 @@ function useCurrentLineNumber() {
   }, [])
 
   return currentLineNumber
+}
+
+function useLineCss(animation: string) {
+  // Need to make media query also work with keyframe font size
+  // xs:font-normal text-xs xs:text-lg sm:text-xl md:text-xl lg:text-4xl
+  const lineCss = useMemo(() => {
+    return [
+      tw`opacity-0 font-body font-medium text-4xl absolute mx-auto left-0 right-0 text-center`,
+      css`
+        top: 65%;
+        --translateX1: ${random(-75, 75)}%;
+        --translateX2: ${random(-50, 50)}%;
+        --translateX3: ${random(-25, 25)}%;
+        --translateX4: ${random(-5, 5)}%;
+      `,
+    ]
+  }, [])
+
+  return [
+    ...lineCss,
+    css`
+      animation: ${animation};
+    `,
+  ]
 }
 
 const animationMachine = createMachine(
