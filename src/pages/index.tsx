@@ -44,7 +44,7 @@ export default function Home() {
       <Intro poemStarted={poemStarted} setPoemStarted={setPoemStarted} />
       <div
         css={[
-          tw`flex justify-center my-0 mx-auto min-h-screen sticky top-0`,
+          tw`flex justify-center my-0 mx-auto min-h-screen sticky top-0 overflow-hidden`,
           css`
             background-color: hsla(205deg, 10%, 13%, 1);
           `,
