@@ -36,7 +36,7 @@ export default function Home() {
         />
         <meta
           property="og:image"
-          content="https://lapsang-souchong.vercel.app/Tea_Meta.jpg"
+          content="https://jakes-parade.vercel.app/Jake'sParade_Meta.jpg"
           key="ogimage"
         ></meta>
         <meta name="twitter:card" content="summary_large_image"></meta>
