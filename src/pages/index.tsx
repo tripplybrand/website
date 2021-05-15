@@ -42,11 +42,17 @@ export default function Home() {
         <meta name="twitter:card" content="summary_large_image"></meta>
       </Head>
       <Intro poemStarted={poemStarted} setPoemStarted={setPoemStarted} />
+      {/* tw`flex justify-center my-0 mx-auto min-h-screen sticky top-0 overflow-hidden`
+      background-color: hsla(90deg, 6%, 51%, 0.4);
+      background-color: hsla(260deg, 24%, 58%, 0.35);
+      background-color: hsla(205deg, 10%, 19%, 0.4);
+      background-color: hsla(330deg, 37%, 68%, 0.35); (from the fire)
+      */}
       <div
         css={[
           tw`flex justify-center my-0 mx-auto min-h-screen sticky top-0 overflow-hidden`,
           css`
-            background-color: hsla(90deg, 6%, 51%, 0.4);
+            background-color: hsla(330deg, 37%, 68%, 0.35);
           `,
         ]}
       >
@@ -96,14 +102,15 @@ type IntroProps = {
   poemStarted: boolean
   setPoemStarted: (value: boolean) => void
 }
+
 function Intro({ poemStarted, setPoemStarted }: IntroProps) {
   if (poemStarted) {
     return (
       <div
         css={[
-          tw`min-h-screen space-y-10`,
+          tw`min-h-screen space-y-10 sticky`,
           css`
-            background-color: hsla(205deg, 10%, 13%, 1);
+            background-color: hsla(330deg, 37%, 68%, 0.35);
             color: #fffbf9;
           `,
         ]}
@@ -129,12 +136,13 @@ function Intro({ poemStarted, setPoemStarted }: IntroProps) {
     )
   }
 
+  //background-color: hsla(205deg, 10%, 13%, 1);
   return (
     <div
       css={[
-        tw`min-h-screen space-y-10`,
+        tw`min-h-screen space-y-10 sticky`,
         css`
-          background-color: hsla(205deg, 10%, 13%, 1);
+          background-color: hsla(330deg, 37%, 68%, 0.35);
           color: #fffbf9;
         `,
       ]}
@@ -201,12 +209,14 @@ function Outro({
   setPoemStarted: (value: boolean) => void
 }) {
   //Background background-color: hsla(205deg, 10%, 19%, 0.95);
+  //How do I make it so this div isn't on top of the previous one?
   return (
     <div
       css={[
         tw`min-h-screen sticky`,
         css`
           color: #fffbf9;
+          background-color: hsla(90deg, 6%, 51%, 0);
         `,
       ]}
     >
