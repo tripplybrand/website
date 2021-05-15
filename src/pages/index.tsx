@@ -46,7 +46,7 @@ export default function Home() {
         css={[
           tw`flex justify-center my-0 mx-auto min-h-screen sticky top-0 overflow-hidden`,
           css`
-            background-color: hsla(205deg, 10%, 13%, 1);
+            background-color: hsla(90deg, 6%, 51%, 0.4);
           `,
         ]}
       >
@@ -200,12 +200,12 @@ function Outro({
 }: {
   setPoemStarted: (value: boolean) => void
 }) {
+  //Background background-color: hsla(205deg, 10%, 19%, 0.95);
   return (
     <div
       css={[
         tw`min-h-screen sticky`,
         css`
-          background-color: hsla(205deg, 10%, 19%, 0.95);
           color: #fffbf9;
         `,
       ]}
@@ -317,7 +317,7 @@ function useLineCss(animation: string) {
     return [
       tw`opacity-0 font-body font-medium text-4xl absolute mx-auto left-0 right-0 text-center`,
       css`
-        top: 65%;
+        top: 50%;
         --translateX1: ${random(-75, 75)}%;
         --translateX2: ${random(-50, 50)}%;
         --translateX3: ${random(-25, 25)}%;

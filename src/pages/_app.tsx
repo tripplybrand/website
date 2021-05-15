@@ -14,17 +14,17 @@ function App({ Component, pageProps }: AppProps & ComponentWithPageLayout) {
     <>
       <div tw="fixed overflow-hidden">
         {/*Add video once everything else is worked out*/}
-        {/* <video
+        <video
           autoPlay
           muted
           loop
           playsInline
-          poster="Steam_Tea_Still.jpg"
+          poster="Jake'sParade_Still.jpg"
           tw="object-cover w-screen h-screen"
         >
-          <source src="Steaming_Tea_Loop_Shorter.mp4" type="video/mp4" />
+          <source src="Jake'sParade_Mid_FireBottom.mp4" type="video/mp4" />
         </video>
-        Sorry, your browser doesn't support embedded videos. */}
+        Sorry, your browser doesn't support embedded videos.
       </div>
       {/*Transparent pane between video and text*/}
       {/* <div
