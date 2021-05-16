@@ -21,7 +21,6 @@
     color: #FFC29F;
     transform: translate(var(--translateX1), -20vh);
     letter-spacing: 0.15em;
-    font-size: 1.5rem;
   }
   50% {
     opacity: 0.75;
