@@ -383,7 +383,7 @@ const animationMachine = createMachine(
           ${random(0, 0.5)}, 
           ${random(0.5, 1)}, 
           ${random(0, 0.5)}, 
-          ${random(0.5, 1)})`,
+          ${random(0.5, 1)}); font-size: 1.5rem;`,
       }),
       reset: assign({
         animation: 'reset 0s forwards ease-out',
