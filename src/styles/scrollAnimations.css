@@ -9,6 +9,7 @@
   }
 }
 
+/*font-size: 1.5rem;*/
 @keyframes from-on-to-past {
   from {
     opacity: 1;
@@ -18,28 +19,24 @@
     opacity: 0.75;
     color: #FFC29F;
     transform: translate(var(--translateX1), -20vh);
-    font-size: 1.5rem;
     letter-spacing: 0.15em
   }
   50% {
     opacity: 0.75;
     color: #FFC29F;
     transform: translate(var(--translateX2), -40vh);
-    font-size: 1.5rem;
     letter-spacing: 0.25em
   }
   75% {
     opacity: 0.75;
     color: #FFDE9F;
     transform: translate(var(--translateX3), -50vh);
-    font-size: 1.5rem;
     letter-spacing: 0.15em
   }
   to {
     opacity: 0;
     color: #FFFBF9;
     transform: translate(var(--translateX4), -60vh);
-    font-size: 1.5rem;
     letter-spacing: 0.04em
   }
 }

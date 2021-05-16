@@ -108,14 +108,14 @@ function Intro({ poemStarted, setPoemStarted }: IntroProps) {
     return (
       <div
         css={[
-          tw`min-h-screen space-y-10 sticky`,
+          tw`flex flex-col justify-center min-h-screen space-y-10 sticky`,
           css`
             background-color: hsla(330deg, 37%, 68%, 0.35);
             color: #fffbf9;
           `,
         ]}
       >
-        <div tw="max-w-max mx-auto pt-44 space-y-6">
+        <div tw="max-w-max mx-auto space-y-6">
           <h1 tw="font-body font-bold text-6xl text-center">Jake’s Parade</h1>
           <h2 tw="font-body font-medium text-4xl text-center">
             a poem by Michael Dechane
@@ -140,14 +140,14 @@ function Intro({ poemStarted, setPoemStarted }: IntroProps) {
   return (
     <div
       css={[
-        tw`min-h-screen space-y-10 sticky`,
+        tw`flex flex-col justify-center min-h-screen space-y-10 sticky`,
         css`
           background-color: hsla(330deg, 37%, 68%, 0.35);
           color: #fffbf9;
         `,
       ]}
     >
-      <div tw="max-w-max mx-auto pt-44 space-y-6">
+      <div tw="max-w-max mx-auto space-y-6">
         <h1 tw="font-body font-bold text-6xl text-center">Jake’s Parade</h1>
         <h2 tw="font-body font-medium text-4xl text-center">
           a poem by Michael Dechane
