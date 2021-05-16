@@ -14,12 +14,14 @@
   from {
     opacity: 1;
     color: #FFFBF9;
+    font-size: 2.25rem;
   }
   25% {
     opacity: 0.75;
     color: #FFC29F;
     transform: translate(var(--translateX1), -20vh);
-    letter-spacing: 0.15em
+    letter-spacing: 0.15em;
+    font-size: 1.5rem;
   }
   50% {
     opacity: 0.75;
@@ -37,7 +39,8 @@
     opacity: 0;
     color: #FFFBF9;
     transform: translate(var(--translateX4), -60vh);
-    letter-spacing: 0.04em
+    letter-spacing: 0.04em;
+    font-size: 1.5rem;
   }
 }
 
