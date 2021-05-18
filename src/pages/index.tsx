@@ -228,7 +228,7 @@ function Outro({
           <p
             tw="font-body self-center
             font-semibold xs:font-medium
-          text-xl xs:text-2xl
+          text-lg xs:text-2xl
           "
           >
             read again
@@ -325,10 +325,11 @@ function useCurrentLineNumber() {
 
 function useLineCss(animation: string) {
   // Need to make media query also work with keyframe font size
-  // xs:font-normal text-xs xs:text-lg sm:text-xl md:text-xl lg:text-4xl
   const lineCss = useMemo(() => {
     return [
-      tw`opacity-0 font-body font-medium text-4xl absolute mx-auto left-0 right-0 text-center`,
+      tw`opacity-0 font-body absolute mx-auto left-0 right-0 text-center 
+      font-semibold xs:font-medium sm:font-normal md:font-light lg:font-light 
+      text-xs xs:text-lg sm:text-2xl md:text-3xl lg:text-4xl`,
       css`
         top: 50%;
         --translateX1: ${random(-75, 75)}%;
