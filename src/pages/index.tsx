@@ -383,11 +383,27 @@ const animationMachine = createMachine(
         animation: 'from-before-to-on 3s forwards ease-out',
       }),
       fromOnToPast: assign({
+        /*The font sizes are 0.65 of the value of each of the following: text-xs, text-lg, text-2xl, text-3xl, text-4xl*/
+        /*The media query values come from tailwind.config*/
         animation: `from-on-to-past 5s forwards cubic-bezier(
           ${random(0, 0.5)}, 
           ${random(0.5, 1)}, 
           ${random(0, 0.5)}, 
-          ${random(0.5, 1)}); font-size: 1.5rem;`,
+          ${random(0.5, 1)}); 
+          font-size: 0.4875rem; 
+          @media (min-width: 475px) { 
+            font-size: 0.73125rem;
+          };
+          @media (min-width: 640px) { 
+            font-size: 0.975rem;
+          };
+          @media (min-width: 768px) { 
+            font-size: 1.21875rem;
+          };
+          @media (min-width: 1024px) { 
+            font-size: 1.4625rem;
+          };
+          `,
       }),
       reset: assign({
         animation: 'reset 0s forwards ease-out',
@@ -395,4 +411,5 @@ const animationMachine = createMachine(
     },
   }
 )
+//tw="text-xs xs:text-lg sm:text-2xl md:text-3xl lg:text-4xl"
 //One I liked if I go back to static: cubic-bezier(0.1, 0.7, 1.0, 0.1)
