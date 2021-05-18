@@ -1,32 +1,30 @@
-/* @font-face and Proza Libre's woff2 files generated from https://google-webfonts-helper.herokuapp.com/fonts */
-/* Proza Libre is not a variable font */
+/*
+  1. Download variable font ttf file from Google https://fonts.google.com/ 
+  2. Use glyphhanger to subset the variable file https://www.npmjs.com/package/glyphhanger
+  3. Because I can't get brotli to work, I have to take the subset ttf file produced by glyphhanger
+    and compress it to a woff2 with https://github.com/google/woff2, which I was only able to get to work with `brew install woff2`
+*/
 
-/* proza-libre-400 - latin */
+/* raleway-variable - subset */
 @font-face {
-  font-family: 'Proza Libre';
+  font-family: 'Raleway';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 100 900;
   font-display: swap;
   src: local(''),
-       url('/fonts/Proza_Libre/proza-libre-v5-latin-regular.woff2') format('woff2');
+      url('/fonts/Raleway/Raleway-VariableFont_wght-subset.woff2') format('woff2 supports variations'),
+      url('/fonts/Raleway/Raleway-VariableFont_wght-subset.woff2') format('woff2-variations');
 }
-/* proza-libre-500 - latin */
+
+/* raleway-italic-variable - subset */
 @font-face {
-  font-family: 'Proza Libre';
-  font-style: normal;
-  font-weight: 500;
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 100 900;
   font-display: swap;
   src: local(''),
-       url('/fonts/Proza_Libre/proza-libre-v5-latin-500.woff2') format('woff2');
-}
-/* proza-libre-700 - latin */
-@font-face {
-  font-family: 'Proza Libre';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: local(''),
-       url('/fonts/Proza_Libre/proza-libre-v5-latin-700.woff2') format('woff2');
+      url('/fonts/Raleway/Raleway-Italic-VariableFont_wght-subset.woff2') format('woff2 supports variations'),
+      url('/fonts/Raleway/Raleway-Italic-VariableFont_wght-subset.woff2') format('woff2-variations');
 }
 
 /*Stops bounce effect and limits of scroll. Doesn't work in Safari.*/
@@ -41,7 +39,6 @@ html, body {
   overscroll-behavior: none;
 }
 
-/*We need to load an italic fontstyle*/
 em {
   font-style: italic;
 }

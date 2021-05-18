@@ -18,21 +18,7 @@ class MyDocument extends Document {
         <Head>
           <link
             rel="preload"
-            href="/fonts/Proza_Libre/proza-libre-v5-latin-regular.woff2"
-            as="font"
-            type="font/woff2"
-            crossOrigin=""
-          />
-          <link
-            rel="preload"
-            href="/fonts/Proza_Libre/proza-libre-v5-latin-500.woff2"
-            as="font"
-            type="font/woff2"
-            crossOrigin=""
-          />
-          <link
-            rel="preload"
-            href="/fonts/Proza_Libre/proza-libre-v5-latin-700.woff2"
+            href="/fonts/Raleway/Raleway-VariableFont_wght-subset.woff2"
             as="font"
             type="font/woff2"
             crossOrigin=""

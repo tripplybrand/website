@@ -2,9 +2,8 @@ module.exports = {
   purge: ['./src/**/*.{js,ts,jsx,tsx}', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     fontFamily: {
-      // Note, Proza Libre must be quoted per the docs: https://tailwindcss.com/docs/font-family/#font-families
       body: [
-        '"Proza Libre"',
+        'Raleway',
         'ui-sans-serif',
         'system-ui',
         '-apple-system',
