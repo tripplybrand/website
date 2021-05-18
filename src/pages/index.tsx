@@ -411,5 +411,4 @@ const animationMachine = createMachine(
     },
   }
 )
-//tw="text-xs xs:text-lg sm:text-2xl md:text-3xl lg:text-4xl"
 //One I liked if I go back to static: cubic-bezier(0.1, 0.7, 1.0, 0.1)
