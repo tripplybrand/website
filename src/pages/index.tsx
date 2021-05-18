@@ -273,7 +273,7 @@ const stanzas = [
     'The more he found to burn, the better our fire',
     'seemed to like it and lick its quickening lips.',
     'There were things between most of us and inside',
-    'every one of us alreading vanishing smoke.',
+    'every one of us already vanishing smoke.',
     'What I remember most is how our faces flickered',
     'in the shared, inexplicable goodness of that night',
     'and the guitar—how quick and soft the sound its strings',
