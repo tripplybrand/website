@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app'
 import '../styles/globals.css'
 import '../styles/scrollAnimations.css'
-import tw, { css, GlobalStyles } from 'twin.macro'
+import { GlobalStyles } from 'twin.macro'
 
 type ComponentWithPageLayout = {
   Component: AppProps['Component'] & {
@@ -13,7 +13,6 @@ function App({ Component, pageProps }: AppProps & ComponentWithPageLayout) {
   return (
     <>
       <div tw="fixed overflow-hidden">
-        {/*Add video once everything else is worked out*/}
         <video
           autoPlay
           muted

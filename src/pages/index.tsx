@@ -98,38 +98,6 @@ type IntroProps = {
 }
 
 function Intro({ poemStarted, setPoemStarted }: IntroProps) {
-  if (poemStarted) {
-    return (
-      <div
-        css={[
-          tw`flex flex-col justify-center min-h-screen space-y-10 relative`,
-          css`
-            background-color: hsla(330deg, 37%, 68%, 0.35);
-            color: #fffbf9;
-          `,
-        ]}
-      >
-        <div tw="max-w-max mx-auto space-y-6">
-          <h1 tw="font-body font-bold text-6xl text-center">Jake’s Parade</h1>
-          <h2 tw="font-body font-medium text-4xl text-center">
-            a poem by Michael Dechane
-          </h2>
-        </div>
-        <button
-          className="group"
-          onClick={() => {
-            window.scrollTo(0, 0)
-            setPoemStarted(false)
-          }}
-          tw="flex focus:outline-none h-12 space-x-4 max-w-max mx-auto"
-        >
-          <p tw="self-center font-body font-normal text-2xl">read again</p>
-          <RepeatIcon tw="self-center w-8 h-8 fill-calico-orange-100 group-hover:fill-calico-orange-200" />
-        </button>
-      </div>
-    )
-  }
-
   return (
     <div
       css={[
@@ -141,15 +109,52 @@ function Intro({ poemStarted, setPoemStarted }: IntroProps) {
       ]}
     >
       <div tw="max-w-max mx-auto space-y-6">
-        <h1 tw="font-body font-bold text-6xl text-center">Jake’s Parade</h1>
-        <h2 tw="font-body font-medium text-4xl text-center">
+        <h1
+          tw="font-body text-center 
+        font-extrabold xs:font-bold 
+        text-4xl xs:text-5xl sm:text-6xl"
+        >
+          Jake’s Parade
+        </h1>
+        <h2
+          tw="font-body text-center 
+        font-normal xs:font-light
+        text-xl xs:text-3xl sm:text-4xl
+       "
+        >
           a poem by Michael Dechane
         </h2>
       </div>
-      <div tw="max-w-max mx-auto space-y-3">
-        <p tw="font-body font-normal text-2xl text-center">scroll to begin</p>
-        <ArrowIcon tw="w-4 h-6 fill-calico-orange-100 animate-bounce max-w-max mx-auto" />
-      </div>
+      {poemStarted ? (
+        <button
+          className="group"
+          onClick={() => {
+            window.scrollTo(0, 0)
+            setPoemStarted(false)
+          }}
+          tw="flex focus:outline-none h-12 space-x-4 max-w-max mx-auto"
+        >
+          <p
+            tw="font-body self-center
+          font-semibold xs:font-medium
+          text-base xs:text-lg sm:text-xl"
+          >
+            read again
+          </p>
+          <RepeatIcon tw="self-center w-8 h-8 fill-calico-orange-100 group-hover:fill-calico-orange-200" />
+        </button>
+      ) : (
+        <div tw="max-w-max mx-auto space-y-3">
+          <p
+            tw="font-body text-center 
+        font-semibold xs:font-medium
+        text-base xs:text-lg sm:text-xl"
+          >
+            scroll to begin
+          </p>
+          <ArrowIcon tw="w-4 h-6 fill-calico-orange-100 animate-bounce max-w-max mx-auto" />
+        </div>
+      )}
     </div>
   )
 }
@@ -201,7 +206,6 @@ function Outro({
 }: {
   setPoemStarted: (value: boolean) => void
 }) {
-  //How do I make it so this div isn't on top of the previous one?
   return (
     <div
       css={[
@@ -221,7 +225,14 @@ function Outro({
           }}
           tw="flex focus:outline-none h-12 space-x-4"
         >
-          <p tw="self-center font-body font-normal text-2xl">read again</p>
+          <p
+            tw="font-body self-center
+            font-semibold xs:font-medium
+          text-xl xs:text-2xl
+          "
+          >
+            read again
+          </p>
           <RepeatIcon tw="self-center w-8 h-8 fill-calico-orange-100 group-hover:fill-calico-orange-200" />
         </button>
       </div>
