@@ -102,7 +102,7 @@ function Intro({ poemStarted, setPoemStarted }: IntroProps) {
     return (
       <div
         css={[
-          tw`flex flex-col justify-center min-h-screen space-y-10 sticky`,
+          tw`flex flex-col justify-center min-h-screen space-y-10 relative`,
           css`
             background-color: hsla(330deg, 37%, 68%, 0.35);
             color: #fffbf9;
@@ -205,7 +205,7 @@ function Outro({
   return (
     <div
       css={[
-        tw`min-h-screen sticky`,
+        tw`min-h-screen relative`,
         css`
           color: #fffbf9;
           background-color: hsla(330deg, 37%, 68%, 0);

@@ -38,7 +38,7 @@ class MyDocument extends Document {
             crossOrigin=""
           />
         </Head>
-        <body>
+        <body tw="overflow-x-hidden">
           <Main />
           <NextScript />
         </body>
