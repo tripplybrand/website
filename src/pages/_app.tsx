@@ -12,6 +12,7 @@ type ComponentWithPageLayout = {
 function App({ Component, pageProps }: AppProps & ComponentWithPageLayout) {
   return (
     <>
+      {/*Video. Need to only have this on Jake*/}
       <div tw="fixed overflow-hidden">
         <video
           autoPlay
