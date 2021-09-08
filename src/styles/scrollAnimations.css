@@ -1,4 +1,26 @@
+/* Shared */
+
+@keyframes reset {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 @keyframes from-before-to-on {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/*Jake's Parade*/
+
+@keyframes from-before-to-on-jake {
   from {
     opacity: 0;
     color: #FFFBF9;
@@ -9,7 +31,7 @@
   }
 }
 
-@keyframes from-on-to-past {
+@keyframes from-on-to-past-jake {
   from {
     opacity: 1;
     color: #FFFBF9;
@@ -40,11 +62,48 @@
   }
 }
 
-@keyframes reset {
+
+/* Lapsang Souchong */
+
+@keyframes from-on-to-past-lapsang {
+  from {
+    opacity: 1;
+    color: #FFBA75;
+  }
+  to {
+    opacity: 1;
+    color: #F9F7F8;
+  }
+}
+@keyframes from-past-to-on-lapsang {
+  from {
+    opacity: 1;
+    color: #F9F7F8;
+  }
+  to {
+    opacity: 1;
+    color: #FFBA75;
+  }
+}
+
+@keyframes attribution-in-lapsang {
   from {
     opacity: 0;
+    color: #FFBA75;
+  }
+  to {
+    opacity: 1;
+    color: #F9F7F8;
+  }
+}
+
+@keyframes attribution-out-lapsang {
+  from {
+    opacity: 1;
+    color: #F9F7F8;
   }
   to {
     opacity: 0;
+    color: #FFBA75;
   }
 }

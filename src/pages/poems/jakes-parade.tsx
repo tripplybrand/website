@@ -395,12 +395,12 @@ const animationMachine = createMachine(
   {
     actions: {
       fromBeforeToOn: assign({
-        animation: 'from-before-to-on 3s forwards ease-out',
+        animation: 'from-before-to-on-jake 3s forwards ease-out',
       }),
       fromOnToPast: assign({
         /*The font sizes are 0.65 of the value of each of the following: text-xs, text-lg, text-2xl, text-3xl, text-4xl*/
         /*The media query values come from tailwind.config*/
-        animation: `from-on-to-past 5s forwards cubic-bezier(
+        animation: `from-on-to-past-jake 5s forwards cubic-bezier(
           ${random(0, 0.5)}, 
           ${random(0.5, 1)}, 
           ${random(0, 0.5)}, 
