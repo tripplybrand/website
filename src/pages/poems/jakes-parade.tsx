@@ -34,6 +34,7 @@ export default function Home() {
           content="A poem by Michael Dechane"
           key="ogdesc"
         />
+        {/* Change content when we have the new url*/}
         <meta
           property="og:image"
           content="https://jakes-parade.vercel.app/Jake'sParade_Meta.jpg"
@@ -41,6 +42,20 @@ export default function Home() {
         ></meta>
         <meta name="twitter:card" content="summary_large_image"></meta>
       </Head>
+      {/* Background fire video */}
+      <div tw="fixed overflow-hidden">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/Jake'sParade_Still.jpg"
+          tw="object-cover w-screen h-screen"
+        >
+          <source src="/Jake'sParade_Mid_FireBottom.mp4" type="video/mp4" />
+        </video>
+        Sorry, your browser doesn't support embedded videos.
+      </div>
       <Intro poemStarted={poemStarted} setPoemStarted={setPoemStarted} />
       <div
         css={[
