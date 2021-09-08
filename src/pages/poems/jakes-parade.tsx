@@ -34,15 +34,14 @@ export default function Home() {
           content="A poem by Michael Dechane"
           key="ogdesc"
         />
-        {/* Change content when we have the new url*/}
         <meta
           property="og:image"
-          content="https://jakes-parade.vercel.app/Jake'sParade_Meta.jpg"
+          content="https://website-tripplybrand.vercel.app/Jake'sParade_Meta.jpg"
           key="ogimage"
         ></meta>
         <meta name="twitter:card" content="summary_large_image"></meta>
       </Head>
-      {/* Background fire video */}
+      {/* Background video */}
       <div tw="fixed overflow-hidden">
         <video
           autoPlay
@@ -56,6 +55,7 @@ export default function Home() {
         </video>
         Sorry, your browser doesn't support embedded videos.
       </div>
+      {/* Text section */}
       <Intro poemStarted={poemStarted} setPoemStarted={setPoemStarted} />
       <div
         css={[

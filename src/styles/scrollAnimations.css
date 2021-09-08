@@ -1,4 +1,4 @@
-/* Shared */
+/* Non-color specific */
 
 @keyframes reset {
   from {
@@ -18,7 +18,16 @@
   }
 }
 
-/*Jake's Parade*/
+@keyframes from-on-to-before {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Jake's Parade */
 
 @keyframes from-before-to-on-jake {
   from {
@@ -105,5 +114,49 @@
   to {
     opacity: 0;
     color: #FFBA75;
+  }
+}
+
+/*  Corrective Lenses */
+
+@keyframes from-on-to-past-corrective {
+  from {
+    opacity: 1;
+    color: #A3EDFD;
+  }
+  to {
+    opacity: 1;
+    color: #F5FAFF;
+  }
+}
+@keyframes from-past-to-on-corrective {
+  from {
+    opacity: 1;
+    color: #F5FAFF;
+  }
+  to {
+    opacity: 1;
+    color: #A3EDFD;
+  }
+}
+
+@keyframes attribution-in-corrective {
+  from {
+    opacity: 0;
+    color: #A3EDFD;
+  }
+  to {
+    opacity: 1;
+    color: #F5FAFF;
+  }
+}
+@keyframes attribution-out-corrective {
+  from {
+    opacity: 1;
+    color: #F5FAFF;
+  }
+  to {
+    opacity: 0;
+    color: #A3EDFD;
   }
 }

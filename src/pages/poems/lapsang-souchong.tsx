@@ -28,11 +28,12 @@ export default function LapsangSouchong() {
         />
         <meta
           property="og:image"
-          content="https://lapsang-souchong.vercel.app/Tea_Meta.jpg"
+          content="https://website-tripplybrand.vercel.app/Tea_Meta.jpg"
           key="ogimage"
         ></meta>
         <meta name="twitter:card" content="summary_large_image"></meta>
       </Head>
+      {/* Background video */}
       <div tw="fixed overflow-hidden">
         <video
           autoPlay
@@ -46,7 +47,7 @@ export default function LapsangSouchong() {
         </video>
         Sorry, your browser doesn't support embedded videos.
       </div>
-      {/*Transparent pane between video and text*/}
+      {/* Transparent pane between video and text */}
       <div
         css={[
           css`
@@ -55,6 +56,7 @@ export default function LapsangSouchong() {
           tw`fixed overflow-hidden h-screen w-screen`,
         ]}
       ></div>
+      {/* Text div */}
       <div tw="flex justify-center my-0 mx-auto min-h-screen sticky top-0">
         <div tw="py-10 whitespace-nowrap">
           <h1
