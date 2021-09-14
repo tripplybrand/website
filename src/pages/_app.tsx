@@ -1,7 +1,6 @@
 import type { AppProps } from 'next/app'
 import '../styles/globals.css'
 import '../styles/scrollAnimations.css'
-import { GlobalStyles } from 'twin.macro'
 
 type ComponentWithPageLayout = {
   Component: AppProps['Component'] & {
@@ -12,7 +11,6 @@ type ComponentWithPageLayout = {
 function App({ Component, pageProps }: AppProps & ComponentWithPageLayout) {
   return (
     <>
-      <GlobalStyles />
       {
         // get a page root if one was set
         Component.PageLayout ? (

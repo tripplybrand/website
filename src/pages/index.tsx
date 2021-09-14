@@ -1,10 +1,9 @@
-import tw, { css } from 'twin.macro'
 import type { NextPage } from 'next'
 import Link from 'next/link'
 
 const Home: NextPage = () => {
   return (
-    <div tw="m-auto w-max pt-16">
+    <div className="m-auto w-max pt-16">
       <ul>
         <li>
           <Link href="/poems">

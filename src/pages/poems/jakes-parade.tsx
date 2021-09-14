@@ -1,4 +1,3 @@
-import tw, { css } from 'twin.macro'
 import Head from 'next/head'
 import { useEffect, useState, useMemo } from 'react'
 import { createMachine, assign } from 'xstate'
@@ -42,14 +41,14 @@ export default function Home() {
         <meta name="twitter:card" content="summary_large_image"></meta>
       </Head>
       {/* Background video */}
-      <div tw="fixed overflow-hidden">
+      <div className="fixed overflow-hidden">
         <video
           autoPlay
           muted
           loop
           playsInline
           poster="/Jake'sParade_Still.jpg"
-          tw="object-cover w-screen h-screen"
+          className="object-cover w-screen h-screen"
         >
           <source src="/Jake'sParade_Mid_FireBottom.mp4" type="video/mp4" />
         </video>
@@ -57,15 +56,8 @@ export default function Home() {
       </div>
       {/* Text section */}
       <Intro poemStarted={poemStarted} setPoemStarted={setPoemStarted} />
-      <div
-        css={[
-          tw`flex justify-center my-0 mx-auto min-h-screen sticky top-0 overflow-hidden`,
-          css`
-            background-color: hsla(330deg, 37%, 68%, 0.35);
-          `,
-        ]}
-      >
-        <div tw="py-10 whitespace-nowrap">
+      <div className="flex justify-center my-0 mx-auto min-h-screen sticky top-0 overflow-hidden bg-[hsla(330deg,37%,68%,0.35)]">
+        <div className="py-10 whitespace-nowrap">
           {stanzas.map((lines, stanzaIdx) => {
             const previousStanzas = stanzas.slice(0, stanzaIdx)
             const stanzaStartLine = previousStanzas.reduce(
@@ -94,12 +86,8 @@ export default function Home() {
       </div>
       {/* The div that controls the scroll */}
       <div
-        css={[
-          tw`invisible w-screen min-h-screen bg-red-100`,
-          css`
-            height: ${100 * scrollMultiplier}vh;
-          `,
-        ]}
+        className="invisible w-screen min-h-screen bg-red-100"
+        style={{ height: `${100 * scrollMultiplier}vh` }}
       ></div>
       <Outro setPoemStarted={setPoemStarted} />
     </>
@@ -115,24 +103,19 @@ type IntroProps = {
 function Intro({ poemStarted, setPoemStarted }: IntroProps) {
   return (
     <div
-      css={[
-        tw`flex flex-col justify-center min-h-screen space-y-10 sticky`,
-        css`
-          background-color: hsla(330deg, 37%, 68%, 0.35);
-          color: #fffbf9;
-        `,
-      ]}
+      className="flex flex-col justify-center min-h-screen space-y-10 sticky 
+      bg-[hsla(330deg,37%,68%,0.35)] text-[#fffbf9]"
     >
-      <div tw="max-w-max mx-auto space-y-6">
+      <div className="max-w-max mx-auto space-y-6">
         <h1
-          tw="font-body text-center 
+          className="font-body text-center 
         font-extrabold xs:font-bold 
         text-4xl xs:text-5xl sm:text-6xl"
         >
           Jake’s Parade
         </h1>
         <h2
-          tw="font-body text-center 
+          className="font-body text-center 
         font-normal xs:font-light
         text-xl xs:text-3xl sm:text-4xl
        "
@@ -142,32 +125,31 @@ function Intro({ poemStarted, setPoemStarted }: IntroProps) {
       </div>
       {poemStarted ? (
         <button
-          className="group"
           onClick={() => {
             window.scrollTo(0, 0)
             setPoemStarted(false)
           }}
-          tw="flex focus:outline-none h-12 space-x-4 max-w-max mx-auto"
+          className="group flex focus:outline-none h-12 space-x-4 max-w-max mx-auto"
         >
           <p
-            tw="font-body self-center
+            className="font-body self-center
           font-semibold xs:font-medium
           text-base xs:text-lg sm:text-xl"
           >
             read again
           </p>
-          <RepeatIcon tw="self-center w-8 h-8 fill-calico-orange-100 group-hover:fill-calico-orange-200" />
+          <RepeatIcon className="self-center w-8 h-8 fill-calico-orange-100 group-hover:fill-calico-orange-200" />
         </button>
       ) : (
-        <div tw="max-w-max mx-auto space-y-3">
+        <div className="max-w-max mx-auto space-y-3">
           <p
-            tw="font-body text-center 
+            className="font-body text-center 
         font-semibold xs:font-medium
         text-base xs:text-lg sm:text-xl"
           >
             scroll to begin
           </p>
-          <ArrowIcon tw="w-4 h-6 fill-calico-orange-100 animate-bounce max-w-max mx-auto" />
+          <ArrowIcon className="w-4 h-6 fill-calico-orange-100 animate-bounce max-w-max mx-auto" />
         </div>
       )}
     </div>
@@ -175,7 +157,7 @@ function Intro({ poemStarted, setPoemStarted }: IntroProps) {
 }
 
 function Paragraph({ children }: { children: React.ReactNode }) {
-  return <p tw="pb-4">{children}</p>
+  return <p className="pb-4">{children}</p>
 }
 
 function Line({
@@ -213,7 +195,11 @@ function Line({
 
   const lineCss = useLineCss(state.context.animation)
 
-  return <span css={lineCss}>{children}</span>
+  return (
+    <span className={lineCss.className} style={lineCss.style}>
+      {children}
+    </span>
+  )
 }
 
 function Outro({
@@ -222,33 +208,24 @@ function Outro({
   setPoemStarted: (value: boolean) => void
 }) {
   return (
-    <div
-      css={[
-        tw`min-h-screen relative`,
-        css`
-          color: #fffbf9;
-          background-color: hsla(330deg, 37%, 68%, 0);
-        `,
-      ]}
-    >
-      <div tw="flex flex-col max-w-max mx-auto min-h-screen justify-center">
+    <div className="min-h-screen relative text-[#fffbf9] bg-[hsla(330deg,37%,68%,0)]">
+      <div className="flex flex-col max-w-max mx-auto min-h-screen justify-center">
         <button
-          className="group"
           onClick={() => {
             window.scrollTo(0, 0)
             setPoemStarted(false)
           }}
-          tw="flex focus:outline-none h-12 space-x-4"
+          className="group flex focus:outline-none h-12 space-x-4"
         >
           <p
-            tw="font-body self-center
+            className="font-body self-center
             font-semibold xs:font-medium
           text-lg xs:text-2xl
           "
           >
             read again
           </p>
-          <RepeatIcon tw="self-center w-8 h-8 fill-calico-orange-100 group-hover:fill-calico-orange-200" />
+          <RepeatIcon className="self-center w-8 h-8 fill-calico-orange-100 group-hover:fill-calico-orange-200" />
         </button>
       </div>
     </div>
@@ -341,26 +318,22 @@ function useCurrentLineNumber() {
 function useLineCss(animation: string) {
   // Need to make media query also work with keyframe font size
   const lineCss = useMemo(() => {
-    return [
-      tw`opacity-0 font-body absolute mx-auto left-0 right-0 text-center 
-      font-semibold xs:font-medium sm:font-normal md:font-light lg:font-light 
-      text-xs xs:text-lg sm:text-2xl md:text-3xl lg:text-4xl`,
-      css`
-        top: 50%;
-        --translateX1: ${random(-75, 75)}%;
-        --translateX2: ${random(-50, 50)}%;
-        --translateX3: ${random(-25, 25)}%;
-        --translateX4: ${random(-5, 5)}%;
-      `,
-    ]
+    return 'opacity-0 font-body absolute mx-auto left-0 right-0 text-center font-semibold xs:font-medium sm:font-normal md:font-light lg:font-light text-xs xs:text-lg sm:text-2xl md:text-3xl lg:text-4xl top-[50%]'
   }, [])
 
-  return [
-    ...lineCss,
-    css`
-      animation: ${animation};
-    `,
-  ]
+  const lineStyle = useMemo(() => {
+    return `--translateX1: ${random(-75, 75)}%, 
+    --translateX2: ${random(-50, 50)}%, 
+    --translateX3: ${random(-25, 25)}%, 
+    --translateX4: ${random(-5, 5)}%`
+  }, [])
+
+  const style = { animation: `${animation}`, lineStyle }
+
+  return {
+    className: lineCss,
+    style: style,
+  }
 }
 
 const animationMachine = createMachine(
@@ -404,20 +377,20 @@ const animationMachine = createMachine(
           ${random(0, 0.5)}, 
           ${random(0.5, 1)}, 
           ${random(0, 0.5)}, 
-          ${random(0.5, 1)}); 
-          font-size: 0.4875rem; 
+          ${random(0.5, 1)}), 
+          font-size: 0.4875rem, 
           @media (min-width: 475px) { 
             font-size: 0.73125rem;
-          };
+          },
           @media (min-width: 640px) { 
             font-size: 0.975rem;
-          };
+          },
           @media (min-width: 768px) { 
             font-size: 1.21875rem;
-          };
+          },
           @media (min-width: 1024px) { 
             font-size: 1.4625rem;
-          };
+          }
           `,
       }),
       reset: assign({

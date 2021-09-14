@@ -1,4 +1,3 @@
-import tw, { css } from 'twin.macro'
 import Head from 'next/head'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
@@ -35,7 +34,7 @@ export default function CorrectiveLenses() {
         <meta name="twitter:card" content="summary_large_image"></meta>
       </Head>
       {/* Background image */}
-      <div tw="fixed overflow-hidden w-screen h-screen">
+      <div className="fixed overflow-hidden w-screen h-screen">
         <Image
           src="/Madeira_Blur.JPG"
           alt="View of mountain range on Madeira."
@@ -47,25 +46,15 @@ export default function CorrectiveLenses() {
         />
       </div>
       {/* Transparent pane between image and text */}
-      <div
-        css={[
-          css`
-            background-color: hsla(260deg, 24%, 58%, 0.5);
-          `,
-          tw`fixed overflow-hidden h-screen w-screen`,
-        ]}
-      ></div>
+      <div className="fixed overflow-hidden h-screen w-screen bg-[hsla(260deg,24%,58%,0.5)]"></div>
       {/* Text div */}
-      <div tw="flex justify-center my-0 mx-auto min-h-screen sticky top-0">
-        <div tw="py-10 whitespace-nowrap">
+      <div className="flex justify-center my-0 mx-auto min-h-screen sticky top-0">
+        <div className="py-10 whitespace-nowrap">
           <h1
-            css={[
-              tw`pb-4 font-body font-bold text-2xl xs:text-3xl sm:text-4xl md:text-4xl lg:text-5xl`,
-              css`
-                animation: from-on-to-past-corrective 3s forwards ease-out;
-                color: #a3edfd;
-              `,
-            ]}
+            className="pb-4 font-body font-bold text-2xl xs:text-3xl sm:text-4xl md:text-4xl lg:text-5xl text-[#a3edfd]"
+            style={{
+              animation: `from-on-to-past-corrective 3s forwards ease-out`,
+            }}
           >
             Corrective Lenses
           </h1>
@@ -122,12 +111,8 @@ export default function CorrectiveLenses() {
         </div>
       </div>
       <div
-        css={[
-          tw`invisible w-screen min-h-screen bg-gray-300`,
-          css`
-            height: ${100 * scrollMultiplier}vh;
-          `,
-        ]}
+        className="invisible w-screen min-h-screen bg-gray-300"
+        style={{ height: `${100 * scrollMultiplier}vh` }}
       ></div>
     </>
   )
@@ -136,7 +121,7 @@ export default function CorrectiveLenses() {
 // Components
 
 function Paragraph({ children }: { children: React.ReactNode }) {
-  return <p tw="pb-4">{children}</p>
+  return <p className="pb-4">{children}</p>
 }
 
 type AnimationEvent = 'SCROLL_ON' | 'SCROLL_PAST' | 'SCROLL_BEFORE'
@@ -171,13 +156,8 @@ function Line({
 
   return (
     <span
-      css={[
-        tw`block opacity-0 font-body font-medium xs:font-normal text-xs xs:text-lg sm:text-xl md:text-xl lg:text-2xl`,
-        css`
-          animation: ${state.context.animation};
-          color: #a3edfd;
-        `,
-      ]}
+      className="block opacity-0 font-body font-medium xs:font-normal text-xs xs:text-lg sm:text-xl md:text-xl lg:text-2xl text-[#a3edfd]"
+      style={{ animation: `${state.context.animation}` }}
     >
       {children}
     </span>
@@ -209,13 +189,8 @@ function Attribution({
 
   return (
     <span
-      css={[
-        tw`block pt-2 opacity-0 font-body font-normal text-right text-xs xs:text-sm sm:text-base md:text-base lg:text-lg`,
-        css`
-          animation: ${state.context.animation};
-          color: #a3edfd;
-        `,
-      ]}
+      className="block pt-2 opacity-0 font-body font-normal text-right text-xs xs:text-sm sm:text-base md:text-base lg:text-lg text-[#a3edfd]"
+      style={{ animation: `${state.context.animation}` }}
     >
       {children}
     </span>
