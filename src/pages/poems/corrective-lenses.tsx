@@ -40,9 +40,8 @@ export default function CorrectiveLenses() {
           alt="View of mountain range on Madeira."
           layout="fill"
           objectFit="cover"
-          quality={100}
-          loading="eager"
-          priority={false}
+          quality={75}
+          priority={true}
         />
       </div>
       {/* Transparent pane between image and text */}
