@@ -1,4 +1,3 @@
-//import tw, { css } from 'twin.macro'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import { createMachine, assign } from 'xstate'

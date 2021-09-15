@@ -193,7 +193,7 @@ function Line({
     send(animationEvent)
   }, [send, currentLineNumber, lineNumber, poemStarted])
 
-  const lineCss = useLineCss(state.context.animation)
+  const lineCss = useLineCss(state.context.animation, state.context.textSize)
 
   return (
     <span className={lineCss.className} style={lineCss.style}>
@@ -284,8 +284,10 @@ const thresholds = lineIdxArray.map((id) => inc * (id + 1))
 
 // Utilities
 
-const random = (min: number, max: number) =>
-  Math.floor(Math.random() * (max - min)) + min
+const random = (min: number, max: number) => Math.random() * (max - min) + min
+// I think I should remove the floor because when number are less than or equal to 1
+// they end up always being the min
+//Math.floor(Math.random() * (max - min)) + min
 
 // Hooks/logic
 
@@ -315,24 +317,26 @@ function useCurrentLineNumber() {
   return currentLineNumber
 }
 
-function useLineCss(animation: string) {
+function useLineCss(animation: string, textSize: string) {
   // Need to make media query also work with keyframe font size
   const lineCss = useMemo(() => {
-    return 'opacity-0 font-body absolute mx-auto left-0 right-0 text-center font-semibold xs:font-medium sm:font-normal md:font-light lg:font-light text-xs xs:text-lg sm:text-2xl md:text-3xl lg:text-4xl top-[50%]'
+    return 'opacity-0 font-body absolute mx-auto left-0 right-0 text-center font-semibold xs:font-medium sm:font-normal md:font-light lg:font-light top-[50%]'
   }, [])
 
+  //Causes a warning in dev mode because of a discrepancy between values on server and client.
+  //Warning not there in production. Does this matter?
   const lineStyle = useMemo(() => {
-    return `--translateX1: ${random(-75, 75)}%, 
-    --translateX2: ${random(-50, 50)}%, 
-    --translateX3: ${random(-25, 25)}%, 
-    --translateX4: ${random(-5, 5)}%`
+    return {
+      '--translateX1': `${random(-75, 75)}%`,
+      '--translateX2': `${random(-50, 50)}%`,
+      '--translateX3': `${random(-25, 25)}%`,
+      '--translateX4': `${random(-5, 5)}%`,
+    }
   }, [])
-
-  const style = { animation: `${animation}`, lineStyle }
 
   return {
-    className: lineCss,
-    style: style,
+    className: [lineCss, textSize].join(' '),
+    style: { animation: `${animation}`, ...lineStyle },
   }
 }
 
@@ -340,6 +344,7 @@ const animationMachine = createMachine(
   {
     context: {
       animation: '',
+      textSize: '',
     },
     initial: 'beforeLine',
     states: {
@@ -369,32 +374,21 @@ const animationMachine = createMachine(
     actions: {
       fromBeforeToOn: assign({
         animation: 'from-before-to-on-jake 3s forwards ease-out',
+        textSize: 'text-xs xs:text-lg sm:text-2xl md:text-3xl lg:text-4xl',
       }),
       fromOnToPast: assign({
-        /*The font sizes are 0.65 of the value of each of the following: text-xs, text-lg, text-2xl, text-3xl, text-4xl*/
-        /*The media query values come from tailwind.config*/
         animation: `from-on-to-past-jake 5s forwards cubic-bezier(
           ${random(0, 0.5)}, 
           ${random(0.5, 1)}, 
           ${random(0, 0.5)}, 
-          ${random(0.5, 1)}), 
-          font-size: 0.4875rem, 
-          @media (min-width: 475px) { 
-            font-size: 0.73125rem;
-          },
-          @media (min-width: 640px) { 
-            font-size: 0.975rem;
-          },
-          @media (min-width: 768px) { 
-            font-size: 1.21875rem;
-          },
-          @media (min-width: 1024px) { 
-            font-size: 1.4625rem;
-          }
-          `,
+          ${random(0.5, 1)})`,
+        /*The font sizes are 0.65 of the value of each of the following: text-xs, text-lg, text-2xl, text-3xl, text-4xl*/
+        textSize:
+          'text-[0.4875rem] xs:text-[0.73125rem] sm:text-[0.975rem] md:text-[1.21875rem] lg:text-[1.4625rem]',
       }),
       reset: assign({
         animation: 'reset 0s forwards ease-out',
+        textSize: 'text-xs xs:text-lg sm:text-2xl md:text-3xl lg:text-4xl',
       }),
     },
   }
