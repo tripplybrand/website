@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /*
   1. Download variable font ttf file from Google https://fonts.google.com/ 
   2. Use glyphhanger to subset the variable file https://www.npmjs.com/package/glyphhanger
