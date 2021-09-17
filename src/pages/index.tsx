@@ -12,18 +12,10 @@ const Home: NextPage = () => {
           Tripp Lybrand
         </h1>
         <div className="flex flex-col gap-y-1.5">
-          <span className="text-4xl font-bold uppercase tracking-wider">
-            Writer
-          </span>
-          <span className="text-4xl font-bold uppercase tracking-wider">
-            Painter
-          </span>
-          <span className="text-4xl font-bold uppercase tracking-wider">
-            Designer
-          </span>
-          <span className="text-4xl font-bold uppercase tracking-wider">
-            Developer
-          </span>
+          <BioElement text="Writer" />
+          <BioElement text="Painter" />
+          <BioElement text="Designer" />
+          <BioElement text="Developer" />
         </div>
       </div>
       {/* Middle divider*/}
@@ -34,19 +26,36 @@ const Home: NextPage = () => {
           Sections
         </h2>
         <div className="flex flex-col gap-y-6">
-          <Link href="/scroll-poems">
-            <a className="text-4xl font-light tracking-wider underline hover:text-matisse-red-200">
-              Scroll poems
-            </a>
-          </Link>
-          <Link href="/goose">
-            <a className="text-4xl font-light tracking-wider underline hover:text-matisse-red-200">
-              Goose (Bulleit)
-            </a>
-          </Link>
+          <SectionLink text="Scroll poems" href="/scroll-poems" />
+          <SectionLink text="Goose (Bulleit)" href="/goose" />
         </div>
       </div>
     </div>
+  )
+}
+
+type BioElementProps = {
+  text: String
+}
+const BioElement = ({ text }: BioElementProps) => {
+  return (
+    <span className="text-4xl font-bold uppercase tracking-wider text-black">
+      {text}
+    </span>
+  )
+}
+
+type SectionLinkProps = {
+  text: string
+  href: string
+}
+const SectionLink = ({ text, href }: SectionLinkProps) => {
+  return (
+    <Link href={href}>
+      <a className="text-4xl font-light tracking-wider underline text-black hover:text-matisse-red-200">
+        {text}
+      </a>
+    </Link>
   )
 }
 
