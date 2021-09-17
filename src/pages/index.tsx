@@ -5,7 +5,7 @@ import { DividerIcon } from 'icons'
 const Home: NextPage = () => {
   //Need to center the height at some point I think
   return (
-    <div className="m-auto w-max p-14 mt-24 bg-white flex gap-x-[1.125rem] sm:gap-x-6">
+    <div className="m-auto w-max p-14 mt-24 bg-white flex gap-x-[1.125rem] sm:gap-x-6 overflow-hidden">
       {/* Left bio column */}
       <div className="flex flex-col">
         <h1>
