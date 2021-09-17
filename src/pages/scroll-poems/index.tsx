@@ -5,17 +5,17 @@ const Poems: NextPage = () => {
   return (
     <ul className="w-max m-auto p-16">
       <li>
-        <Link href="/poems/jakes-parade">
+        <Link href="/scroll-poems/jakes-parade">
           <a>Jake&apos;s Parade</a>
         </Link>
       </li>
       <li>
-        <Link href="/poems/lapsang-souchong">
+        <Link href="/scroll-poems/lapsang-souchong">
           <a>Lapsang Souchong</a>
         </Link>
       </li>
       <li>
-        <Link href="/poems/corrective-lenses">
+        <Link href="/scroll-poems/corrective-lenses">
           <a>Corrective Lenses</a>
         </Link>
       </li>
