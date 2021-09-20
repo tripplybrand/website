@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { DividerIcon, DividerHorizontalIcon } from 'icons'
 
 const Home: NextPage = () => {
-  const { width } = useWindomDimensions()
+  const width = useWindowDimensions()
 
   //Need to center the height at some point I think
   return (
@@ -77,17 +77,21 @@ const SectionLink = ({ text, href }: SectionLinkProps) => {
   )
 }
 
-function useWindomDimensions() {
-  const [windowDimensions, setWindowDimensions] = useState(
-    getWindowDimensions()
-  )
+function useWindowDimensions() {
+  const [windowDimensions, setWindowDimensions] = useState(0)
 
   useEffect(() => {
-    const handleResize = (e: Event) => {
+    if (typeof window === 'undefined') {
+      return
+    }
+
+    const handleResize = (e: Event | null) => {
       setWindowDimensions(getWindowDimensions())
     }
 
+    handleResize(null) // get the initial size
     window.addEventListener('resize', handleResize)
+
     return () => {
       window.removeEventListener('resize', handleResize)
     }
@@ -97,11 +101,8 @@ function useWindomDimensions() {
 }
 
 const getWindowDimensions = () => {
-  const { innerWidth: width, innerHeight: height } = window
-  return {
-    width,
-    height,
-  }
+  const { innerWidth: width } = window
+  return width
 }
 
 export default Home
