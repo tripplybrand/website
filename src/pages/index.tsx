@@ -1,11 +1,14 @@
 import type { NextPage } from 'next'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { DividerIcon } from 'icons'
+import { DividerIcon, DividerHorizontalIcon } from 'icons'
 
 const Home: NextPage = () => {
+  const { width } = useWindomDimensions()
+
   //Need to center the height at some point I think
   return (
-    <div className="m-auto w-max p-14 mt-24 bg-white flex gap-x-[1.125rem] sm:gap-x-6 overflow-hidden">
+    <div className="m-auto w-max p-14 mt-24 bg-white flex flex-col xs:flex-row gap-[1.125rem] sm:gap-6">
       {/* Left bio column */}
       <div className="flex flex-col">
         <h1>
@@ -19,7 +22,11 @@ const Home: NextPage = () => {
         </div>
       </div>
       {/* Middle divider*/}
-      <DividerIcon className="fill-[#878787] w-0.5 h-[9.75rem] sm:h-[10.625rem] md:h-[15.875rem]" />
+      {width < 475 ? (
+        <DividerHorizontalIcon className="fill-[#878787]" />
+      ) : (
+        <DividerIcon className="fill-[#878787] w-0.5 h-[9.75rem] sm:h-[10.625rem] md:h-[15.875rem]" />
+      )}
       {/* Right pages column */}
       <div className="flex flex-col">
         <h2>
@@ -68,6 +75,33 @@ const SectionLink = ({ text, href }: SectionLinkProps) => {
       </a>
     </Link>
   )
+}
+
+function useWindomDimensions() {
+  const [windowDimensions, setWindowDimensions] = useState(
+    getWindowDimensions()
+  )
+
+  useEffect(() => {
+    const handleResize = (e: Event) => {
+      setWindowDimensions(getWindowDimensions())
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
+
+  return windowDimensions
+}
+
+const getWindowDimensions = () => {
+  const { innerWidth: width, innerHeight: height } = window
+  return {
+    width,
+    height,
+  }
 }
 
 export default Home
