@@ -24,7 +24,7 @@ const Home: NextPage = () => {
         />
         <meta
           property="og:image"
-          content="https://website-tripplybrand.vercel.app/Pink_Line_Meta.jpg"
+          content="https://website-tripplybrand.vercel.app/My_Mother_Is_A_Fish_Meta.jpg"
           key="ogimage"
         ></meta>
         <meta name="twitter:card" content="summary_large_image"></meta>
