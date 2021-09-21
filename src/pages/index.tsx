@@ -32,7 +32,7 @@ const Home: NextPage = () => {
         <h2>
           <HeaderText text="Sections" />
         </h2>
-        <div className="flex flex-col gap-y-2 sm:gap-y-4 md:gap-y-6">
+        <div className="flex flex-col gap-y-1 sm:gap-y-2 md:gap-y-4">
           <SectionLink text="Scroll poems" href="/scroll-poems" />
           <SectionLink text="Goose (Bulleit)" href="/goose" />
         </div>
@@ -70,7 +70,11 @@ type SectionLinkProps = {
 const SectionLink = ({ text, href }: SectionLinkProps) => {
   return (
     <Link href={href}>
-      <a className="text-lg sm:text-2xl md:text-4xl font-light tracking-wider underline text-black hover:text-matisse-red-200">
+      <a
+        className="text-lg sm:text-2xl md:text-4xl font-light tracking-wider underline 
+      text-black hover:text-matisse-red-200
+      focus:outline-none focus:ring-2 focus:ring-matisse-red-200 focus:ring-offset-2 focus:ring-opacity-60"
+      >
         {text}
       </a>
     </Link>
