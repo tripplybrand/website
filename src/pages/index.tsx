@@ -85,11 +85,13 @@ function useWindowDimensions() {
       return
     }
 
-    const handleResize = (e: Event | null) => {
-      setWindowDimensions(getWindowDimensions())
+    const handleResize = () => {
+      const { innerWidth: width } = window
+      setWindowDimensions(width)
     }
 
-    handleResize(null) // get the initial size
+    handleResize() // get the initial size
+
     window.addEventListener('resize', handleResize)
 
     return () => {
@@ -98,11 +100,6 @@ function useWindowDimensions() {
   }, [])
 
   return windowDimensions
-}
-
-const getWindowDimensions = () => {
-  const { innerWidth: width } = window
-  return width
 }
 
 export default Home
