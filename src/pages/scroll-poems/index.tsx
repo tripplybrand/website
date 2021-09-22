@@ -1,5 +1,6 @@
 import { NextPage } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const Poems: NextPage = () => {
   return (
@@ -19,10 +20,29 @@ const Poems: NextPage = () => {
           bio="A former carpenter, videographer, and speech writer. A native of
               Odessa, Florida, he currently resides in Zürich, Switzerland."
         >
-          <PoemLink href="/scroll-poems/jakes-parade">Jake's Parade</PoemLink>
-          <PoemLink href="/scroll-poems/lapsang-souchong">
-            Lapsang Souchong
-          </PoemLink>
+          <div className="flex space-x-3">
+            <Image
+              src="/Jake's_Parade_Triangle.png"
+              alt="Campfire with sparks."
+              width={42}
+              height={32}
+              quality={100}
+            />
+            <PoemLink href="/scroll-poems/jakes-parade">Jake's Parade</PoemLink>
+          </div>
+
+          <div className="flex space-x-3">
+            <Image
+              src="/Lapsang_Souchong_Triangle.png"
+              alt="Metal horse figurine on book beside a teacup."
+              width={42}
+              height={32}
+              quality={100}
+            />
+            <PoemLink href="/scroll-poems/lapsang-souchong">
+              Lapsang Souchong
+            </PoemLink>
+          </div>
         </PoetSection>
 
         <PoetSection
@@ -30,9 +50,18 @@ const Poems: NextPage = () => {
           bio="Poet, wife, loves unpopular birds and odd plants. Writes at
           juliesumnerpoetry on Instagram."
         >
-          <PoemLink href="/scroll-poems/corrective-lenses">
-            Corrective Lenses
-          </PoemLink>
+          <div className="flex space-x-3">
+            <Image
+              src="/Corrective_Lenses_Triangle.png"
+              alt="Wiew of mountain range on Madeira."
+              width={42}
+              height={32}
+              quality={100}
+            />
+            <PoemLink href="/scroll-poems/corrective-lenses">
+              Corrective Lenses
+            </PoemLink>
+          </div>
         </PoetSection>
       </div>
     </div>
