@@ -20,24 +20,24 @@ const Poems: NextPage = () => {
           bio="A former carpenter, videographer, and speech writer. A native of
               Odessa, Florida, he currently resides in Zürich, Switzerland."
         >
-          <div className="flex space-x-3">
+          <div className="flex space-x-3 flex-wrap">
             <Image
               src="/Jake's_Parade_Triangle.png"
               alt="Campfire with sparks."
               width={42}
               height={32}
-              quality={100}
+              layout="fixed"
             />
             <PoemLink href="/scroll-poems/jakes-parade">Jake's Parade</PoemLink>
           </div>
 
-          <div className="flex space-x-3">
+          <div className="flex space-x-3 flex-wrap">
             <Image
               src="/Lapsang_Souchong_Triangle.png"
               alt="Metal horse figurine on book beside a teacup."
               width={42}
               height={32}
-              quality={100}
+              layout="fixed"
             />
             <PoemLink href="/scroll-poems/lapsang-souchong">
               Lapsang Souchong
@@ -50,13 +50,13 @@ const Poems: NextPage = () => {
           bio="Poet, wife, loves unpopular birds and odd plants. Writes at
           juliesumnerpoetry on Instagram."
         >
-          <div className="flex space-x-3">
+          <div className="flex space-x-3 flex-wrap">
             <Image
               src="/Corrective_Lenses_Triangle.png"
               alt="Wiew of mountain range on Madeira."
               width={42}
               height={32}
-              quality={100}
+              layout="fixed"
             />
             <PoemLink href="/scroll-poems/corrective-lenses">
               Corrective Lenses
