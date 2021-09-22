@@ -56,6 +56,7 @@ const Home: NextPage = () => {
           <ul className="flex flex-col gap-y-1 sm:gap-y-2 md:gap-y-4">
             <SectionLink text="Scroll Poems" href="/scroll-poems" />
             <SectionLink text="Goose (Bulleit)" href="/goose" />
+            <SectionLink text="Paintings" href="/paintings" />
           </ul>
         </div>
       </div>
