@@ -96,7 +96,7 @@ const SectionLink = ({ text, href }: SectionLinkProps) => {
         <a
           className="text-lg sm:text-2xl md:text-4xl font-light tracking-wider underline 
       text-black hover:text-matisse-red-200
-      focus:outline-none focus:ring-1 sm:focus:ring-2 focus:ring-matisse-red-200 focus:ring-offset-2 focus:ring-opacity-60"
+      focus:outline-none focus-visible:ring-1 sm:focus-visible:ring-2 focus-visible:ring-matisse-red-200 focus-visible:ring-offset-2 focus-visible:ring-opacity-60"
         >
           {text}
         </a>
