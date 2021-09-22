@@ -1,11 +1,11 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { useEffect, useState } from 'react'
+import { useWindowWidth } from '@helpers/useWindowWidth'
 import Link from 'next/link'
 import { DividerIcon, DividerHorizontalIcon } from 'icons'
 
 const Home: NextPage = () => {
-  const width = useWindowDimensions()
+  const width = useWindowWidth()
 
   return (
     <>
@@ -103,31 +103,6 @@ const SectionLink = ({ text, href }: SectionLinkProps) => {
       </Link>
     </li>
   )
-}
-
-function useWindowDimensions() {
-  const [windowDimensions, setWindowDimensions] = useState(0)
-
-  useEffect(() => {
-    if (typeof window === 'undefined') {
-      return
-    }
-
-    const handleResize = () => {
-      const { innerWidth: width } = window
-      setWindowDimensions(width)
-    }
-
-    handleResize() // get the initial size
-
-    window.addEventListener('resize', handleResize)
-
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [])
-
-  return windowDimensions
 }
 
 export default Home

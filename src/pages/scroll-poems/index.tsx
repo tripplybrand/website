@@ -2,8 +2,10 @@ import { NextPage } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import Head from 'next/head'
+import { useWindowWidth } from '@helpers/useWindowWidth'
 
 const Poems: NextPage = () => {
+  const width = useWindowWidth()
   return (
     <>
       <Head>
@@ -27,7 +29,7 @@ const Poems: NextPage = () => {
         <meta name="twitter:card" content="summary_large_image"></meta>
       </Head>
 
-      <div className="my-16 flex flex-col space-y-4">
+      <div className="my-16 flex flex-col space-y-2.5 sm:space-y-3 md:space-y-4">
         <IntroSection title="Scroll Poems">
           <p>These are experiments with text, visuals, gesture, and motion.</p>
           <p>
@@ -37,37 +39,31 @@ const Poems: NextPage = () => {
           </p>
         </IntroSection>
 
-        <div className="m-auto w-9/12 max-w-4xl px-14 py-7 bg-white flex flex-col space-y-9">
+        <div className="m-auto w-9/12 max-w-4xl px-14 py-7 bg-white flex flex-col space-y-5 sm:space-y-7 md:space-y-9">
           <PoetSection
             name="Michael Dechane"
             bio="A former carpenter, videographer, and speech writer. A native of
               Odessa, Florida, he currently resides in Zürich, Switzerland."
           >
-            <div className="flex space-x-3 flex-wrap">
-              <Image
-                src="/Jake's_Parade_Triangle.png"
-                alt="Campfire with sparks."
-                width={42}
-                height={32}
-                layout="fixed"
-              />
+            <PoemRow
+              width={width}
+              src="/Jake's_Parade_Triangle.png"
+              alt="Campfire with sparks."
+            >
               <PoemLink href="/scroll-poems/jakes-parade">
                 Jake's Parade
               </PoemLink>
-            </div>
+            </PoemRow>
 
-            <div className="flex space-x-3 flex-wrap">
-              <Image
-                src="/Lapsang_Souchong_Triangle.png"
-                alt="Metal horse figurine on book beside a teacup."
-                width={42}
-                height={32}
-                layout="fixed"
-              />
+            <PoemRow
+              width={width}
+              src="/Lapsang_Souchong_Triangle.png"
+              alt="Metal horse figurine on book beside a teacup."
+            >
               <PoemLink href="/scroll-poems/lapsang-souchong">
                 Lapsang Souchong
               </PoemLink>
-            </div>
+            </PoemRow>
           </PoetSection>
 
           <PoetSection
@@ -75,18 +71,15 @@ const Poems: NextPage = () => {
             bio="Poet, wife, loves unpopular birds and odd plants. Writes at
           juliesumnerpoetry on Instagram."
           >
-            <div className="flex space-x-3 flex-wrap">
-              <Image
-                src="/Corrective_Lenses_Triangle.png"
-                alt="Wiew of mountain range on Madeira."
-                width={42}
-                height={32}
-                layout="fixed"
-              />
+            <PoemRow
+              width={width}
+              src="/Corrective_Lenses_Triangle.png"
+              alt="View of mountain range on Madeira."
+            >
               <PoemLink href="/scroll-poems/corrective-lenses">
                 Corrective Lenses
               </PoemLink>
-            </div>
+            </PoemRow>
           </PoetSection>
         </div>
       </div>
@@ -131,6 +124,23 @@ const PoetSection = ({ name, bio, children }: PoetSectionProps) => {
         </span>
       </div>
       <ul className="flex flex-col space-y-2">{children}</ul>
+    </div>
+  )
+}
+
+type PoemRowProps = {
+  width: number
+  src: string
+  alt: string
+  children: React.ReactNode
+}
+const PoemRow = ({ width, src, alt, children }: PoemRowProps) => {
+  return (
+    <div className="flex space-x-3 flex-wrap">
+      {width < 475 ? null : (
+        <Image src={src} alt={alt} width={42} height={32} layout="fixed" />
+      )}
+      {children}
     </div>
   )
 }
