@@ -1,70 +1,96 @@
 import { NextPage } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
+import Head from 'next/head'
 
 const Poems: NextPage = () => {
   return (
-    <div className="my-16 flex flex-col space-y-4">
-      <IntroSection title="Scroll Poems">
-        <p>These are experiments with text, visuals, gesture, and motion.</p>
-        <p>
-          While the layering of mediums can bring fresh meaning, the text itself
-          remains primary, and so the experiments are grouped by poet. Please go
-          and read more of their worked linked in their bios.
-        </p>
-      </IntroSection>
+    <>
+      <Head>
+        <title>Scroll Poems</title>
+        <meta charSet="utf-8"></meta>
+        <meta
+          name="description"
+          content="Experiments with text, visuals, gesture, and motion."
+        ></meta>
+        <meta property="og:title" content="Scroll Poems" key="ogtitle"></meta>
+        <meta
+          property="og:description"
+          content="Experiments with text, visuals, gesture, and motion."
+          key="ogdesc"
+        />
+        <meta
+          property="og:image"
+          content="https://website-tripplybrand.vercel.app/Steam_Tea_Still.jpg"
+          key="ogimage"
+        ></meta>
+        <meta name="twitter:card" content="summary_large_image"></meta>
+      </Head>
 
-      <div className="m-auto w-9/12 max-w-4xl px-14 py-7 bg-white flex flex-col space-y-9">
-        <PoetSection
-          name="Michael Dechane"
-          bio="A former carpenter, videographer, and speech writer. A native of
+      <div className="my-16 flex flex-col space-y-4">
+        <IntroSection title="Scroll Poems">
+          <p>These are experiments with text, visuals, gesture, and motion.</p>
+          <p>
+            While the layering of mediums can bring fresh meaning, the text
+            itself remains primary, and so the experiments are grouped by poet.
+            Please go and read more of their worked linked in their bios.
+          </p>
+        </IntroSection>
+
+        <div className="m-auto w-9/12 max-w-4xl px-14 py-7 bg-white flex flex-col space-y-9">
+          <PoetSection
+            name="Michael Dechane"
+            bio="A former carpenter, videographer, and speech writer. A native of
               Odessa, Florida, he currently resides in Zürich, Switzerland."
-        >
-          <div className="flex space-x-3 flex-wrap">
-            <Image
-              src="/Jake's_Parade_Triangle.png"
-              alt="Campfire with sparks."
-              width={42}
-              height={32}
-              layout="fixed"
-            />
-            <PoemLink href="/scroll-poems/jakes-parade">Jake's Parade</PoemLink>
-          </div>
+          >
+            <div className="flex space-x-3 flex-wrap">
+              <Image
+                src="/Jake's_Parade_Triangle.png"
+                alt="Campfire with sparks."
+                width={42}
+                height={32}
+                layout="fixed"
+              />
+              <PoemLink href="/scroll-poems/jakes-parade">
+                Jake's Parade
+              </PoemLink>
+            </div>
 
-          <div className="flex space-x-3 flex-wrap">
-            <Image
-              src="/Lapsang_Souchong_Triangle.png"
-              alt="Metal horse figurine on book beside a teacup."
-              width={42}
-              height={32}
-              layout="fixed"
-            />
-            <PoemLink href="/scroll-poems/lapsang-souchong">
-              Lapsang Souchong
-            </PoemLink>
-          </div>
-        </PoetSection>
+            <div className="flex space-x-3 flex-wrap">
+              <Image
+                src="/Lapsang_Souchong_Triangle.png"
+                alt="Metal horse figurine on book beside a teacup."
+                width={42}
+                height={32}
+                layout="fixed"
+              />
+              <PoemLink href="/scroll-poems/lapsang-souchong">
+                Lapsang Souchong
+              </PoemLink>
+            </div>
+          </PoetSection>
 
-        <PoetSection
-          name="Julie Sumner"
-          bio="Poet, wife, loves unpopular birds and odd plants. Writes at
+          <PoetSection
+            name="Julie Sumner"
+            bio="Poet, wife, loves unpopular birds and odd plants. Writes at
           juliesumnerpoetry on Instagram."
-        >
-          <div className="flex space-x-3 flex-wrap">
-            <Image
-              src="/Corrective_Lenses_Triangle.png"
-              alt="Wiew of mountain range on Madeira."
-              width={42}
-              height={32}
-              layout="fixed"
-            />
-            <PoemLink href="/scroll-poems/corrective-lenses">
-              Corrective Lenses
-            </PoemLink>
-          </div>
-        </PoetSection>
+          >
+            <div className="flex space-x-3 flex-wrap">
+              <Image
+                src="/Corrective_Lenses_Triangle.png"
+                alt="Wiew of mountain range on Madeira."
+                width={42}
+                height={32}
+                layout="fixed"
+              />
+              <PoemLink href="/scroll-poems/corrective-lenses">
+                Corrective Lenses
+              </PoemLink>
+            </div>
+          </PoetSection>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

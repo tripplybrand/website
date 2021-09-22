@@ -54,7 +54,7 @@ const Home: NextPage = () => {
             <HeaderText text="Sections" />
           </h2>
           <ul className="flex flex-col gap-y-1 sm:gap-y-2 md:gap-y-4">
-            <SectionLink text="Scroll poems" href="/scroll-poems" />
+            <SectionLink text="Scroll Poems" href="/scroll-poems" />
             <SectionLink text="Goose (Bulleit)" href="/goose" />
           </ul>
         </div>
