@@ -1,8 +1,10 @@
 import { NextPage } from 'next'
+import Painting from '../../components/Painting'
+import paintingsData from '../../../paintings-data.json'
 
 const Paintings: NextPage = () => {
   return (
-    <div className="my-16">
+    <div className="my-16 flex flex-col space-y-2.5 sm:space-y-3 md:space-y-4">
       <div className="m-auto w-9/12 max-w-4xl px-14 py-7 bg-white flex flex-col space-y-2 sm:space-y-4 md:space-y-6">
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-wider text-black">
           Into My Own
@@ -34,6 +36,29 @@ const Paintings: NextPage = () => {
           </footer>
         </blockquote>
       </div>
+
+      {paintingsData.map((paintingObject, i) => {
+        const loading = i === 0 ? 'eager' : 'lazy'
+        return (
+          <div
+            className="m-auto w-9/12 max-w-4xl 
+            px-4 sm:px-5 md:px-7 pt-4 sm:pt-5 md:pt-7 pb-2 sm:pb-3 md:pb-4 
+            bg-white"
+            key={paintingObject.id}
+          >
+            <Painting
+              src={paintingObject.src}
+              alt={paintingObject.alt}
+              title={paintingObject.title}
+              width={paintingObject.width}
+              height={paintingObject.height}
+              quality={paintingObject.quality}
+              loading={loading as 'eager' | 'lazy'}
+              priority={i === 0 ? true : false}
+            />
+          </div>
+        )
+      })}
     </div>
   )
 }
