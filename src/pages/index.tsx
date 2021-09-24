@@ -29,7 +29,7 @@ const Home: NextPage = () => {
         ></meta>
         <meta name="twitter:card" content="summary_large_image"></meta>
       </Head>
-      <div className="m-auto w-max p-14 mt-24 bg-white flex flex-col xs:flex-row gap-[1.125rem] sm:gap-6">
+      <main className="m-auto w-max p-14 mt-24 bg-white flex flex-col xs:flex-row gap-[1.125rem] sm:gap-6">
         {/* Left bio column */}
         <div className="flex flex-col">
           <h1>
@@ -54,12 +54,12 @@ const Home: NextPage = () => {
             <HeaderText text="Sections" />
           </h2>
           <ul className="flex flex-col gap-y-1 sm:gap-y-2 md:gap-y-4">
-            <SectionLink text="Scroll Poems" href="/scroll-poems" />
-            <SectionLink text="Goose (Bulleit)" href="/goose" />
+            <SectionLink text="Writings" href="/writings" />
             <SectionLink text="Paintings" href="/paintings" />
+            <SectionLink text="Scroll Poems" href="/scroll-poems" />
           </ul>
         </div>
-      </div>
+      </main>
     </>
   )
 }

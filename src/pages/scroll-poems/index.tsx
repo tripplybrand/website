@@ -29,7 +29,7 @@ const Poems: NextPage = () => {
         <meta name="twitter:card" content="summary_large_image"></meta>
       </Head>
 
-      <div className="my-16 flex flex-col space-y-2.5 sm:space-y-3 md:space-y-4">
+      <main className="my-16 flex flex-col space-y-2.5 sm:space-y-3 md:space-y-4">
         <IntroSection title="Scroll Poems">
           <p>These are experiments with text, visuals, gesture, and motion.</p>
           <p>
@@ -39,7 +39,11 @@ const Poems: NextPage = () => {
           </p>
         </IntroSection>
 
-        <div className="m-auto w-9/12 max-w-4xl px-14 py-7 bg-white flex flex-col space-y-5 sm:space-y-7 md:space-y-9">
+        <div
+          className="m-auto w-9/12 max-w-4xl 
+        px-8 sm:px-10 md:px-14 py-4 sm:py-5 md:py-7
+        bg-white flex flex-col space-y-5 sm:space-y-7 md:space-y-9"
+        >
           <PoetSection
             name="Michael Dechane"
             bio="A former carpenter, videographer, and speech writer. A native of
@@ -82,7 +86,7 @@ const Poems: NextPage = () => {
             </PoemRow>
           </PoetSection>
         </div>
-      </div>
+      </main>
     </>
   )
 }
@@ -93,7 +97,11 @@ type IntroSectionProps = {
 }
 const IntroSection = ({ title, children }: IntroSectionProps) => {
   return (
-    <div className="m-auto w-9/12 max-w-4xl px-14 py-7 bg-white flex flex-col space-y-2 sm:space-y-4 md:space-y-6">
+    <div
+      className="m-auto w-9/12 max-w-4xl 
+    px-8 sm:px-10 md:px-14 py-4 sm:py-5 md:py-7
+    bg-white flex flex-col space-y-2 sm:space-y-4 md:space-y-6"
+    >
       <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-wider text-black">
         {title}
       </h1>
