@@ -59,6 +59,7 @@ const Home: NextPage = () => {
             <SectionLink text="Scroll Poems" href="/scroll-poems" />
           </ul>
         </div>
+        {/*Add contact*/}
       </main>
     </>
   )
