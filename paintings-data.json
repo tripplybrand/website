@@ -1,29 +1,65 @@
 [
   {
-    "src": "/Mountain_Lake_Fisherman_4790.JPG",
+    "src": "/Colorado_Mountain_Lake_Fisherman_3784.JPG",
     "alt": "Watercolor of boy fishing in Colorado",
-    "title": "Elk Creek, Colorado. Backpacking.",
-    "id": "coloradoBackpacking",
-    "width": 4790,
-    "height": 3322,
+    "title": "Elk Creek, Colorado. Fishing.",
+    "id": "coloradoFishing",
+    "width": 3784,
+    "height": 2596,
+    "quality": 100
+  },
+  {
+    "src": "/Colorado_Lake_Rim_3733.jpg",
+    "alt": "Watercolor of boys walking along the rim of a mountain lake",
+    "title": "Elk Creek, Colorado. Exploring near basecamp.",
+    "id": "coloradoHiking",
+    "width": 3733,
+    "height": 2797,
+    "quality": 100
+  },
+  {
+    "src": "/Junction_Shotgun_Merit_Badge_3776.JPG",
+    "alt": "Watercolor of boy shooting clay pigeons",
+    "title": "Junction, Texas. Shotgun merit badge.",
+    "id": "junctionShotgun",
+    "width": 3776,
+    "height": 2569,
+    "quality": 100
+  },
+  {
+    "src": "/Junction_Staged_Fight_3830.JPG",
+    "alt": "Watercolor of boys pretending to fight at night",
+    "title": "Junction, Texas. A staged fight.",
+    "id": "junctionFight",
+    "width": 3830,
+    "height": 2589,
+    "quality": 100
+  },
+  {
+    "src": "/Junction_Tape_Tattoo_3794.jpg",
+    "alt": "Watercolor of boy looking out at the Llano river",
+    "title": "Junction, Texas. Observing the Llano at sunset.",
+    "id": "junctionTattoo",
+    "width": 3794,
+    "height": 2798,
+    "quality": 100
+  },
+  {
+    "src": "/Junction_Tentmate_3746.jpg",
+    "alt": "Watercolor of boy resting in tent",
+    "title": "Junction, Texas. Resting in tent.",
+    "id": "junctionTent",
+    "width": 3746,
+    "height": 2808,
     "quality": 100
   },
   {
     "src": "/Uganda_Papyrus_Swamp_4648.JPG",
     "alt": "Watercolor of papyrus swamp in Uganda",
-    "title": "Papyrus swamp in Uganda. Mission trip.",
+    "title": "Uganda. A papyrus swamp near the church plant.",
     "id": "ugandaPapyrus",
     "width": 4648,
     "height": 3194,
-    "quality": 100
-  },
-  {
-    "src": "/Junction_Shotgun_Merit_Badge_4168.JPG",
-    "alt": "Watercolor of boy shooting clay pigeons",
-    "title": "Junction, Texas. Shotgun merit badge.",
-    "id": "junctionShotgun",
-    "width": 4168,
-    "height": 2905,
     "quality": 100
   }
 ]
