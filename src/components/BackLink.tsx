@@ -15,7 +15,9 @@ const BackLink = ({ hoverFill, focusVisibleColor }: BackLinkProps) => {
         className={`focus:outline-none focus-visible:ring-1 md:focus-visible:ring-2 ${focusVisibleColor} focus-visible:ring-opacity-60
       fixed left-6 top-5 p-11 -m-11`}
       >
-        <BackArrowIcon className={`fill-white w-7 h-7 ${hoverFill}`} />
+        <BackArrowIcon
+          className={`fill-white w-6 sm:w-7 h-6 sm:h-7 ${hoverFill}`}
+        />
       </a>
     </Link>
   )

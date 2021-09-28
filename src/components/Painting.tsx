@@ -8,7 +8,6 @@ const Painting = ({
   width,
   height,
   quality,
-  loading,
   priority,
 }: Omit<PaintingType, 'id'>) => {
   return (
@@ -19,7 +18,6 @@ const Painting = ({
         width={width}
         height={height}
         quality={quality}
-        loading={loading}
         priority={priority}
       />
       <h3 className="text-xs md:text-sm font-light text-black italic">

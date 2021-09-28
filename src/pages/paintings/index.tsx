@@ -70,7 +70,6 @@ const Paintings: NextPage = () => {
         </div>
 
         {paintingsData.map((paintingObject, i) => {
-          const loading = i === 0 ? 'eager' : 'lazy'
           return (
             <div
               className="m-auto w-9/12 max-w-4xl 
@@ -85,7 +84,6 @@ const Paintings: NextPage = () => {
                 width={paintingObject.width}
                 height={paintingObject.height}
                 quality={paintingObject.quality}
-                loading={loading as 'eager' | 'lazy'}
                 priority={i === 0 ? true : false}
               />
             </div>

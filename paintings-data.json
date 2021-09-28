@@ -6,7 +6,7 @@
     "id": "coloradoFishing",
     "width": 3784,
     "height": 2596,
-    "quality": 100
+    "quality": 75
   },
   {
     "src": "/Colorado_Lake_Rim_3733.jpg",
@@ -15,7 +15,7 @@
     "id": "coloradoHiking",
     "width": 3733,
     "height": 2797,
-    "quality": 100
+    "quality": 75
   },
   {
     "src": "/Junction_Shotgun_Merit_Badge_3776.jpg",
@@ -24,7 +24,7 @@
     "id": "junctionShotgun",
     "width": 3776,
     "height": 2569,
-    "quality": 100
+    "quality": 75
   },
   {
     "src": "/Junction_Staged_Fight_3830.jpg",
@@ -33,7 +33,7 @@
     "id": "junctionFight",
     "width": 3830,
     "height": 2589,
-    "quality": 100
+    "quality": 75
   },
   {
     "src": "/Junction_Tape_Tattoo_3794.jpg",
@@ -42,7 +42,7 @@
     "id": "junctionTattoo",
     "width": 3794,
     "height": 2798,
-    "quality": 100
+    "quality": 75
   },
   {
     "src": "/Junction_Tentmate_3746.jpg",
@@ -51,7 +51,7 @@
     "id": "junctionTent",
     "width": 3746,
     "height": 2808,
-    "quality": 100
+    "quality": 75
   },
   {
     "src": "/Uganda_Papyrus_Swamp_4648.JPG",
@@ -60,6 +60,6 @@
     "id": "ugandaPapyrus",
     "width": 4648,
     "height": 3194,
-    "quality": 100
+    "quality": 75
   }
 ]
