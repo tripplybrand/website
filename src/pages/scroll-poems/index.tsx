@@ -36,7 +36,7 @@ const Poems: NextPage = () => {
           <p>
             While the layering of mediums can bring fresh meaning, the text
             itself remains primary, and so the experiments are grouped by poet.
-            Please go and read more of their worked linked in their bios.
+            Please go and read more of their work.
           </p>
         </IntroSection>
 
@@ -48,7 +48,18 @@ const Poems: NextPage = () => {
           <PoetSection
             name="Michael Dechane"
             bio="A former carpenter, videographer, and speech writer. A native of
-              Odessa, Florida, he currently resides in Zürich, Switzerland."
+              Odessa, Florida, he currently resides in Zürich, Switzerland. "
+            link={
+              <a
+                href="https://www.instagram.com/wordtender/"
+                target="_blank"
+                rel="noreferrer"
+                className="underline text-black hover:text-matisse-red-200
+                focus:outline-none focus-visible:ring-1 sm:focus-visible:ring-2 focus-visible:ring-matisse-red-200 focus-visible:ring-opacity-60"
+              >
+                wordtender
+              </a>
+            }
           >
             <PoemRow
               width={width}
@@ -73,8 +84,18 @@ const Poems: NextPage = () => {
 
           <PoetSection
             name="Julie Sumner"
-            bio="Poet, wife, loves unpopular birds and odd plants. Writes at
-          juliesumnerpoetry on Instagram."
+            bio="Poet, wife, loves unpopular birds and odd plants. "
+            link={
+              <a
+                href="https://twitter.com/windowonwords"
+                target="_blank"
+                rel="noreferrer"
+                className="underline text-black hover:text-matisse-red-200
+              focus:outline-none focus-visible:ring-1 sm:focus-visible:ring-2 focus-visible:ring-matisse-red-200 focus-visible:ring-opacity-60"
+              >
+                windowonwords
+              </a>
+            }
           >
             <PoemRow
               width={width}
@@ -120,8 +141,9 @@ type PoetSectionProps = {
   name: string
   bio: string
   children: React.ReactNode
+  link?: HTMLAnchorElement | any
 }
-const PoetSection = ({ name, bio, children }: PoetSectionProps) => {
+const PoetSection = ({ name, bio, children, link }: PoetSectionProps) => {
   return (
     <div className="flex flex-col space-y-2 sm:space-y-3 md:space-y-4">
       <div className="flex flex-col space-y-0.5 sm:space-y-1 md:space-y-2">
@@ -130,6 +152,7 @@ const PoetSection = ({ name, bio, children }: PoetSectionProps) => {
         </h2>
         <span className="text-sm sm:text-base md:text-lg font-light tracking-wider text-black">
           {bio}
+          {link}
         </span>
       </div>
       <ul className="flex flex-col space-y-2">{children}</ul>
