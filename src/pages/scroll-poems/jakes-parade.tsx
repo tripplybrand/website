@@ -88,6 +88,7 @@ export default function Home() {
       <BackLink
         hoverFill={'hover:fill-calico-orange-200'}
         focusVisibleColor={'focus-visible:ring-calico-orange-200'}
+        position={'absolute'}
       />
       {/* The div that controls the scroll */}
       <div

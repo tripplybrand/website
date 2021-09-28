@@ -114,6 +114,7 @@ export default function CorrectiveLenses() {
       <BackLink
         hoverFill={'hover:fill-[#a3edfd]'}
         focusVisibleColor={'focus-visible:ring-[#a3edfd]'}
+        position={'fixed'}
       />
       <div
         className="invisible w-screen min-h-screen bg-gray-300"

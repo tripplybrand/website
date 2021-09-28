@@ -115,6 +115,7 @@ export default function LapsangSouchong() {
       <BackLink
         hoverFill={'hover:fill-[#ffba75]'}
         focusVisibleColor={'focus-visible:ring-[#ffba75]'}
+        position={'fixed'}
       />
       <div
         className="invisible w-screen min-h-screen bg-gray-300"
