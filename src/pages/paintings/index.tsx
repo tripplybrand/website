@@ -1,6 +1,7 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
-import Painting from '../../components/Painting'
+import HomeLink from '@components/HomeLink'
+import Painting from '@components/Painting'
 import paintingsData from '../../../paintings-data.json'
 
 const Paintings: NextPage = () => {
@@ -30,6 +31,7 @@ const Paintings: NextPage = () => {
         ></meta>
         <meta name="twitter:card" content="summary_large_image"></meta>
       </Head>
+      <HomeLink />
       <main className="my-16 flex flex-col space-y-2.5 sm:space-y-3 md:space-y-4">
         <div
           className="m-auto w-9/12 max-w-4xl 

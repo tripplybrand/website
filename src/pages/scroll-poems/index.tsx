@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Head from 'next/head'
 import { useWindowWidth } from '@helpers/useWindowWidth'
+import HomeLink from '@components/HomeLink'
 
 const Poems: NextPage = () => {
   const width = useWindowWidth()
@@ -28,7 +29,7 @@ const Poems: NextPage = () => {
         ></meta>
         <meta name="twitter:card" content="summary_large_image"></meta>
       </Head>
-
+      <HomeLink />
       <main className="my-16 flex flex-col space-y-2.5 sm:space-y-3 md:space-y-4">
         <IntroSection title="Scroll Poems">
           <p>These are experiments with text, visuals, gesture, and motion.</p>
