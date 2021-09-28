@@ -2,7 +2,8 @@ import Head from 'next/head'
 import { useEffect, useState, useMemo } from 'react'
 import { createMachine, assign } from 'xstate'
 import { useMachine } from '@xstate/react'
-import { ArrowIcon, RepeatIcon } from 'icons'
+import { RepeatIcon, DownArrowIcon } from 'icons'
+import BackLink from '@components/BackLink'
 
 //Increase multiplier make more scroll length between the reveal of each line
 const scrollMultiplier = 50
@@ -84,6 +85,10 @@ export default function Home() {
           })}
         </div>
       </div>
+      <BackLink
+        hoverFill={'hover:fill-calico-orange-200'}
+        focusVisibleColor={'focus-visible:ring-calico-orange-200'}
+      />
       {/* The div that controls the scroll */}
       <div
         className="invisible w-screen min-h-screen bg-red-100"
@@ -149,7 +154,7 @@ function Intro({ poemStarted, setPoemStarted }: IntroProps) {
           >
             scroll to begin
           </p>
-          <ArrowIcon className="w-4 h-6 fill-calico-orange-100 animate-bounce max-w-max mx-auto" />
+          <DownArrowIcon className="w-8 h-8 fill-calico-orange-100 animate-bounce max-w-max mx-auto" />
         </div>
       )}
     </div>

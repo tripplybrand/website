@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import { createMachine, assign } from 'xstate'
 import { useMachine } from '@xstate/react'
+import BackLink from '@components/BackLink'
 
 //Increase multiplier make more scroll length between the reveal of each line
 const scrollMultiplier = 5
@@ -111,6 +112,10 @@ export default function LapsangSouchong() {
           })}
         </div>
       </div>
+      <BackLink
+        hoverFill={'hover:fill-[#ffba75]'}
+        focusVisibleColor={'focus-visible:ring-[#ffba75]'}
+      />
       <div
         className="invisible w-screen min-h-screen bg-gray-300"
         style={{ height: `${100 * scrollMultiplier}vh` }}

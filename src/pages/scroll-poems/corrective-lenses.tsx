@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { createMachine, assign } from 'xstate'
 import { useMachine } from '@xstate/react'
+import BackLink from '@components/BackLink'
 
 //Increase multiplier make more scroll length between the reveal of each line
 const scrollMultiplier = 5
@@ -109,6 +110,11 @@ export default function CorrectiveLenses() {
           })}
         </div>
       </div>
+
+      <BackLink
+        hoverFill={'hover:fill-[#a3edfd]'}
+        focusVisibleColor={'focus-visible:ring-[#a3edfd]'}
+      />
       <div
         className="invisible w-screen min-h-screen bg-gray-300"
         style={{ height: `${100 * scrollMultiplier}vh` }}
