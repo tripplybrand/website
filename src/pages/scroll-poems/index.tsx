@@ -141,7 +141,7 @@ type PoetSectionProps = {
   name: string
   bio: string
   children: React.ReactNode
-  link?: HTMLAnchorElement | any
+  link?: React.ReactNode
 }
 const PoetSection = ({ name, bio, children, link }: PoetSectionProps) => {
   return (
