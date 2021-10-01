@@ -1,9 +1,32 @@
 import { NextPage } from 'next'
+import Head from 'next/head'
 import HomeLink from '@components/HomeLink'
+import OutsideLink from '@components/OutsideLink'
 
 const Contact: NextPage = () => {
   return (
     <>
+      <Head>
+        <title>Contact — Tripp Lybrand</title>
+        <meta charSet="utf-8"></meta>
+        <meta name="description" content="How to reach Tripp Lybrand."></meta>
+        <meta
+          property="og:title"
+          content="Contact — Tripp Lybrand"
+          key="ogtitle"
+        ></meta>
+        <meta
+          property="og:description"
+          content="How to reach Tripp Lybrand."
+          key="ogdesc"
+        />
+        <meta
+          property="og:image"
+          content="https://tripplybrand.com/Tripp_Contemplating_the_Meaning_of_Life_Meta.jpg"
+          key="ogimage"
+        ></meta>
+        <meta name="twitter:card" content="summary_large_image"></meta>
+      </Head>
       <HomeLink />
       <main className="my-16 flex flex-col space-y-2.5 sm:space-y-3 md:space-y-4">
         <div
@@ -14,33 +37,21 @@ const Contact: NextPage = () => {
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-wider text-black">
             Contact
           </h1>
-          <ul
-            className="text-sm sm:text-base md:text-lg font-light tracking-wider text-black 
-      flex flex-col space-y-2 sm:space-y-3"
-          >
-            <li>
-              <a
-                href="https://twitter.com/trippLybrand"
-                target="_blank"
-                rel="noreferrer"
-                className="underline text-black hover:text-matisse-red-200
-              focus:outline-none focus-visible:ring-1 sm:focus-visible:ring-2 focus-visible:ring-matisse-red-200 focus-visible:ring-opacity-60"
-              >
-                Twitter
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.instagram.com/tripplybrand/"
-                target="_blank"
-                rel="noreferrer"
-                className="underline text-black hover:text-matisse-red-200
-              focus:outline-none focus-visible:ring-1 sm:focus-visible:ring-2 focus-visible:ring-matisse-red-200 focus-visible:ring-opacity-60"
-              >
-                Instagram
-              </a>
-            </li>
-          </ul>
+          <p className="text-sm sm:text-base md:text-lg font-light tracking-wider text-black">
+            <>
+              Until I have something more formal, you can reach me on{' '}
+              <OutsideLink
+                href={'https://twitter.com/trippLybrand'}
+                text={'Twitter'}
+              />{' '}
+              or{' '}
+              <OutsideLink
+                href={'https://www.instagram.com/tripplybrand/'}
+                text={'Instagram'}
+              />
+              .
+            </>
+          </p>
         </div>
       </main>
     </>

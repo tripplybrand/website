@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Head from 'next/head'
 import { useWindowWidth } from '@helpers/useWindowWidth'
 import HomeLink from '@components/HomeLink'
+import OutsideLink from '@components/OutsideLink'
 
 const Multimedia: NextPage = () => {
   const width = useWindowWidth()
@@ -24,7 +25,7 @@ const Multimedia: NextPage = () => {
         />
         <meta
           property="og:image"
-          content="https://website-tripplybrand.vercel.app/Steam_Tea_Still.jpg"
+          content="https://tripplybrand.com/Steam_Tea_Still.jpg"
           key="ogimage"
         ></meta>
         <meta name="twitter:card" content="summary_large_image"></meta>
@@ -51,15 +52,10 @@ const Multimedia: NextPage = () => {
             link={
               <>
                 Take a pleasant walk through his personal website{' '}
-                <a
-                  href="https://michaeldechane.com/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="underline text-black hover:text-matisse-red-200
-                focus:outline-none focus-visible:ring-1 sm:focus-visible:ring-2 focus-visible:ring-matisse-red-200 focus-visible:ring-opacity-60"
-                >
-                  michaeldechane.com
-                </a>
+                <OutsideLink
+                  href={'https://michaeldechane.com/'}
+                  text={'michaeldechane.com'}
+                />
               </>
             }
           >
@@ -106,15 +102,10 @@ const Multimedia: NextPage = () => {
               <>
                 {' '}
                 You can befriend her on Twitter{' '}
-                <a
-                  href="https://twitter.com/windowonwords"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="underline text-black hover:text-matisse-red-200
-              focus:outline-none focus-visible:ring-1 sm:focus-visible:ring-2 focus-visible:ring-matisse-red-200 focus-visible:ring-opacity-60"
-                >
-                  windowonwords
-                </a>
+                <OutsideLink
+                  href={'https://twitter.com/windowonwords'}
+                  text={'windowonwords'}
+                />
                 {'.'}
               </>
             }

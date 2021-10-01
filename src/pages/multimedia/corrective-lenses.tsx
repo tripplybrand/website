@@ -29,7 +29,7 @@ export default function CorrectiveLenses() {
         />
         <meta
           property="og:image"
-          content="https://website-tripplybrand.vercel.app/Correct_Lenses_Meta.jpg"
+          content="https://tripplybrand.com/Correct_Lenses_Meta.jpg"
           key="ogimage"
         ></meta>
         <meta name="twitter:card" content="summary_large_image"></meta>

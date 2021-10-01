@@ -36,7 +36,7 @@ export default function Home() {
         />
         <meta
           property="og:image"
-          content="https://website-tripplybrand.vercel.app/Jake'sParade_Meta.jpg"
+          content="https://tripplybrand.com/Jake'sParade_Meta.jpg"
           key="ogimage"
         ></meta>
         <meta name="twitter:card" content="summary_large_image"></meta>

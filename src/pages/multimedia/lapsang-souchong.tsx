@@ -28,7 +28,7 @@ export default function LapsangSouchong() {
         />
         <meta
           property="og:image"
-          content="https://website-tripplybrand.vercel.app/Tea_Meta.jpg"
+          content="https://tripplybrand.com/Tea_Meta.jpg"
           key="ogimage"
         ></meta>
         <meta name="twitter:card" content="summary_large_image"></meta>

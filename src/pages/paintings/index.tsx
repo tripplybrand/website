@@ -26,7 +26,7 @@ const Paintings: NextPage = () => {
         />
         <meta
           property="og:image"
-          content="https://website-tripplybrand.vercel.app/Colorado_Mountain_Lake_Fisherman_Meta.jpg"
+          content="https://tripplybrand.com/Colorado_Mountain_Lake_Fisherman_Meta.jpg"
           key="ogimage"
         ></meta>
         <meta name="twitter:card" content="summary_large_image"></meta>
