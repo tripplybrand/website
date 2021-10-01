@@ -36,7 +36,6 @@ const Poems: NextPage = () => {
           <p>
             While the layering of mediums can bring fresh meaning, the text
             itself remains primary, and so the experiments are grouped by poet.
-            Please go and read more of their work.
           </p>
         </IntroSection>
 
@@ -48,17 +47,20 @@ const Poems: NextPage = () => {
           <PoetSection
             name="Michael Dechane"
             bio="A former carpenter, videographer, and speech writer. A native of
-              Odessa, Florida, he currently resides in Zürich, Switzerland. "
+              Odessa, Florida, he currently is a digital nomad. "
             link={
-              <a
-                href="https://www.instagram.com/wordtender/"
-                target="_blank"
-                rel="noreferrer"
-                className="underline text-black hover:text-matisse-red-200
+              <>
+                Take a pleasant walk through his personal website{' '}
+                <a
+                  href="https://michaeldechane.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline text-black hover:text-matisse-red-200
                 focus:outline-none focus-visible:ring-1 sm:focus-visible:ring-2 focus-visible:ring-matisse-red-200 focus-visible:ring-opacity-60"
-              >
-                wordtender
-              </a>
+                >
+                  michaeldechane.com
+                </a>
+              </>
             }
           >
             <PoemRow
@@ -84,17 +86,37 @@ const Poems: NextPage = () => {
 
           <PoetSection
             name="Julie Sumner"
-            bio="Poet, wife, loves unpopular birds and odd plants. "
+            bio={
+              <>
+                Julie Sumner writes and teaches in Nashville, Tennessee.
+                Previously, she worked as a critical care nurse, liver
+                transplant coordinator, and massage therapist. Her poems have
+                appeared in <span className="italic">The Wondrous Real</span>,{' '}
+                <span className="italic">Fathom Magazine</span>,{' '}
+                <span className="italic">The Cresset</span>,
+                <span className="italic"> Juxtaprose</span>,{' '}
+                <span className="italic">San Pedro River Review</span>,{' '}
+                <span className="italic">Catalpa Magazine</span>, and{' '}
+                <span className="italic">The Behemoth</span>. Her book reviews
+                can be found at{' '}
+                <span className="italic">The Englewood Review of Books</span>.
+              </>
+            }
             link={
-              <a
-                href="https://twitter.com/windowonwords"
-                target="_blank"
-                rel="noreferrer"
-                className="underline text-black hover:text-matisse-red-200
+              <>
+                {' '}
+                You can befriend her on Twitter{' '}
+                <a
+                  href="https://twitter.com/windowonwords"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline text-black hover:text-matisse-red-200
               focus:outline-none focus-visible:ring-1 sm:focus-visible:ring-2 focus-visible:ring-matisse-red-200 focus-visible:ring-opacity-60"
-              >
-                windowonwords
-              </a>
+                >
+                  windowonwords
+                </a>
+                {'.'}
+              </>
             }
           >
             <PoemRow
@@ -139,7 +161,7 @@ const IntroSection = ({ title, children }: IntroSectionProps) => {
 
 type PoetSectionProps = {
   name: string
-  bio: string
+  bio: React.ReactNode
   children: React.ReactNode
   link?: React.ReactNode
 }
@@ -150,10 +172,10 @@ const PoetSection = ({ name, bio, children, link }: PoetSectionProps) => {
         <h2 className=" text-lg sm:text-xl md:text-2xl font-semibold tracking-wider text-black">
           {name}
         </h2>
-        <span className="text-sm sm:text-base md:text-lg font-light tracking-wider text-black">
+        <p className="text-sm sm:text-base md:text-lg font-light tracking-wider text-black">
           {bio}
           {link}
-        </span>
+        </p>
       </div>
       <ul className="flex flex-col space-y-2">{children}</ul>
     </div>
