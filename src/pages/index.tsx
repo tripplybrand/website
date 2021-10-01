@@ -46,7 +46,7 @@ const Home: NextPage = () => {
         {width < 475 ? (
           <DividerHorizontalIcon className="fill-[#878787]" />
         ) : (
-          <DividerIcon className="fill-[#878787] w-0.5 h-[9.75rem] sm:h-[10.625rem] md:h-[15.875rem]" />
+          <DividerIcon className="fill-[#878787] w-0.5 h-[9.75rem] sm:h-[12rem] md:h-[17rem]" />
         )}
         {/* Right pages column */}
         <div className="flex flex-col">
@@ -56,7 +56,8 @@ const Home: NextPage = () => {
           <ul className="flex flex-col gap-y-1 sm:gap-y-2 md:gap-y-4">
             <SectionLink text="Writings" href="/writings" />
             <SectionLink text="Paintings" href="/paintings" />
-            <SectionLink text="Scroll Poems" href="/scroll-poems" />
+            <SectionLink text="Multimedia" href="/multimedia" />
+            <SectionLink text="Contact" href="/contact" />
           </ul>
         </div>
         {/*Add contact*/}

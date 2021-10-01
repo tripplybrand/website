@@ -5,7 +5,7 @@ import Head from 'next/head'
 import { useWindowWidth } from '@helpers/useWindowWidth'
 import HomeLink from '@components/HomeLink'
 
-const Poems: NextPage = () => {
+const Multimedia: NextPage = () => {
   const width = useWindowWidth()
   return (
     <>
@@ -219,4 +219,4 @@ const PoemLink = ({ href, children }: PoemLinkProps) => {
   )
 }
 
-export default Poems
+export default Multimedia
