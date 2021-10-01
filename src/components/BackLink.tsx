@@ -12,7 +12,7 @@ const BackLink = ({
   position,
 }: BackLinkProps) => {
   return (
-    <Link href="/scroll-poems">
+    <Link href="/multimedia">
       {/*The padding and negative margin increase the clickable area. 
       It creates a huge ring when tabbed to, but that seems better than making the area difficult to click.
       */}

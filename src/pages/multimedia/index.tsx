@@ -64,9 +64,7 @@ const Multimedia: NextPage = () => {
               src="/Jake's_Parade_Triangle.png"
               alt="Campfire with sparks."
             >
-              <PoemLink href="/scroll-poems/jakes-parade">
-                Jake's Parade
-              </PoemLink>
+              <PoemLink href="/multimedia/jakes-parade">Jake's Parade</PoemLink>
             </PoemRow>
 
             <PoemRow
@@ -74,7 +72,7 @@ const Multimedia: NextPage = () => {
               src="/Lapsang_Souchong_Triangle.png"
               alt="Metal horse figurine on book beside a teacup."
             >
-              <PoemLink href="/scroll-poems/lapsang-souchong">
+              <PoemLink href="/multimedia/lapsang-souchong">
                 Lapsang Souchong
               </PoemLink>
             </PoemRow>
@@ -115,7 +113,7 @@ const Multimedia: NextPage = () => {
               src="/Corrective_Lenses_Triangle.png"
               alt="View of mountain range on Madeira."
             >
-              <PoemLink href="/scroll-poems/corrective-lenses">
+              <PoemLink href="/multimedia/corrective-lenses">
                 Corrective Lenses
               </PoemLink>
             </PoemRow>
