@@ -29,38 +29,40 @@ const Home: NextPage = () => {
         ></meta>
         <meta name="twitter:card" content="summary_large_image"></meta>
       </Head>
-      <main className="m-auto w-max p-14 mt-24 bg-white flex flex-col xs:flex-row gap-[1.125rem] sm:gap-6">
-        {/* Left bio column */}
-        <div className="flex flex-col">
-          <h1>
-            <HeaderText text="Tripp Lybrand" />
-          </h1>
-          <div className="flex flex-col gap-y-0.5 sm:gap-y-1 md:gap-y-1.5">
-            <BioElement text="Writer" />
-            <BioElement text="Painter" />
-            <BioElement text="Designer" />
-            <BioElement text="Developer" />
+      <main className="h-screen flex flex-col justify-center">
+        <div className="m-auto w-max p-14 bg-white flex flex-col xs:flex-row gap-[1.125rem] sm:gap-6">
+          {/* Left bio column */}
+          <div className="flex flex-col">
+            <h1>
+              <HeaderText text="Tripp Lybrand" />
+            </h1>
+            <div className="flex flex-col gap-y-0.5 sm:gap-y-1 md:gap-y-1.5">
+              <BioElement text="Writer" />
+              <BioElement text="Painter" />
+              <BioElement text="Designer" />
+              <BioElement text="Developer" />
+            </div>
           </div>
+          {/* Middle divider*/}
+          {width < 475 ? (
+            <DividerHorizontalIcon className="fill-[#878787]" />
+          ) : (
+            <DividerIcon className="fill-[#878787] w-0.5 h-[9.75rem] sm:h-[12rem] md:h-[17rem]" />
+          )}
+          {/* Right pages column */}
+          <div className="flex flex-col">
+            <h2>
+              <HeaderText text="Sections" />
+            </h2>
+            <ul className="flex flex-col gap-y-1 sm:gap-y-2 md:gap-y-4">
+              <SectionLink text="Writings" href="/writings" />
+              <SectionLink text="Paintings" href="/paintings" />
+              <SectionLink text="Multimedia" href="/multimedia" />
+              <SectionLink text="Contact" href="/contact" />
+            </ul>
+          </div>
+          {/*Add contact*/}
         </div>
-        {/* Middle divider*/}
-        {width < 475 ? (
-          <DividerHorizontalIcon className="fill-[#878787]" />
-        ) : (
-          <DividerIcon className="fill-[#878787] w-0.5 h-[9.75rem] sm:h-[12rem] md:h-[17rem]" />
-        )}
-        {/* Right pages column */}
-        <div className="flex flex-col">
-          <h2>
-            <HeaderText text="Sections" />
-          </h2>
-          <ul className="flex flex-col gap-y-1 sm:gap-y-2 md:gap-y-4">
-            <SectionLink text="Writings" href="/writings" />
-            <SectionLink text="Paintings" href="/paintings" />
-            <SectionLink text="Multimedia" href="/multimedia" />
-            <SectionLink text="Contact" href="/contact" />
-          </ul>
-        </div>
-        {/*Add contact*/}
       </main>
     </>
   )
