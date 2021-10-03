@@ -1,5 +1,6 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
+import Image from 'next/image'
 import HomeLink from '@components/HomeLink'
 import OutsideLink from '@components/OutsideLink'
 
@@ -30,28 +31,37 @@ const Contact: NextPage = () => {
       <HomeLink />
       <main className="my-16 flex flex-col space-y-2.5 sm:space-y-3 md:space-y-4">
         <div
-          className="m-auto w-9/12 max-w-4xl 
+          className="m-auto w-9/12 max-w-2xl 
         px-8 sm:px-10 md:px-14 py-4 sm:py-5 md:py-7
         bg-white flex flex-col space-y-5 sm:space-y-7 md:space-y-9"
         >
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-wider text-black">
             Contact
           </h1>
-          <p className="text-sm sm:text-base md:text-lg font-light tracking-wider text-black">
-            <>
-              Until I have something more formal, you can reach me on{' '}
-              <OutsideLink
-                href={'https://twitter.com/trippLybrand'}
-                text={'Twitter'}
-              />{' '}
-              or{' '}
-              <OutsideLink
-                href={'https://www.instagram.com/tripplybrand/'}
-                text={'Instagram'}
-              />
-              .
-            </>
-          </p>
+          <div className="flex gap-4 flex-wrap sm:flex-nowrap">
+            <Image
+              src={'/Tripp_Contemplating_the_Meaning_of_Life_Meta.jpg'}
+              alt={'Tripp Lybrand contemplating the meaning of life.'}
+              width={1000}
+              height={848}
+              priority={true}
+            />
+            <p className="text-sm sm:text-base md:text-lg font-light tracking-wider text-black">
+              <>
+                Until I have something more formal, you can reach me on{' '}
+                <OutsideLink
+                  href={'https://twitter.com/trippLybrand'}
+                  text={'Twitter'}
+                />{' '}
+                or{' '}
+                <OutsideLink
+                  href={'https://www.instagram.com/tripplybrand/'}
+                  text={'Instagram'}
+                />
+                .
+              </>
+            </p>
+          </div>
         </div>
       </main>
     </>
