@@ -1,5 +1,5 @@
 type PaintingType = {
-  src: string
+  src: StaticImageData
   alt: string
   title: string
   id: string

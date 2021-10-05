@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import HomeLink from '@components/HomeLink'
 import OutsideLink from '@components/OutsideLink'
+import headshot from '../../public/Tripp_Contemplating_the_Meaning_of_Life_Meta.jpg'
 
 const Contact: NextPage = () => {
   return (
@@ -40,11 +41,12 @@ const Contact: NextPage = () => {
           </h1>
           <div className="flex gap-4 flex-wrap sm:flex-nowrap">
             <Image
-              src={'/Tripp_Contemplating_the_Meaning_of_Life_Meta.jpg'}
+              src={headshot}
               alt={'Tripp Lybrand contemplating the meaning of life.'}
               width={1000}
               height={848}
               priority={true}
+              placeholder={'blur'}
             />
             <p className="text-sm sm:text-base md:text-lg font-light tracking-wider text-black">
               <>

@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react'
 import { createMachine, assign } from 'xstate'
 import { useMachine } from '@xstate/react'
 import BackLink from '@components/BackLink'
+//Statically imported image file
+import madeiraBlur from '../../../public/Madeira_Blur.jpg'
 
 //Increase multiplier make more scroll length between the reveal of each line
 const scrollMultiplier = 5
@@ -37,12 +39,13 @@ export default function CorrectiveLenses() {
       {/* Background image */}
       <div className="fixed overflow-hidden w-screen h-screen">
         <Image
-          src="/Madeira_Blur.JPG"
+          src={madeiraBlur}
           alt="View of mountain range on Madeira."
           layout="fill"
           objectFit="cover"
           quality={75}
           priority={true}
+          placeholder="blur"
         />
       </div>
       {/* Transparent pane between image and text */}

@@ -19,6 +19,7 @@ const Painting = ({
         height={height}
         quality={quality}
         priority={priority}
+        placeholder={'blur'}
       />
       <h3 className="text-xs md:text-sm font-light text-black italic">
         <cite>{title}</cite>

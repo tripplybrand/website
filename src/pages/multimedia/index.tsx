@@ -5,6 +5,10 @@ import Head from 'next/head'
 import { useWindowWidth } from '@helpers/useWindowWidth'
 import HomeLink from '@components/HomeLink'
 import OutsideLink from '@components/OutsideLink'
+//Statically imported image files
+import jakesParadeTriangle from "../../../public/Jake's_Parade_Triangle.png"
+import lapsangSouchongTriangle from '../../../public/Lapsang_Souchong_Triangle.png'
+import correctiveLensesTriangle from '../../../public/Corrective_Lenses_Triangle.png'
 
 const Multimedia: NextPage = () => {
   const width = useWindowWidth()
@@ -61,7 +65,7 @@ const Multimedia: NextPage = () => {
           >
             <PoemRow
               width={width}
-              src="/Jake's_Parade_Triangle.png"
+              src={jakesParadeTriangle}
               alt="Campfire with sparks."
             >
               <PoemLink href="/multimedia/jakes-parade">Jake's Parade</PoemLink>
@@ -69,7 +73,7 @@ const Multimedia: NextPage = () => {
 
             <PoemRow
               width={width}
-              src="/Lapsang_Souchong_Triangle.png"
+              src={lapsangSouchongTriangle}
               alt="Metal horse figurine on book beside a teacup."
             >
               <PoemLink href="/multimedia/lapsang-souchong">
@@ -110,7 +114,7 @@ const Multimedia: NextPage = () => {
           >
             <PoemRow
               width={width}
-              src="/Corrective_Lenses_Triangle.png"
+              src={correctiveLensesTriangle}
               alt="View of mountain range on Madeira."
             >
               <PoemLink href="/multimedia/corrective-lenses">
@@ -173,7 +177,7 @@ const PoetSection = ({ name, bio, children, link }: PoetSectionProps) => {
 
 type PoemRowProps = {
   width: number
-  src: string
+  src: StaticImageData
   alt: string
   children: React.ReactNode
 }
