@@ -10,7 +10,7 @@ import shotgun from '../../../public/Junction_Shotgun_Merit_Badge_3776.jpg'
 import stagedFight from '../../../public/Junction_Staged_Fight_3830.jpg'
 import tapeTattoo from '../../../public/Junction_Tape_Tattoo_3794.jpg'
 import tentmate from '../../../public/Junction_Tentmate_3746.jpg'
-import papyrusSwamp from '../../../public/Uganda_Papyrus_Swamp_4648.jpg'
+import papyrusSwamp from '../../../public/Uganda_Church_Papyrus_Swamp_4648.jpg'
 
 const Paintings: NextPage = () => {
   //Thses must be in the same order as paintingsData. Less than ideal
