@@ -5,7 +5,7 @@ import { createMachine, assign } from 'xstate'
 import { useMachine } from '@xstate/react'
 import BackLink from '@components/BackLink'
 //Statically imported image file
-import madeiraBlur from '../../../public/Madeira_Blur.jpg'
+import madeiraBlur from '../../../public/Madeira_Fog.jpg'
 
 //Increase multiplier make more scroll length between the reveal of each line
 const scrollMultiplier = 5
