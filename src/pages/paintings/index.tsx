@@ -3,7 +3,7 @@ import Head from 'next/head'
 import HomeLink from '@components/HomeLink'
 import Painting from '@components/Painting'
 import paintingsData from '../../../paintings-data.json'
-//Statically imported image files.
+//Statically imported image files
 import mountainLake from '../../../public/Colorado_Mountain_Lake_Fisherman_3784.jpg'
 import lakeRim from '../../../public/Colorado_Lake_Rim_3733.jpg'
 import shotgun from '../../../public/Junction_Shotgun_Merit_Badge_3776.jpg'
