@@ -27,11 +27,11 @@ const Writings: NextPage = () => {
       </div>
       <HomeLinkGoose />
       <div
-        className="m-auto w-9/12 max-w-4xl 
+        className="m-auto w-full xs:w-11/12 sm:w-10/12 md:w-9/12 max-w-4xl 
             px-4 sm:px-5 md:px-7 
             pt-1 md:pt-2 
             pb-4 sm:pb-5 md:pb-7 
-            mt-4 mb-12
+            mt-0 xs:mt-2 sm:mt-3 md:mt-4 mb-12
             bg-white"
       >
         {paragraphs.map((text, paragraphIdx) => (
