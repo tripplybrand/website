@@ -12,7 +12,7 @@ const Writings: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Scroll Poems</title>
+        <title>Goose (Bulleit)</title>
         <meta charSet="utf-8"></meta>
         <meta
           name="description"
