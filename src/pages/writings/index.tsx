@@ -367,7 +367,7 @@ const useCreateParagraphs = () => {
             /* Not sure what to set the ref as to avoid this warning.
              But it doesn't seem to affect the use of the ref*/
             startOfCrassness.current !== null &&
-              startOfCrassness.current.scrollIntoView()
+              startOfCrassness.current.scrollIntoView({ behavior: 'smooth' })
             !huntingForCrassness && setHuntingForCrassness(true)
           }}
           className="underline text-black hover:text-vermilion
