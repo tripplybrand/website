@@ -7,7 +7,7 @@ import islandOfRottingBeauty from '../../../public/Island_of_Rotting_Beauty.jpg'
 const Writings: NextPage = () => {
   return (
     <main>
-      <div className="w-screen h-screen">
+      <div className="w-screen h-screen relative">
         <Image
           src={islandOfRottingBeauty}
           alt="View island in Lake Martin ."
@@ -31,7 +31,8 @@ const Writings: NextPage = () => {
             px-4 sm:px-5 md:px-7 
             pt-1 md:pt-2 
             pb-4 sm:pb-5 md:pb-7 
-            mt-0 xs:mt-2 sm:mt-3 md:mt-4 mb-12
+            mt-0 xs:mt-2 sm:mt-3 md:mt-4 
+            mb-12
             bg-white"
       >
         {paragraphs.map((text, paragraphIdx) => (
