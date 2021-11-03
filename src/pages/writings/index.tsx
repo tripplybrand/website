@@ -10,7 +10,7 @@ const Writings: NextPage = () => {
       <div className="w-screen h-screen">
         <Image
           src={islandOfRottingBeauty}
-          alt="View of mountain range on Madeira."
+          alt="View island in Lake Martin ."
           layout="fill"
           objectFit="cover"
           quality={75}
@@ -20,7 +20,7 @@ const Writings: NextPage = () => {
         <h1
           className="text-4xl xs:text-5xl sm:text-7xl font-bold 
         absolute inset-0 m-auto w-max h-10 xs:h-12 sm:h-[4.5rem]
-        text-[#FAF7F5] text-opacity-90 hover:text-[#864049] hover:text-opacity-70"
+        text-[#FAF7F5] text-opacity-90 hover:text-vermilion hover:text-opacity-70"
         >
           GOOSE (BULLEIT)
         </h1>
@@ -57,14 +57,33 @@ const HomeLinkGoose = () => {
       */}
       <a
         className="text-sm md:text-base font-light tracking-wider underline uppercase
-      text-[#FAF7F5] hover:text-[#864049]
-      focus:outline-none focus-visible:ring-1 md:focus-visible:ring-2 focus-visible:ring-[#864049] focus-visible:ring-offset-2 focus-visible:ring-opacity-60
+      text-[#FAF7F5] hover:text-vermilion
+      focus:outline-none focus-visible:ring-1 md:focus-visible:ring-2 focus-visible:ring-vermilion focus-visible:ring-offset-2 focus-visible:ring-opacity-60
       absolute left-6 top-5 p-11 -m-11
       "
       >
         Home
       </a>
     </Link>
+  )
+}
+
+//Same issue with HomeLink. Clearly not abstacted enough, but not sure how general it needs to become
+type OutsideLinkProps = {
+  href: string
+  children: React.ReactNode
+}
+const OutsideLinkGoose = ({ href, children }: OutsideLinkProps) => {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      className="underline text-black hover:text-vermilion
+    focus:outline-none focus-visible:ring-1 sm:focus-visible:ring-2 focus-visible:ring-vermilion focus-visible:ring-opacity-60"
+    >
+      {children}
+    </a>
   )
 }
 
@@ -151,12 +170,17 @@ const paragraphs = [
     short mud cliff, where its nest was, is.
   </>,
   <>
-    He is reenacting the painting <i className="italic">Pelican (Stag)</i> by
-    Peter Doig, deeper than that, he is embodying the painting’s inspiration: in
-    Trinidad a man on the beach, wringing a pelican’s neck. He has made me Doig,
-    viewing what I feel I should not, requiring a creative response. Who is this
-    man on a small island in Lake Martin, Alabama, cultured enough and violent
-    enough to procure and destroy a goose, so that he may reenact the
+    He is reenacting the painting{' '}
+    <OutsideLinkGoose
+      href={'https://www.artsy.net/artwork/peter-doig-pelican-stag'}
+    >
+      <i className="italic">Pelican (Stag)</i>
+    </OutsideLinkGoose>{' '}
+    by Peter Doig, deeper than that, he is embodying the painting’s inspiration:
+    in Trinidad a man on the beach, wringing a pelican’s neck. He has made me
+    Doig, viewing what I feel I should not, requiring a creative response. Who
+    is this man on a small island in Lake Martin, Alabama, cultured enough and
+    violent enough to procure and destroy a goose, so that he may reenact the
     inspiration for a painting of a world-renowned artist? Seeing it from such a
     distance and in person is more emotive than the painting itself. He must be
     a man after my own heart. The willingness to do all things and any specific
@@ -185,7 +209,13 @@ const paragraphs = [
     the performance must have been for the ephemeral sake of performing, and my
     call would rob the piece of its purpose. So, silence. Perhaps another time
     we will establish our kinship, and commiserate over the sacrifice of even
-    love for art, but knowing how way leads on to way, well, you never know.
+    love for art, but knowing how{' '}
+    <OutsideLinkGoose
+      href={'https://www.poetryfoundation.org/poems/44272/the-road-not-taken'}
+    >
+      way leads on to way
+    </OutsideLinkGoose>
+    , well, you never know.
   </>,
   <div className="text-lg sm:text-xl md:text-2xl font-semibold text-center">
     ***
