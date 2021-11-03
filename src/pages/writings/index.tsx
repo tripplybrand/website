@@ -59,7 +59,7 @@ const HomeLinkGoose = () => {
       It creates a huge ring when tabbed to, but that seems better than making the area difficult to click.
       */}
       <a
-        className="text-sm md:text-base font-light tracking-wider underline uppercase
+        className="text-sm md:text-base font-semibold sm:font-normal md:font-light tracking-wider underline uppercase
       text-[#FAF7F5] hover:text-vermilion
       focus:outline-none focus-visible:ring-1 md:focus-visible:ring-2 focus-visible:ring-vermilion focus-visible:ring-offset-2 focus-visible:ring-opacity-60
       absolute left-6 top-5 p-11 -m-11
