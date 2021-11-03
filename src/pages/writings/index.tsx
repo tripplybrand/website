@@ -40,7 +40,9 @@ const Writings: NextPage = () => {
         mt-3 sm:mt-4 md:mt-5"
             key={paragraphIdx}
           >
-            {text}
+            {/*Tailwind doesn't have text-indent, 
+            so instead of installing a new package this seems like a reasonable approach*/}
+            &emsp;{text}
           </div>
         ))}
       </div>
