@@ -1,6 +1,7 @@
 import { NextPage } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import Head from 'next/head'
 //Statically imported image file
 import islandOfRottingBeauty from '../../../public/Island_of_Rotting_Beauty.jpg'
 import { useEffect, useRef, useState } from 'react'
@@ -9,48 +10,75 @@ const Writings: NextPage = () => {
   const paragraphsTest = useCreateParagraphs()
 
   return (
-    <main>
-      <div className="w-screen h-screen relative">
-        <Image
-          src={islandOfRottingBeauty}
-          alt="View island in Lake Martin ."
-          layout="fill"
-          objectFit="cover"
-          quality={75}
-          priority={true}
-          placeholder="blur"
+    <>
+      <Head>
+        <title>Scroll Poems</title>
+        <meta charSet="utf-8"></meta>
+        <meta
+          name="description"
+          content="A short story involving a lonely man in Alabama, a goose, and a painting of Peter Doig's."
+        ></meta>
+        <meta
+          property="og:title"
+          content="Goose (Bulleit)"
+          key="ogtitle"
+        ></meta>
+        <meta
+          property="og:description"
+          content="A short story involving a lonely man in Alabama, a goose, and a painting of Peter Doig's."
+          key="ogdesc"
         />
-        <h1
-          className="text-4xl xs:text-5xl sm:text-7xl font-bold 
+        <meta
+          property="og:image"
+          content="https://tripplybrand.com/Island_of_Rotting_Beauty.jpg"
+          key="ogimage"
+        ></meta>
+        <meta name="twitter:card" content="summary_large_image"></meta>
+      </Head>
+      <main>
+        <div className="w-screen h-screen relative">
+          <Image
+            src={islandOfRottingBeauty}
+            alt="View island in Lake Martin ."
+            layout="fill"
+            objectFit="cover"
+            quality={75}
+            priority={true}
+            placeholder="blur"
+          />
+          <h1
+            className="text-4xl xs:text-5xl sm:text-7xl font-bold 
         absolute inset-0 m-auto w-max h-10 xs:h-12 sm:h-[4.5rem]
         text-[#FAF7F5] text-opacity-90 hover:text-vermilion hover:text-opacity-70"
-        >
-          GOOSE (BULLEIT)
-        </h1>
-      </div>
-      <HomeLinkGoose />
-      <div
-        className="m-auto w-full xs:w-11/12 sm:w-10/12 md:w-9/12 max-w-4xl 
+          >
+            GOOSE (BULLEIT)
+          </h1>
+        </div>
+
+        <div
+          className="m-auto w-full xs:w-11/12 sm:w-10/12 md:w-9/12 max-w-4xl 
             px-4 sm:px-5 md:px-7 
             pt-1 md:pt-2 
             pb-4 sm:pb-5 md:pb-7 
             mt-0 xs:mt-2 sm:mt-3 md:mt-4 
             mb-12
             bg-white"
-      >
-        {paragraphsTest.map((text, paragraphIdx) => (
-          <div
-            className="text-sm sm:text-base md:text-lg font-normal text-black
+        >
+          {paragraphsTest.map((text, paragraphIdx) => (
+            <div
+              className="text-sm sm:text-base md:text-lg font-normal text-black
         mt-3 sm:mt-4 md:mt-5"
-            key={paragraphIdx}
-          >
-            {/*Tailwind doesn't have text-indent, 
+              key={paragraphIdx}
+            >
+              {/*Tailwind doesn't have text-indent, 
             so instead of installing a new package this seems like a reasonable approach*/}
-            &emsp;{text}
-          </div>
-        ))}
-      </div>
-    </main>
+              &emsp;{text}
+            </div>
+          ))}
+        </div>
+      </main>
+      <HomeLinkGoose />
+    </>
   )
 }
 
