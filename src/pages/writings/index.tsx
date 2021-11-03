@@ -71,7 +71,8 @@ const Writings: NextPage = () => {
               key={paragraphIdx}
             >
               {/*Tailwind doesn't have text-indent, 
-            so instead of installing a new package this seems like a reasonable approach*/}
+            so instead of installing a new package this seems like a reasonable approach.
+            Ideally would remove when text is *** but not visually noticible.*/}
               &emsp;{text}
             </div>
           ))}
@@ -275,13 +276,13 @@ const useCreateParagraphs = () => {
         performance must have been for the ephemeral sake of performing, and my
         call would rob the piece of its purpose. So, silence. Perhaps another
         time we will establish our kinship, and commiserate over the sacrifice
-        of even love for art, but knowing how{' '}
+        of even love for art, but{' '}
         <OutsideLinkGoose
           href={
             'https://www.poetryfoundation.org/poems/44272/the-road-not-taken'
           }
         >
-          way leads on to way
+          knowing how way leads on to way
         </OutsideLinkGoose>
         , well, you never know.
       </>,
@@ -317,16 +318,15 @@ const useCreateParagraphs = () => {
         His bare feet post into inches of water and the red mud plumes about his
         ankles.{' '}
         <ColorCrassness huntingForCrassness={huntingForCrassness}>
-          He fingers the tip
+          He fingers the tip of the canoe
         </ColorCrassness>{' '}
-        of the canoe and drags it half onto the bank. The sound of plastic
-        scraping sand is implied by his struggle. He sets off counterclockwise
-        around the island, which is deeper into the scene, away from our
-        foreground. He has purpose and moves with the speed that the soft,
-        fading edge of the shore allows. He reaches a rock, dingy white quartz,
-        and then turns toward the heart of{' '}
+        and drags it half onto the bank. The sound of plastic scraping sand is
+        implied by his struggle. He sets off counterclockwise around the island,
+        which is deeper into the scene, away from our foreground. He has purpose
+        and moves with the speed that the soft, fading edge of the shore allows.
+        He reaches a rock, dingy white quartz, and then turns toward{' '}
         <ColorCrassness huntingForCrassness={huntingForCrassness}>
-          this wild mound
+          the heart of this wild mound
         </ColorCrassness>
         , which is owned by the power company, poles set into it, wires strung
         above it, so it is{' '}
