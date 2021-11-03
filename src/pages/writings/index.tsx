@@ -30,7 +30,7 @@ const Writings: NextPage = () => {
         />
         <meta
           property="og:image"
-          content="https://tripplybrand.com/Island_of_Rotting_Beauty.jpg"
+          content="https://tripplybrand.com/Island_of_Rotting_Beauty_Meta.jpg"
           key="ogimage"
         ></meta>
         <meta name="twitter:card" content="summary_large_image"></meta>
