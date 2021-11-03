@@ -115,7 +115,7 @@ const ColorCrassness = ({
 const useCreateParagraphs = () => {
   const [paragraphs, setParagraphs] = useState([<></>])
   const [huntingForCrassness, setHuntingForCrassness] = useState(false)
-  const startOfCrassness = useRef(null)
+  const startOfCrassness = useRef<null | HTMLDivElement>(null)
 
   useEffect(() => {
     const paragraphsJSX = [
@@ -366,7 +366,8 @@ const useCreateParagraphs = () => {
           onClick={() => {
             /* Not sure what to set the ref as to avoid this warning.
              But it doesn't seem to affect the use of the ref*/
-            startOfCrassness.current.scrollIntoView()
+            startOfCrassness.current !== null &&
+              startOfCrassness.current.scrollIntoView()
             !huntingForCrassness && setHuntingForCrassness(true)
           }}
           className="underline text-black hover:text-vermilion
