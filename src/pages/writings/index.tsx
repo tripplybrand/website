@@ -5,6 +5,7 @@ import Head from 'next/head'
 //Statically imported image file
 import islandOfRottingBeauty from '../../../public/Island_of_Rotting_Beauty.jpg'
 import { useEffect, useRef, useState } from 'react'
+import { GooseIcon } from 'icons'
 
 const Writings: NextPage = () => {
   const paragraphsTest = useCreateParagraphs()
@@ -70,10 +71,7 @@ const Writings: NextPage = () => {
         mt-3 sm:mt-4 md:mt-5"
               key={paragraphIdx}
             >
-              {/*Tailwind doesn't have text-indent, 
-            so instead of installing a new package this seems like a reasonable approach.
-            Ideally would remove when text is *** but not visually noticible.*/}
-              &emsp;{text}
+              {text}
             </div>
           ))}
         </div>
@@ -146,9 +144,12 @@ const useCreateParagraphs = () => {
   const [huntingForCrassness, setHuntingForCrassness] = useState(false)
   const startOfCrassness = useRef<null | HTMLDivElement>(null)
 
+  /*Tailwind doesn't have text-indent, 
+  so instead of installing a new package this seems like a reasonable approach.*/
   useEffect(() => {
     const paragraphsJSX = [
       <>
+        &emsp;
         <span className="text-lg sm:text-xl md:text-2xl font-semibold">H</span>e
         has taken the thing by the neck, long neck, and is twirling it around;
         rather it is twirling around itself, pivoting about the point of his
@@ -167,7 +168,7 @@ const useCreateParagraphs = () => {
         chest-perpendicular: his fist moves toward the bird.
       </>,
       <>
-        The bird behaves as it ought—if we are to say animals ought do
+        &emsp;The bird behaves as it ought—if we are to say animals ought do
         anything—frantically gesturing feathered billows and plumage plumes. It
         most likely has cut at the man’s wrist with the claws of its web-bound
         feet, but the scraping makes no audible record. Given how water takes
@@ -190,26 +191,26 @@ const useCreateParagraphs = () => {
         could not be seen.
       </>,
       <>
-        When the fist retreats—the wings silent, the plumage plumes settled—the
-        man turns his wrist and the Alabama sun catches on the metal. A knife,
-        he is holding a knife. Unplugging the hole recently manufactured, a
-        lustful stream of blood comes out, lustful for the ground or the lake
-        water lapping at the edges of the coarse orange sand, the red clay
-        underneath. Lustful because it rushes out, slivering over the ridges of
-        feathers, and then cascades at an angle off one of the webbed feet. What
-        life has that goose lived that its own blood is so eager to evacuate? We
-        are at such a distance still, unaided by any device of magnification,
-        that the blood is not a collection of drops, but a stream, which
-        sputters close to the ground, raining on the coarse and once translucent
-        sand, stained orange from the red clay, now most likely red-clotted in
-        craters from the sputtering blood.
+        &emsp;When the fist retreats—the wings silent, the plumage plumes
+        settled—the man turns his wrist and the Alabama sun catches on the
+        metal. A knife, he is holding a knife. Unplugging the hole recently
+        manufactured, a lustful stream of blood comes out, lustful for the
+        ground or the lake water lapping at the edges of the coarse orange sand,
+        the red clay underneath. Lustful because it rushes out, slivering over
+        the ridges of feathers, and then cascades at an angle off one of the
+        webbed feet. What life has that goose lived that its own blood is so
+        eager to evacuate? We are at such a distance still, unaided by any
+        device of magnification, that the blood is not a collection of drops,
+        but a stream, which sputters close to the ground, raining on the coarse
+        and once translucent sand, stained orange from the red clay, now most
+        likely red-clotted in craters from the sputtering blood.
       </>,
       <>
-        The long neck is longer in death. Who knew geese had muscles they were
-        using to keep those long tubes for air and food contracted. We all know
-        now, seeing it lengthened in the man’s hand. His arm remains stiff and
-        elongated as he lowers it, rotating at the shoulder. His arm is down at
-        his side and the goose neck hangs from it, the full body of the bird
+        &emsp;The long neck is longer in death. Who knew geese had muscles they
+        were using to keep those long tubes for air and food contracted. We all
+        know now, seeing it lengthened in the man’s hand. His arm remains stiff
+        and elongated as he lowers it, rotating at the shoulder. His arm is down
+        at his side and the goose neck hangs from it, the full body of the bird
         knocking against his knee, and while it is hard to tell at this
         distance, the webbed feet are touching the sand, just the tip of the
         nails. He opens and closes his grip, so the neck slides through and the
@@ -220,22 +221,22 @@ const useCreateParagraphs = () => {
         not bring it to our ears.
       </>,
       <>
-        This circle of southern clay—you could walk its wavering circumference
-        in five to ten minutes—is like a flowerpot: the pines are tall weeds,
-        the burnt, pale-brown grass around the trunks is dead moss in a blue tin
-        bucket. There are stones, larger, too large for even a strong man to
-        budge from their mud-glued placement. That is where the man moves
-        toward, toward the stones where the perch spasm their tails and move
-        through the brown water. The goose, no longer dying but dead, dragging
-        and furrowing behind him, is unified with him by the clutching, so the
-        killer is the dead thing he has deadened, all of him being dragged down
-        into the island he has robbed of the only living inhabitant we knew of;
-        knowledge given to us morning by morning when it wailed and skidded,
-        crash landed over the water, then hopped up the short mud cliff, where
-        its nest was, is.
+        &emsp;This circle of southern clay—you could walk its wavering
+        circumference in five to ten minutes—is like a flowerpot: the pines are
+        tall weeds, the burnt, pale-brown grass around the trunks is dead moss
+        in a blue tin bucket. There are stones, larger, too large for even a
+        strong man to budge from their mud-glued placement. That is where the
+        man moves toward, toward the stones where the perch spasm their tails
+        and move through the brown water. The goose, no longer dying but dead,
+        dragging and furrowing behind him, is unified with him by the clutching,
+        so the killer is the dead thing he has deadened, all of him being
+        dragged down into the island he has robbed of the only living inhabitant
+        we knew of; knowledge given to us morning by morning when it wailed and
+        skidded, crash landed over the water, then hopped up the short mud
+        cliff, where its nest was, is.
       </>,
       <>
-        He is reenacting the painting{' '}
+        &emsp;He is reenacting the painting{' '}
         <OutsideLinkGoose
           href={'https://www.artsy.net/artwork/peter-doig-pelican-stag'}
         >
@@ -258,18 +259,18 @@ const useCreateParagraphs = () => {
         loneliness when it is strongest.
       </>,
       <>
-        At the same distance he finishes dragging the long necked bird, lifts it
-        and sets it into the hollow triangle behind the back seat of his green
-        canoe. He either acts with precise intention or complete serendipity,
-        because the neck hangs idyllic, like the stroke of a brush over the side
-        of the canoe, facing us, and the beak touches the water, but it doesn’t,
-        as there is no ripple birthed when the boat sets forth; the width of a
-        leaf must be between them; if the goose still had breath the force would
-        tremble craters into the skin of the lake. The haggard man rows through
-        our frame, his left arm stronger than his right, as he digs hard every
-        three strokes to counter the slight veering. The goose is peaceful and
-        gazes at the reflection it no longer has, or I suppose it still
-        possesses such a thing, death doesn’t steal it initially, but
+        &emsp;At the same distance he finishes dragging the long necked bird,
+        lifts it and sets it into the hollow triangle behind the back seat of
+        his green canoe. He either acts with precise intention or complete
+        serendipity, because the neck hangs idyllic, like the stroke of a brush
+        over the side of the canoe, facing us, and the beak touches the water,
+        but it doesn’t, as there is no ripple birthed when the boat sets forth;
+        the width of a leaf must be between them; if the goose still had breath
+        the force would tremble craters into the skin of the lake. The haggard
+        man rows through our frame, his left arm stronger than his right, as he
+        digs hard every three strokes to counter the slight veering. The goose
+        is peaceful and gazes at the reflection it no longer has, or I suppose
+        it still possesses such a thing, death doesn’t steal it initially, but
         decomposition will. Shall I call the man, beckon him to dine with me and
         share good company? Celebrate the grotesque and ethereal nature of his
         art, painting made flesh? But if he does not know or desire my gaze, the
@@ -286,10 +287,11 @@ const useCreateParagraphs = () => {
         </OutsideLinkGoose>
         , well, you never know.
       </>,
-      <div className="text-lg sm:text-xl md:text-2xl font-semibold text-center">
-        ***
+      <div className="flex justify-center">
+        <GooseIcon className="fill-vermilion w-32 h-32 xs:w-36 xs:h-36" />
       </div>,
       <>
+        &emsp;
         <span className="text-lg sm:text-xl md:text-2xl font-semibold">I</span>t
         is a new day and apologies are offered. It is the same time as the day
         before and the canoe has cut through the same path of water that is
@@ -315,8 +317,8 @@ const useCreateParagraphs = () => {
         </span>
       </>,
       <>
-        His bare feet post into inches of water and the red mud plumes about his
-        ankles.{' '}
+        &emsp;His bare feet post into inches of water and the red mud plumes
+        about his ankles.{' '}
         <ColorCrassness huntingForCrassness={huntingForCrassness}>
           He fingers the tip of the canoe
         </ColorCrassness>{' '}
@@ -353,8 +355,8 @@ const useCreateParagraphs = () => {
         back, left foot in right print, the opposite.
       </>,
       <>
-        He pulls a pan from the canoe. He sets it on an uneven rock, but it
-        doesn’t slide. He gathers pinecones and a branch, which fractals from
+        &emsp;He pulls a pan from the canoe. He sets it on an uneven rock, but
+        it doesn’t slide. He gathers pinecones and a branch, which fractals from
         the size of a wrist to wisps as thin as hair. He folds the branch,
         breaking bit by bit, piling them by size. Three chunks of quartz are
         plucked from the red clay. Can you hear the suctioned pop? He arranges
@@ -378,10 +380,11 @@ const useCreateParagraphs = () => {
         excess. This was his only task today. He leaves and the sun has just
         begun wondering about the other side of the world.
       </>,
-      <div className="text-lg sm:text-xl md:text-2xl font-semibold text-center">
-        ***
+      <div className="flex justify-center">
+        <GooseIcon className="fill-vermilion w-32 h-32 xs:w-36 xs:h-36" />
       </div>,
       <>
+        &emsp;
         <span className="text-lg sm:text-xl md:text-2xl font-semibold">A</span>
         pologies again. Not for drink, there was much of that last night, but
         only after the boy left and the reporting ended. No, apologies for what
@@ -408,26 +411,27 @@ const useCreateParagraphs = () => {
         low enough that it scribbles a narrowing line of light on the lake.
       </>,
       <>
-        Ah, here he is. He has found a girl. Perhaps the goose was a sacrifice
-        to her. She sits in the back of the canoe and does not paddle. She
-        paddles now and they are an even and quick pair. He is wet to his knees,
-        holding the vessel still so she walks from dry plastic to dry land. Will
-        he produce a blanket? Will they use the uninhabited island for what I
-        would have convinced my wife was the purpose of any secluded piece of
-        land? Unobstructed wind on unobstructed skin. I of course would put the
-        binoculars down. Yes, I would walk my eyes into the other room and keep
-        them buried there. They sit on a log, knees touch, far enough inland
-        that the sand is dry, all four bare feet set into it. He reads from a
-        book. He closes it and they stand. The sky is full of those ghastly
-        colors that are utterly mundane but so bright we can’t seem to get over
-        them. He kisses her. I remember that. He falls to his knee. Fool, fool.
-        He plucks something from his pocket that is not an egg. It cannot be
-        seen, but we know. Fool. What do I know?
+        &emsp;Ah, here he is. He has found a girl. Perhaps the goose was a
+        sacrifice to her. She sits in the back of the canoe and does not paddle.
+        She paddles now and they are an even and quick pair. He is wet to his
+        knees, holding the vessel still so she walks from dry plastic to dry
+        land. Will he produce a blanket? Will they use the uninhabited island
+        for what I would have convinced my wife was the purpose of any secluded
+        piece of land? Unobstructed wind on unobstructed skin. I of course would
+        put the binoculars down. Yes, I would walk my eyes into the other room
+        and keep them buried there. They sit on a log, knees touch, far enough
+        inland that the sand is dry, all four bare feet set into it. He reads
+        from a book. He closes it and they stand. The sky is full of those
+        ghastly colors that are utterly mundane but so bright we can’t seem to
+        get over them. He kisses her. I remember that. He falls to his knee.
+        Fool, fool. He plucks something from his pocket that is not an egg. It
+        cannot be seen, but we know. Fool. What do I know?
       </>,
-      <div className="text-lg sm:text-xl md:text-2xl font-semibold text-center">
-        ***
+      <div className="flex justify-center">
+        <GooseIcon className="fill-vermilion w-32 h-32 xs:w-36 xs:h-36" />
       </div>,
       <>
+        &emsp;
         <span className="text-lg sm:text-xl md:text-2xl font-semibold">T</span>
         here is no objectivity here. I am drunk. It is night. I see nothing
         besides the weepy green and yellow lights at the ends of docks. I do not
