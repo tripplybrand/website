@@ -145,7 +145,7 @@ const useCreateParagraphs = () => {
   const startOfCrassness = useRef<null | HTMLDivElement>(null)
 
   /*Tailwind doesn't have text-indent, 
-  so instead of installing a new package this seems like a reasonable approach.*/
+  so instead of installing a new package &emsp; seems like a reasonable approach.*/
   useEffect(() => {
     const paragraphsJSX = [
       <>
