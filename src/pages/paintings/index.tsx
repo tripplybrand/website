@@ -13,14 +13,13 @@ import tentmate from '../../../public/Junction_Tentmate_3746.jpg'
 import papyrusSwamp from '../../../public/Uganda_Church_Papyrus_Swamp_4648.jpg'
 
 const Paintings: NextPage = () => {
-  //Thses must be in the same order as paintingsData. Less than ideal
+  //These must be in the same order as paintingsData. Less than ideal
   const paintingsStaticImageData = [
     mountainLake,
     lakeRim,
     shotgun,
     stagedFight,
     tapeTattoo,
-    tentmate,
     papyrusSwamp,
   ]
   return (
