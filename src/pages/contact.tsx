@@ -48,10 +48,9 @@ const Contact: NextPage = () => {
               priority={true}
               placeholder={'blur'}
             />
-                <OutsideLink
-                  href={'trippLybrand@gmail.com'}
-                  text={'trippLybrand@gmail.com'}
-                />
+             <p className="text-sm sm:text-base md:text-lg font-light tracking-wider text-black">
+               You can reach me at tripplybrand @gmail .com
+             </p>
           </div>
         </div>
       </main>
