@@ -48,21 +48,10 @@ const Contact: NextPage = () => {
               priority={true}
               placeholder={'blur'}
             />
-            <p className="text-sm sm:text-base md:text-lg font-light tracking-wider text-black">
-              <>
-                Until I have something more formal, you can reach me on{' '}
                 <OutsideLink
-                  href={'https://twitter.com/trippLybrand'}
-                  text={'Twitter'}
-                />{' '}
-                or{' '}
-                <OutsideLink
-                  href={'https://www.instagram.com/tripplybrand/'}
-                  text={'Instagram'}
+                  href={'trippLybrand@gmail.com'}
+                  text={'trippLybrand@gmail.com'}
                 />
-                .
-              </>
-            </p>
           </div>
         </div>
       </main>
