@@ -38,9 +38,7 @@ const Home: NextPage = () => {
             </h1>
             <div className="flex flex-col gap-y-0.5 sm:gap-y-1 md:gap-y-1.5">
               <BioElement text="Writer" />
-              <BioElement text="Painter" />
-              <BioElement text="Designer" />
-              <BioElement text="Developer" />
+              <BioElement text="Artist" />
             </div>
           </div>
           {/* Middle divider*/}
